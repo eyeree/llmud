@@ -1,7 +1,7 @@
 {
-  "name": "langchain-ts-starter",
+  "name": "llmud-auto-builder",
   "version": "1.0.0",
-  "description": "",
+  "description": "create a MUD using an LLM agent implemented using langchain",
   "type": "module",
   "main": "./dist/index.js",
   "files": [
@@ -14,21 +14,28 @@
     "lint": "eslint src",
     "lint:fix": "npm run lint --fix",
     "format": "prettier --write \"**/*.ts\"",
-    "format:check": "prettier --list-different \"**/*.ts\""
+    "format:check": "prettier --list-different \"**/*.ts\"",
+    "list-models": "tsx -r dotenv/config src/list-models.ts "
   },
   "keywords": [
     "langchain",
-    "starter",
-    "template",
     "node",
     "typescript",
-    "llm"
+    "llm",
+    "agent",
+    "MUD",
+    "creative",
+    "writing"
   ],
-  "author": "",
+  "author": "mike@eyeree.me",
   "license": "MIT",
   "dependencies": {
+    "@types/diff": "^5.0.3",
+    "axios": "^1.4.0",
+    "diff": "^5.1.0",
     "dotenv": "^16.0.3",
-    "langchain": "^0.0.39"
+    "langchain": "file:../langchainjs/langchain",
+    "openai": "^3.2.1"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.2",

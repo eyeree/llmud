@@ -1,0 +1,78 @@
+{
+    "locations": [
+        {
+            "name": "Entrance",
+            "description": "You stand at the entrance of a magical fairy garden. The air is perfumed with the scent of blooming flowers and the sound of a babbling brook reaches your ears. To the north, you see a winding path leading deeper into the garden.",
+            "connections": [
+                ["north", "Main Path"]
+            ]
+        },
+        {
+            "name": "Main Path",
+            "description": "You find yourself on a winding path through the garden. The colorful plants and flowers along the path seem to glisten in a magical light. To the south, you see the entrance. To the east, you catch a glimpse of a magical statue.",
+            "connections": [
+                ["south", "Entrance"],
+                ["east", "Magical Statue"],
+                ["north", "Glowing Glade"],
+                ["west", "Hidden Grove"]
+            ]
+        },
+        {
+            "name": "Magical Statue",
+            "description": "You arrive at a statue in the shape of a fairy. It appears to have a hidden door behind it. You hear birds chirping and flapping as they soar around you. To the west, you see the winding path.",
+            "connections": [
+                ["west", "Main Path"],
+                ["use", "Fairy Wings", "Enter Hidden Door"]
+            ]
+        },
+        {
+            "name": "Glowing Glade",
+            "description": "You enter a beautiful clearing filled with flowers that glow with a soft light. In the center of the glade, you see the fairy queen's throne. To the south, you see the path you came from.",
+            "connections": [
+                ["south", "Main Path"]
+            ]
+        },
+        {
+            "name": "Hidden Grove",
+            "description": "You find yourself in a small, hidden grove. The trees here seem to whisper secrets to one another. To the east, you see the winding path.",
+            "connections": [
+                ["east", "Main Path"],
+                ["use", "Mossy Key", "Open the Treasure Chest"]
+            ]
+        }
+    ],
+    "items": [
+        {
+            "name": "Fairy Wings",
+            "description": "A pair of sparkling wings that seem to vibrate with energy.",
+            "starting_location": "Entrance"
+        },
+        {
+            "name": "Mossy Key",
+            "description": "An ancient key, covered in moss.",
+            "starting_location": "Glowing Glade"
+        }
+    ],
+    "characters": [
+        {
+            "name": "Fairy Queen",
+            "description": "A majestic fairy queen who has lived in the garden for centuries. She is known for her wisdom and kindness. You can find her in her glade surrounded by glowing flowers.",
+            "starting_location": "Glowing Glade"
+        }
+    ],
+    "quests": [
+        {
+            "name": "Restore the Garden's Magic",
+            "description": "The fairy garden has lost its magic, and it's up to you to restore it! Talk to the fairy queen to learn how to collect the ingredients needed for the spell.",
+            "quest_giver": "Fairy Queen",
+            "items_involved": ["Fairy Wings"]
+        },
+        {
+            "name": "Uncover the Hidden Treasure",
+            "description": "Rumors have spread throughout the garden that there is a hidden treasure chest in the Hidden Grove. Find the chest and use the mossy key to open it.",
+            "quest_giver": "None",
+            "items_involved": ["Mossy Key"]
+        }
+    ],
+    "style": "This fairy garden is full of enchantment and wonder, so your writing should reflect that. Use descriptive language to bring the garden to life, be creative with your description of the plants and animals in the garden, and create an immersive experience for the player. To maintain an engaging tone, make sure to balance descriptive detail with storytelling, and use dialogue to push the story forward. Most importantly, have fun and let your imagination run wild!" 
+}
