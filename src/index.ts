@@ -147,141 +147,6 @@ class Session {
 
 }
 
-type State = Record<string, string>;
-
-type Connection = [ string, string ];
-
-type LocationName = string
-type OutlineLocation = {
-    name: LocationName,
-    overview: string,
-    connections: Array<Connection>
-}
-
-type Location = OutlineLocation & {
-    summary: string,
-    description: string,
-    state: State,
-    actions: Record<string, Action>
-}
-
-type CharacterName = string
-type OutlineCharacter = {
-    name: CharacterName,
-    overview: string,
-    initial_location: LocationName
-}
-
-type Character = OutlineCharacter & {
-    summary: string,
-    description: string,
-    state: State,
-    actions: Record<string, Action>
-}
-
-type ItemName = string
-type OutlineItem = {
-    name: ItemName,
-    overview: string,
-    initial_location: LocationName | CharacterName
-}
-
-type Item = OutlineItem & {
-    summary: string,
-    description: string,
-    state: State,
-    actions: Record<string, Action>
-}
-
-type QuestName = string;
-type OutlineQuest = {
-    name: QuestName,
-    overview: string,
-    quest_giver: CharacterName,
-    items_involved: Array<ItemName>
-}
-
-type Quest = OutlineQuest & {
-    summary: string,
-    description: string,
-    state: State,
-    actions: Record<string, Action>
-}
-
-type Outline = {
-    locations: Record<string, OutlineLocation>,
-    characters: Record<string, OutlineCharacter>,
-    items: Record<string, OutlineItem>,
-    quests: Record<string, OutlineQuest>,
-    style: string
-}
-
-type GameSpec = {
-    locations: Record<string, Location>,
-    characters: Record<string, Character>,
-    items: Record<string, Item>,
-    quests: Record<string, Quest>,
-    style: string
-}
-
-type Player = {
-    state: State
-}
-
-type Game = {
-    spec: GameSpec,
-    player: Player
-}
-
-type Action = {
-    trigger: ActionTrigger,
-    expression: ActionExpression
-}
-
-type ActionTrigger = StateChangeTrigger | InputTrigger;
-
-type StateChangeTrigger = {
-    type: 'STATE-CHANGE',
-    tags: Array<string>
-}
-
-type InputTrigger = {
-    type: 'INPUT',
-    phrases: Array<string>
-}
-
-type ActionExpression = ActionSetState | ActionIfState | ActionSay | ActionDescribe;
-
-type ActionSetState = {
-    type: 'SET',
-    target: 'PLAYER' | 'OWNER'
-    tag: string,
-    value: string
-}
-
-type ActionIfState = {
-    type: 'IF',
-    conditions: Array<StateCondition>,
-    true: ActionExpression,
-    false: ActionExpression
-}
-
-type StateCondition = {
-    target: 'PLAYER' | 'OWNER',
-    test: '=' | '!=' | '>' | '<' | '>=' | '<=',
-    tag: string,
-    value: string
-}
-
-type ActionSay = {
-    source: 'PLAYER' | 'OWNER',
-    content: string
-}
-
-type ActionDescribe = {
-    source: 'PLAYER' | 'OWNER',
-    content: string
-}
 
 class OutlineSession extends Session {
 
@@ -416,7 +281,7 @@ ${this.OUTLINE_REVISION_RULES}
         return raw[prop];
     }
 
-    private validateOutline(outline:Outline, errors:Array<string>) {
+    private validateOutline(outline:GameOutline, errors:Array<string>) {
         Object.values(outline.locations).forEach(location => {
             location.connections.forEach(([direction, target]) => {
                 if(!(target in outline.locations)) {
@@ -453,7 +318,7 @@ ${this.OUTLINE_REVISION_RULES}
                 const raw = JSON.parse(result.trim());
                 const errors = new Array<string>();
                 try {
-                    const outline:Outline = {
+                    const outline:GameOutline = {
                         locations: this.safeIndexArray(raw, 'locations', errors),
                         items: this.safeIndexArray(raw, 'items', errors),
                         characters: this.safeIndexArray(raw, 'characters', errors),
