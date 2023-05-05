@@ -16,13 +16,13 @@ export type OutlineLocation = {
 export type OutlineCharacter = {
     name: CharacterName,
     overview: string,
-    initial_location: LocationName
+    starting_location: LocationName
 }
 
 export type OutlineItem = {
     name: ItemName,
     overview: string,
-    initial_location: LocationName | CharacterName
+    starting_location: LocationName | CharacterName
 }
 
 export type OutlineQuest = {

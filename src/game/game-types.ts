@@ -3,6 +3,18 @@ export type CharacterName = string
 export type ItemName = string
 export type QuestName = string;
 
+// Any unique string can be used as a state property key. The documentation below
+// describes some engine defined properties.
+export type StateKey = string;
+
+// state property value types
+export type StateValue = string | number;
+
+// contains game state
+// use SetExpression to set a state value
+// use Condition to change behavior based on the current state
+export type State = Record<StateKey, StateValue>; 
+
 // represents an action that is performed by the game
 export type Action = {
     trigger: Trigger, // indicates how the action is triggered
@@ -62,89 +74,92 @@ export type CompoundExpression = {
     expressions: Array<Expression> // sequence of expressions to execute
 }
 
+export type Direction = 
+    'north' | 'east' | 'south' | 'west' | 
+    'north-east' | 'north-west' | 'south-east' | 'south-west' | 
+    'up' | 'down';
+
+export type Connection = [ Direction, LocationName ];
+
 // game location content
+//
+// Player's current location is indicated by the PLAYER.location state property. The value of this property
+// must be the name of a location defined in the game's content. This property must be set in the Content.state
+// used to initialize the game state.
+//
+// The <location>.visited state property is set to "true" when a player visits the location during a game. Otherwise
+// the property value will be undefined.
+//
 export type Location = {
     name: LocationName, // the location's unique name
+    overview: string,
+    connections: Array<Connection>,
     description: string, // full description shown when players first enter a location
     summary: string, // short description shown when players return to a location
-    events: Array<Action> // events handled for the location
+    actions: Array<Action> // actions enabled when player is at location
 }
 
 // game character content
+//
+// The <character>.location state property indicates the current location of a character. The value must be the name of
+// a location. If no location is specified for a character, it currently doesn't exist in the game. To set a
+// character's initial location, set this property in the Content.state used to initialize the game state.
+//
+// The <character>.visited state property is set to "true" when the player first meets a character during the game.
+// Otherwise the property value will be undefined.
+//
 export type Character = {
     name: CharacterName, // the character's unique name
+    overview: string,
+    starting_location: LocationName
     description: string, // full description shown when players first encounter the character
     summary: string, // short description shown when players subsequently encounter the character
-    events: Array<Action> // events handled for the character
+    actions: Array<Action> // actions enabled when player is at same location as character
 }
 
 // game item content
+//
+// The <item>.location state property indicates the current location of an item. The value must be the name of a
+// location, the name of a character, or PLAYER if the player has the item. If no location is specified for an item,
+// it currently doesn't exist in the game. To set an item's initial location, set this property in the Content.state
+// used to initialize the game state.
+//
 export type Item = {
     name: ItemName, // the item's unique name
-    description: string, // full description when when players first encounter the item
+    overview: string,
+    starting_location: LocationName | CharacterName
+    description: string, // full description shown when players first encounter the item
     summary: string, // short description shown when players subsequently encounter the character
-    events: Array<Action> // events handled for the item
+    actions: Array<Action> // actions enabled when player is at same location as item or item's location is PLAYER
 }
 
 // game quest content
+//
+// The <quite>.active state property should be set to "true" when a quest is active. Otherwise, the property value
+// will be undefined or "false". This property can be set in the Content.state property to start the game with the
+// quest active.
 export type Quest = {
-    summary: string, // a short description of the quest shown in player status
-    events: Array<Action> // events handled for the item
+    description: string, // full description shown when the quest becomes active
+    overview: string,
+    quest_giver: CharacterName,
+    items_involved: Array<ItemName>
+    summary: string, // short description shown after the quest becomes active
+    actions: Array<Action> // actions enabled when the quest is active
 }
 
-// all game content
+// all of a game's content
 export type Content = {
     locations: Record<LocationName, Location>, // game locations indexed by name
     characters: Record<CharacterName, Character>, // game characters indexed by name
     items: Record<ItemName, Item>, // game items indexed by name
     quests: Record<QuestName, Quest>, // game quests indexed by name
-    events: Array<Action>, // 
-    state: State, // the game's initial state
+    actions: Array<Action>, // global actions that are alway enabled
+    state: State, // the game's initial state,
+    style: string
 }
 
-// Any unique string can be used as a state property key. The following keys are used by the game engine:
-//
-// * PLAYER.location - Value indicates where player is currently located. Value must be the name of a location defined 
-//   in the game's content. This property must be set in the Content.state used to initialize the game state.
-//
-// * <item>.location - <item> represents an item's name. Value indicates where an item currently is. The value must be
-//   the name of a location, the name of a character, or PLAYER if the player has the item. If no location is specified
-//   for an item, it currently doesn't exist in the game. To set an item's initial location, set this property in the 
-//   Content.state used to initialize the game state.
-//
-// * <character>.location - <character> represents a character's name. Value indicates where the character currently is.
-//   The value must be the name of a location. If no location is specified for a character, it currently doesn't exist
-//   in the game. To set an item's initial location, set this property in the Content.state used to initialize the game
-//   state.
-//
-// * <location>.visited - <location> represents a location's name. Value is "true" if the player has visited the 
-//   location during the game. If the property is not set or has the value "false" it indicates the player has not
-//   yet visited the location during the game.
-//
-// * <character>.visited - <character> represents a character's name. Value is "true" if the player has met the 
-//   character during the game. If the property is not set or has the value "false" it indicates the player has not
-//   yet visited the location during the game.
-export type StateKey = string;
-export type StateValue = string | number;
+export type DeepPartial<T> = T extends object ? {
+    [P in keyof T]?: DeepPartial<T[P]>;
+} : T;
 
-// contains game state
-// use SetExpression to set a state value
-// use Condition to change behavior based on the current state
-export type State = Record<StateKey, StateValue>; 
-
-// implement this class
-export class Engine {
-
-    constructor(
-        content:Content, // defines the game to be played
-        onOutput:(output:string)=>void // function called when output is generated
-    ) {
-        // implement
-    }
-
-    // called to provide input from the user
-    public input(value:string) {
-        // implement
-    }
-
-}
+export type DraftContent = DeepPartial<Content>;
