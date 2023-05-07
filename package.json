@@ -1,7 +1,7 @@
 {
-  "name": "llmud-auto-builder",
+  "name": "llmud",
   "version": "1.0.0",
-  "description": "create a text adventure using an LLM",
+  "description": "use LLM to generate MUD content",
   "type": "module",
   "main": "./dist/create.js",
   "files": [
@@ -18,7 +18,6 @@
     "list-models": "tsx -r dotenv/config src/list-models.ts "
   },
   "keywords": [
-    "langchain",
     "node",
     "typescript",
     "llm",
@@ -34,7 +33,6 @@
     "axios": "^1.4.0",
     "diff": "^5.1.0",
     "dotenv": "^16.0.3",
-    "langchain": "file:../langchainjs/langchain",
     "openai": "^3.2.1",
     "smartwrap": "^2.0.2",
     "zod": "^3.21.4",
