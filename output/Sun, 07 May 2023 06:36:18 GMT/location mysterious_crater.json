@@ -1,0 +1,80 @@
+{
+  "summary": "A deep crater emitting a strange glowing light.",
+  "detail": "As you approach the mysterious crater, an eerie sensation takes hold of you. Your eyes are drawn towards the faint glow emanating from deep within the crater. Rays of light bounce off the lunar surface, painting a kaleidoscope of colors over the rugged crater walls. What secrets might lie within?",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine glow"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "As you peer closer at the glowing light, you notice the source appears to be a peculiar rock embedded within the crater wall. It pulsates gently, creating mesmerizing patterns in the darkness."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "touch rock"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "mysterious_crater-TouchedBefore",
+          "value": false
+        }
+      ],
+      "expression": {
+        "type": "COMPOUND",
+        "expressions": [
+          {
+            "type": "SET",
+            "key": "mysterious_crater-TouchedBefore",
+            "value": true
+          },
+          {
+            "type": "OUTPUT",
+            "content": "You hesitantly reach out and touch the glowing rock. A tingling sensation courses through your fingertips, and you quickly retract your hand. Curiously, the glow seems to have intensified."
+          }
+        ]
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "touch rock"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "mysterious_crater-TouchedBefore",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You touch the glowing rock once more, but the tingling sensation you felt before has diminished. It appears that nothing more will come of these attempts."
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "player.location"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player.location",
+          "value": "mysterious_crater"
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "The lunar surface near the mysterious crater hums with a quiet energy, pulling you towards the soft light within. Undeniably, a sense of wonder is bubbling within you as you ponder what could possibly create such a bewitching glow."
+      }
+    }
+  ]
+}

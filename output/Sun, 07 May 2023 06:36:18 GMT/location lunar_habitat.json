@@ -1,0 +1,93 @@
+{
+  "summary": "You are inside the lunar habitat, a small, cozy place filled with technology and life support systems.",
+  "detail": "You step into the lunar habitat, instantly feeling its warm, welcoming atmosphere. The dim, ambient light casts a soothing glow on the walls. Various machinery hums in the background, providing power and life support. A few plants grow in hydroponic containers, a sight of life amidst the sterile lunar surface. There are several areas partitioned off for work, relaxation, and sleeping. In one corner, you spot a monitor flashing with data, and on the opposite side, a small exercise area.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine monitor"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You approach the monitor and see a series of graphs and logs displaying various readings, such as internal temperature, oxygen levels, and equipment status. You notice a button labeled 'Light Control' underneath the display."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine plants"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "As you get closer to the plants, you can see the intricate hydroponic system supplying water and nutrients. The plants are a mix of recognizable Earth species and some unknown, distinctly alien plants. You wonder what scientific mysteries they hold."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "press light control"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "lunar_habitat-LightOn",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "COMPOUND",
+        "expressions": [
+          {
+            "type": "SET",
+            "key": "lunar_habitat-LightOn",
+            "value": false
+          },
+          {
+            "type": "OUTPUT",
+            "content": "You press the 'Light Control' button, and the ambient lighting dims even further, casting the habitat in an eerie darkness. You decide to press it again to restore the previous lighting level."
+          }
+        ]
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "press light control"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "lunar_habitat-LightOn",
+          "value": false
+        }
+      ],
+      "expression": {
+        "type": "COMPOUND",
+        "expressions": [
+          {
+            "type": "SET",
+            "key": "lunar_habitat-LightOn",
+            "value": true
+          },
+          {
+            "type": "OUTPUT",
+            "content": "You press the 'Light Control' button, and the ambient lighting returns to its initial warm, soothing glow."
+          }
+        ]
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine exercise area"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "The exercise area is small but well-equipped with resistance bands, free weights, and a compact treadmill designed for the low gravity environment. Months on the moon can be physically taxing, so astronauts must maintain their fitness."
+      }
+    }
+  ]
+}

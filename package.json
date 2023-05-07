@@ -1,16 +1,16 @@
 {
   "name": "llmud-auto-builder",
   "version": "1.0.0",
-  "description": "create a MUD using an LLM agent implemented using langchain",
+  "description": "create a text adventure using an LLM",
   "type": "module",
-  "main": "./dist/index.js",
+  "main": "./dist/create.js",
   "files": [
     "dist"
   ],
   "scripts": {
     "build": "tsc --declaration --outDir dist/",
-    "start": "tsx -r dotenv/config src/index.ts",
-    "start:dist": "yarn build && node -r dotenv/config dist/index.js",
+    "create": "tsx -r dotenv/config src/create.ts",
+    "play": "tsx -r dotenv/config src/play.ts",
     "lint": "eslint src",
     "lint:fix": "npm run lint --fix",
     "format": "prettier --write \"**/*.ts\"",
@@ -36,7 +36,9 @@
     "dotenv": "^16.0.3",
     "langchain": "file:../langchainjs/langchain",
     "openai": "^3.2.1",
-    "zod": "^3.21.4"
+    "smartwrap": "^2.0.2",
+    "zod": "^3.21.4",
+    "zod-to-json-schema": "^3.21.0"
   },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.2",

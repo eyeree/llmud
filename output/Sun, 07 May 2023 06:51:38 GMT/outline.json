@@ -1,0 +1,125 @@
+{
+    "style": "Humorous, light-hearted, and inspired by the Red Dwarf universe. The writing should be descriptive, interactive, and dynamic. Incorporate elements of science fiction, derelict spacecraft atmosphere, and a dose of curry-related humor.",
+    "playerStartLocation": "loc_cargo_bay",
+    "locations": {
+        "loc_cargo_bay": {
+            "name": "Cargo Bay",
+            "overview": "A cluttered storage area filled with various space debris.",
+            "connections": [
+                [
+                    "North",
+                    "loc_hallway"
+                ]
+            ]
+        },
+        "loc_hallway": {
+            "name": "Hallway",
+            "overview": "A dimly lit corridor that connects the different sections of the spacecraft.",
+            "connections": [
+                [
+                    "South",
+                    "loc_cargo_bay"
+                ],
+                [
+                    "East",
+                    "loc_bridge"
+                ],
+                [
+                    "North",
+                    "loc_kitchen"
+                ],
+                [
+                    "West",
+                    "loc_maintenance_room"
+                ]
+            ]
+        },
+        "loc_bridge": {
+            "name": "Bridge",
+            "overview": "The main control center of the derelict spaceship.",
+            "connections": [
+                [
+                    "West",
+                    "loc_hallway"
+                ],
+                [
+                    "North",
+                    "loc_lounge"
+                ]
+            ]
+        },
+        "loc_kitchen": {
+            "name": "Kitchen",
+            "overview": "A place to cook food and store culinary supplies.",
+            "connections": [
+                [
+                    "South",
+                    "loc_hallway"
+                ]
+            ]
+        },
+        "loc_lounge": {
+            "name": "Lounge",
+            "overview": "A comfy space for crewmembers with sofas and entertainment gadgets.",
+            "connections": [
+                [
+                    "South",
+                    "loc_bridge"
+                ]
+            ]
+        },
+        "loc_maintenance_room": {
+            "name": "Maintenance Room",
+            "overview": "A cluttered chamber filled with wires, tools, and spare parts.",
+            "connections": [
+                [
+                    "East",
+                    "loc_hallway"
+                ]
+            ]
+        }
+    },
+    "characters": {
+        "char_smitty": {
+            "name": "Smitty",
+            "overview": "A laid-back, curry-loving crewmember who enjoys poking fun at everything.",
+            "starting_location": "loc_cargo_bay"
+        },
+        "char_alien_commander": {
+            "name": "Alien Commander",
+            "overview": "A curiously dim-witted leader of the invading alien force, susceptible to curry bribes.",
+            "starting_location": "loc_bridge"
+        }
+    },
+    "items": {
+        "item_curry_recipe": {
+            "name": "Secret Curry Recipe",
+            "overview": "A wrinkled and stained piece of paper containing the perfect recipe to make curry.",
+            "starting_location": "loc_kitchen"
+        },
+        "item_space_wrench": {
+            "name": "Space Wrench",
+            "overview": "An indispensable tool capable of fixing virtually anything on the spacecraft.",
+            "starting_location": "loc_maintenance_room"
+        }
+    },
+    "quests": {
+        "quest_intergalactic_curry": {
+            "name": "Intergalactic Curry Master",
+            "overview": "Embark on a quest to cook the best curry that the galaxy has ever seen.",
+            "quest_giver": "char_smitty",
+            "items_involved": [
+                "item_curry_recipe"
+            ]
+        },
+        "quest_alien_invasion": {
+            "name": "Save the Spacecraft",
+            "overview": "Help Smitty by stopping the Alien Commander's invasion plans through diplomacy or curry bribery.",
+            "quest_giver": "char_alien_commander",
+            "items_involved": [
+                "item_curry_recipe",
+                "item_space_wrench"
+            ]
+        }
+    }
+}

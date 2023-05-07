@@ -1,0 +1,58 @@
+{
+  "summary": "The Lounge is a cozy area with sofas and entertainment gadgets just begging to be explored.",
+  "detail": "You step into the plush haven of comfort that is the Lounge. Soft lighting, cushy sofas, and the faint aroma of curry entice you to unwind. The derelict spaceship may be old and decrepit, but this place remains an oasis in the otherwise eerie silence. Suspended in zero gravity, a holographic billiards table drifts lazily about, almost begging for a game. A curious machine in the corner appears to be an experimental space-curry synthesizer. You can't help but smile at its absurdity.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine billiards table"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You draw closer to the holographic billiards table. Its ethereal glow illuminates the surrounding area, bathing it in an inviting ambiance. You notice interstellar variants of the traditional Earth game, with strange new rules and new pocket placements, but the undeniable spirit of competition remains."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine space-curry synthesizer"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You approach the experimental space-curry synthesizer with cautious curiosity. The machine looks like a cross between a capsule-sized spacecraft and a jukebox. An array of colorful buttons and dials promise endless curry configuration possibilities. The faint curry smell permeating the room is a testament to this mighty machine's power."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "sit on sofa"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "SET",
+        "key": "loc_lounge_Sitting",
+        "value": true
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "stand up"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "loc_lounge_Sitting",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "SET",
+        "key": "loc_lounge_Sitting",
+        "value": false
+      }
+    }
+  ]
+}

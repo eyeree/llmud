@@ -1,0 +1,55 @@
+{
+  "summary": "You stand amidst flasks filled with illuminated, bubbling potions roaring softly like threatening whispers.",
+  "detail": "The Alchemist's Lair feels heavy in the air as you behold wooden tables covered in glass flasks and beakers coruscating with prismatic chroma, lining impeccably along almost theatrical hued walls of agitation. Spurts of peculiar oozing ingredients spiral inside ossified jars and revolting arcane experiments adorn the oddments-ridden assemblage in the gloomiest alcoves. It seems that ancient, forbidden research persists with pulsating anima vibrantus in never ending intentions.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine potions"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Prying closer into the menagerie of elixirs, you find an array of potions composed of unknown and potentially dangerous substances. Verboten concoctions devoid of remedy's intention, macabre mutagens cultivated within regenerating botanical moans subtly singing terrible warnings upon treble glum."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "inspect ingredients"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You unearth an assortment of unfathomable enigmatic reagents billowing hesitantly; making unusual noises - comparable to hopeless cries, the misery of the titanic in dulcet phantasmalia. These ingredients are truly riveting, encapsulating modicums of primal terror scrupulizing the senses with malevents too regal for lesser-discerned hues."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "approach table"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "AlchemistLair-ApproachedTable",
+          "value": false
+        }
+      ],
+      "expression": {
+        "type": "COMPOUND",
+        "expressions": [
+          {
+            "type": "SET",
+            "key": "AlchemistLair-ApproachedTable",
+            "value": true
+          },
+          {
+            "type": "OUTPUT",
+            "content": "As you cautiously head towards the table, you feel sudden uneasiness of pernicious fate tainted to last breaths. An unsettling aura engulfs every step, intensifying the atonal whispers releasing from imprisoned flasks parading layers of mutiny in pandemonium. Perchance harmonics of cursed lives, fragments of ravenous souls left hunted by tormentor's escape."
+          }
+        ]
+      }
+    }
+  ]
+}

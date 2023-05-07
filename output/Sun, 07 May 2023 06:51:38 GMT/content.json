@@ -1,0 +1,480 @@
+{
+  "style": "Humorous, light-hearted, and inspired by the Red Dwarf universe. The writing should be descriptive, interactive, and dynamic. Incorporate elements of science fiction, derelict spacecraft atmosphere, and a dose of curry-related humor.",
+  "playerStartLocation": "loc_cargo_bay",
+  "locations": {
+    "loc_cargo_bay": {
+      "name": "Cargo Bay",
+      "overview": "A cluttered storage area filled with various space debris.",
+      "connections": [
+        [
+          "North",
+          "loc_hallway"
+        ]
+      ],
+      "summary": "You're in the cluttered Cargo Bay, filled with space debris and the occasional scent of stale curry.",
+      "detail": "As you enter the dimly lit Cargo Bay, you are surrounded by towering stacks of space debris, discarded boxes, and rusty old shipping crates. The atmosphere is heavy with mystery and dust. From the far end of the room, you can hear some faint dripping sounds, creating an eerie ambience. You also can't help but notice the lingering, unmistakable scent of stale curry.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine debris"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You carefully examine the space debris, finding various bits and pieces of long-forgotten equipment. A glimpse of an outdated space toaster calls your attention; it takes a lot to make toast in space."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "listen to dripping"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You quietly listen to the dripping sound echoing throughout the Cargo Bay. It's oddly hypnotizing, yet you feel a slight shiver down your spine."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "sniff curry"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Taking a deep breath, you inhale the stale curry aroma. It transports you to memories of Smitty's heavenly culinary creations. But why would the scent of curry linger in the Cargo Bay?"
+          }
+        }
+      ]
+    },
+    "loc_hallway": {
+      "name": "Hallway",
+      "overview": "A dimly lit corridor that connects the different sections of the spacecraft.",
+      "connections": [
+        [
+          "South",
+          "loc_cargo_bay"
+        ],
+        [
+          "East",
+          "loc_bridge"
+        ],
+        [
+          "North",
+          "loc_kitchen"
+        ],
+        [
+          "West",
+          "loc_maintenance_room"
+        ]
+      ],
+      "summary": "A dimly lit corridor connecting different sections of the derelict spaceship.",
+      "detail": "You find yourself in a dimly lit corridor, the flickering overhead lights casting eerie shadows on the rusted walls. To the south is the cargo bay, while the kitchen lies to the north. To the east, the gloomy hallway extends towards the bridge, and to the west, you can hear the faint hum of machinery coming from the maintenance room.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine shadows"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You take a closer look at the ominous shadows, getting chills of uneasiness. They seem to resemble alien creatures or weird shapes, but it's just your mind playing tricks on you... or is it?"
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "fix lights"
+          },
+          "conditions": [
+            {
+              "test": "!=",
+              "key": "loc_hallway_LightFixed",
+              "value": true
+            }
+          ],
+          "expression": {
+            "type": "SET",
+            "key": "loc_hallway_LightFixed",
+            "value": true
+          }
+        },
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "loc_hallway_LightFixed"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "loc_hallway_LightFixed",
+              "value": true
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You reach up and fiddle with the flickering overhead lights. After a bit of tinkering, the lights finally stop flickering and brighten up. The hallway now seems more inviting and less frightening."
+          }
+        }
+      ]
+    },
+    "loc_bridge": {
+      "name": "Bridge",
+      "overview": "The main control center of the derelict spaceship.",
+      "connections": [
+        [
+          "West",
+          "loc_hallway"
+        ],
+        [
+          "North",
+          "loc_lounge"
+        ]
+      ],
+      "summary": "The Bridge of a derelict spaceship, with partially functional control panels.",
+      "detail": "As you enter the Bridge, you're greeted by a faint smell of burnt plastic and curry powder. The control panels, once instruments of a thriving spacecraft, now flicker sporadically, barely holding on to life. There's an almost hypnotic dance of lights and shadows playing across the room, casting an eerie glow. To the north, you can see the entrance to the Lounge.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine control panels"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "These once-sophisticated control panels now resemble an abstract art piece more than anything. Some buttons still emit weak pulses of light, while others have ceased to function completely. There's a peculiar mix of despair and hope in every flicker, as they valiantly attempt to regain their former glory."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "flip random switch"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "BRANCH",
+            "conditions": [
+              {
+                "test": "==",
+                "key": "loc_bridge_random_switch_flipped",
+                "value": false
+              }
+            ],
+            "ifTrue": {
+              "type": "COMPOUND",
+              "expressions": [
+                {
+                  "type": "SET",
+                  "key": "loc_bridge_random_switch_flipped",
+                  "value": true
+                },
+                {
+                  "type": "OUTPUT",
+                  "content": "You flip a random switch, mostly out of curiosity. Surprisingly, it jolts a section of the control panels back to life, and a holographic message appears briefly. It's an out-of-date advertisement for a curry eating contest—perhaps this crew had a sense of humor after all."
+                }
+              ]
+            },
+            "ifFalse": {
+              "type": "OUTPUT",
+              "content": "You flipped switches before, and nothing remarkable happened other than reactivating an advertisement for a curry eating contest. Best not to push your luck with these old control panels."
+            }
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine holographic message"
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "loc_bridge_random_switch_flipped",
+              "value": true
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "The holographic message is an advertisement for the 'Great Curry Bowl-Off!' The contest is long over, but it's clear that the crew members had a penchant for curry-based entertainment. The message flickers for a few more moments before sputtering out."
+          }
+        }
+      ]
+    },
+    "loc_kitchen": {
+      "name": "Kitchen",
+      "overview": "A place to cook food and store culinary supplies.",
+      "connections": [
+        [
+          "South",
+          "loc_hallway"
+        ]
+      ],
+      "summary": "A seemingly abandoned kitchen, in need of a good meal",
+      "detail": "This small, once-utilitarian kitchen has long been left to the ravages of time and interstellar travel. Food containers and surgical tool-like utensils are scattered across the stainless steel countertops, a testament to the hurried preparations that once took place within these walls. A holographic cookbook flickers in the corner, its images perpetually stuck on a tantalizingly delicious curry dish.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine cookbook"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "A dusty, holographic cookbook sits on the counter, barely discernable through its faded images. Among the countless interstellar culinary endeavors documented within, the curry recipe remains at the forefront, teasing your taste buds with visions of rich, spicy goodness."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "search cabinets"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You rummage through the cabinets, pushing aside space-age cooking implements, and oddly labeled spice jars. A sense of disappointment washes over you as you find nothing that would contribute to crafting the ultimate curry dish."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "open fridge"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You cautiously open the fridge, bracing yourself for the potential horrors that could be unleashed upon your nostrils. Instead, you find nothing but a desolate, icy vanity. It turns out even millennia of travel through the cosmos can't raze freezer burn."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "inspect utensils"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Sterilized to the point of confusion, the kitchen's utensils come across as more medical instruments than culinary tools. They are, however, capable of finely mincing even the toughest of alien vegetables, ensuring that any dish cooked here reaches optimal flavor distribution."
+          }
+        }
+      ]
+    },
+    "loc_lounge": {
+      "name": "Lounge",
+      "overview": "A comfy space for crewmembers with sofas and entertainment gadgets.",
+      "connections": [
+        [
+          "South",
+          "loc_bridge"
+        ]
+      ],
+      "summary": "The Lounge is a cozy area with sofas and entertainment gadgets just begging to be explored.",
+      "detail": "You step into the plush haven of comfort that is the Lounge. Soft lighting, cushy sofas, and the faint aroma of curry entice you to unwind. The derelict spaceship may be old and decrepit, but this place remains an oasis in the otherwise eerie silence. Suspended in zero gravity, a holographic billiards table drifts lazily about, almost begging for a game. A curious machine in the corner appears to be an experimental space-curry synthesizer. You can't help but smile at its absurdity.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine billiards table"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You draw closer to the holographic billiards table. Its ethereal glow illuminates the surrounding area, bathing it in an inviting ambiance. You notice interstellar variants of the traditional Earth game, with strange new rules and new pocket placements, but the undeniable spirit of competition remains."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine space-curry synthesizer"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You approach the experimental space-curry synthesizer with cautious curiosity. The machine looks like a cross between a capsule-sized spacecraft and a jukebox. An array of colorful buttons and dials promise endless curry configuration possibilities. The faint curry smell permeating the room is a testament to this mighty machine's power."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "sit on sofa"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "SET",
+            "key": "loc_lounge_Sitting",
+            "value": true
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "stand up"
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "loc_lounge_Sitting",
+              "value": true
+            }
+          ],
+          "expression": {
+            "type": "SET",
+            "key": "loc_lounge_Sitting",
+            "value": false
+          }
+        }
+      ]
+    },
+    "loc_maintenance_room": {
+      "name": "Maintenance Room",
+      "overview": "A cluttered chamber filled with wires, tools, and spare parts.",
+      "connections": [
+        [
+          "East",
+          "loc_hallway"
+        ]
+      ],
+      "summary": "You're in a cluttered maintenance room filled with wires, tools, and spare parts.",
+      "detail": "As you step into the maintenance room, you notice an array of tools and spare parts scattered everywhere. The flickering lights overhead cast eerie shadows around the confined space. What looks like remnants of a half-finished space wrench repair job lies on a dusty table.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine space wrench"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "The space wrench is cleverly designed to fix almost anything on the spaceship. It's a bit worn, but it looks like it can still do the job. There's a glowing residue around its edges. Could it be... curry?"
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "inspect shadows"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "BRANCH",
+            "conditions": [
+              {
+                "test": "==",
+                "key": "loc_maintenance_room_ShadowCurious",
+                "value": false
+              }
+            ],
+            "ifTrue": {
+              "type": "COMPOUND",
+              "expressions": [
+                {
+                  "type": "SET",
+                  "key": "loc_maintenance_room_ShadowCurious",
+                  "value": true
+                },
+                {
+                  "type": "OUTPUT",
+                  "content": "As you step deeper into the shadows, you find nothing particularly interesting. However, you can't help but feel a strange fascination with the interplay of light and darkness."
+                }
+              ]
+            },
+            "ifFalse": {
+              "type": "OUTPUT",
+              "content": "You look into the shadows once again, but nothing new catches your eye. The sense of fascination seems to have faded."
+            }
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "fix lights"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "BRANCH",
+            "conditions": [
+              {
+                "test": "==",
+                "key": "loc_maintenance_room_LightsFixed",
+                "value": false
+              }
+            ],
+            "ifTrue": {
+              "type": "COMPOUND",
+              "expressions": [
+                {
+                  "type": "SET",
+                  "key": "loc_maintenance_room_LightsFixed",
+                  "value": true
+                },
+                {
+                  "type": "OUTPUT",
+                  "content": "Using the space wrench, you manage to fix the flickering light overhead. The maintenance room is now fully illuminated, revealing a faint smell of curry in the air."
+                }
+              ]
+            },
+            "ifFalse": {
+              "type": "OUTPUT",
+              "content": "The lights are already fixed, and the room is well-lit, thanks to your previous efforts."
+            }
+          }
+        }
+      ]
+    }
+  },
+  "characters": {
+    "char_smitty": {
+      "name": "Smitty",
+      "overview": "A laid-back, curry-loving crewmember who enjoys poking fun at everything.",
+      "starting_location": "loc_cargo_bay"
+    },
+    "char_alien_commander": {
+      "name": "Alien Commander",
+      "overview": "A curiously dim-witted leader of the invading alien force, susceptible to curry bribes.",
+      "starting_location": "loc_bridge"
+    }
+  },
+  "items": {
+    "item_curry_recipe": {
+      "name": "Secret Curry Recipe",
+      "overview": "A wrinkled and stained piece of paper containing the perfect recipe to make curry.",
+      "starting_location": "loc_kitchen"
+    },
+    "item_space_wrench": {
+      "name": "Space Wrench",
+      "overview": "An indispensable tool capable of fixing virtually anything on the spacecraft.",
+      "starting_location": "loc_maintenance_room"
+    }
+  },
+  "quests": {
+    "quest_intergalactic_curry": {
+      "name": "Intergalactic Curry Master",
+      "overview": "Embark on a quest to cook the best curry that the galaxy has ever seen.",
+      "quest_giver": "char_smitty",
+      "items_involved": [
+        "item_curry_recipe"
+      ]
+    },
+    "quest_alien_invasion": {
+      "name": "Save the Spacecraft",
+      "overview": "Help Smitty by stopping the Alien Commander's invasion plans through diplomacy or curry bribery.",
+      "quest_giver": "char_alien_commander",
+      "items_involved": [
+        "item_curry_recipe",
+        "item_space_wrench"
+      ]
+    }
+  },
+  "state": {
+    "loc_cargo_bay_lightOn": false,
+    "loc_hallway_LightFixed": false,
+    "loc_bridge_random_switch_flipped": false,
+    "loc_kitchen_hasExaminedCookbook": false,
+    "loc_lounge_Sitting": false,
+    "loc_maintenance_room_ShadowCurious": false,
+    "loc_maintenance_room_LightsFixed": false,
+    "player_location": "loc_cargo_bay"
+  }
+}

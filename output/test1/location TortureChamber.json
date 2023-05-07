@@ -1,0 +1,47 @@
+{
+  "summary": "You stand in the Torture Chamber, a horrific and haunting room filled with remnants of suffering, inhumanity and despair.",
+  "detail": "A harrowing scene greets you, as the air is thick with the stench of decay mixed with rusty iron aroma. Glowing torches lining the cracked and dirty stone walls reveal peeling and flakey flesh breathes eternally from its tortured husks upon threaded hooks. Dried blood stains layer the floor beneath each ominous contraption, horrifying enough to evoke dark origins of man’s inhumane and unforgiving desire. Torture devices crowd every passing spot including the wheel, the rack, the breaking cradle, and the infamous iron maiden, each lusting for its next suffering extraction.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine devices"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You examine mechanical apparatus with trembling awe; beneath layers of drying blood and dire spite, savor myriad torments fired humanity’s vilest invention. Ingeniously crafted mangles hoist limbs breaking joints in sequence inch byinch; groaning scourging chairs quench curious glimpses at bone litter."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "probe wheel"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You approach the ominous wheel cautiously, its large wooden ballast spread over ribs ensuring every throw cultivates an offering in mortal agony; spikes a quivering bruised symphony. Your skin crawls realizing countless souls shattered via crueltous invention designed destruction repeated with precise rhythmic torment."
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "player.location"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player.location",
+          "value": "TortureChamber"
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Your head immediately fills with pervasive grief and blanched screams drifting once before amidst now-looming ambiance choking overprudent tranquility. Weighted ghosts haunt where relief respite days astray akin machinery’s empty murderous intent, subsiding flits current sin black-besmirched chamber shied humanity's sight."
+      }
+    }
+  ]
+}

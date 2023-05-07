@@ -1,0 +1,54 @@
+{
+  "summary": "A dimly lit corridor connecting different sections of the derelict spaceship.",
+  "detail": "You find yourself in a dimly lit corridor, the flickering overhead lights casting eerie shadows on the rusted walls. To the south is the cargo bay, while the kitchen lies to the north. To the east, the gloomy hallway extends towards the bridge, and to the west, you can hear the faint hum of machinery coming from the maintenance room.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine shadows"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You take a closer look at the ominous shadows, getting chills of uneasiness. They seem to resemble alien creatures or weird shapes, but it's just your mind playing tricks on you... or is it?"
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "fix lights"
+      },
+      "conditions": [
+        {
+          "test": "!=",
+          "key": "loc_hallway_LightFixed",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "SET",
+        "key": "loc_hallway_LightFixed",
+        "value": true
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "loc_hallway_LightFixed"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "loc_hallway_LightFixed",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You reach up and fiddle with the flickering overhead lights. After a bit of tinkering, the lights finally stop flickering and brighten up. The hallway now seems more inviting and less frightening."
+      }
+    }
+  ]
+}

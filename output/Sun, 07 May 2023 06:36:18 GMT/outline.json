@@ -1,0 +1,100 @@
+{
+    "style": "The game should use a descriptive and immersive writing style, with a futuristic sci-fi theme set on the moon. The atmosphere should feel mysterious and engaging, with common terminology that includes space and lunar exploration concepts.",
+    "playerStartLocation": "landing_zone",
+    "locations": {
+        "landing_zone": {
+            "overview": "The place where the lunar module landed.",
+            "connections": [
+                [
+                    "East",
+                    "lunar_habitat"
+                ],
+                [
+                    "North",
+                    "mysterious_crater"
+                ]
+            ]
+        },
+        "lunar_habitat": {
+            "overview": "A temporary habitat for astronauts to live and conduct research.",
+            "connections": [
+                [
+                    "West",
+                    "landing_zone"
+                ],
+                [
+                    "North",
+                    "lunar_rover"
+                ],
+                [
+                    "East",
+                    "mysterious_crater"
+                ]
+            ]
+        },
+        "lunar_rover": {
+            "overview": "A vehicle used to transport astronauts across the lunar surface.",
+            "connections": [
+                [
+                    "South",
+                    "lunar_habitat"
+                ]
+            ]
+        },
+        "mysterious_crater": {
+            "overview": "An unusual crater that seems to emit a strange light.",
+            "connections": [
+                [
+                    "West",
+                    "lunar_habitat"
+                ],
+                [
+                    "South",
+                    "landing_zone"
+                ]
+            ]
+        }
+    },
+    "characters": {
+        "astro_1": {
+            "name": "Astronaut Julia",
+            "overview": "Julia is an experienced astronaut and an engineer.",
+            "starting_location": "lunar_habitat"
+        },
+        "astro_2": {
+            "name": "Astronaut Alex",
+            "overview": "Alex is a rookie astronaut who specializes in geology.",
+            "starting_location": "landing_zone"
+        }
+    },
+    "items": {
+        "item1": {
+            "name": "Lunar rock",
+            "overview": "A rock with an unusual glowing property.",
+            "starting_location": "mysterious_crater"
+        },
+        "item2": {
+            "name": "Moon Buggy",
+            "overview": "A small vehicle to drive to and from lunar locations.",
+            "starting_location": "lunar_rover"
+        }
+    },
+    "quests": {
+        "quest1": {
+            "name": "Investigate the Mysterious Crater",
+            "overview": "Astronaut Alex needs your help to study the strange light emitting from the crater.",
+            "quest_giver": "astro_2",
+            "items_involved": [
+                "item1"
+            ]
+        },
+        "quest2": {
+            "name": "Repair the Moon Buggy",
+            "overview": "Astronaut Julia needs assistance in fixing the moon buggy to reach more distant locations on the moon.",
+            "quest_giver": "astro_1",
+            "items_involved": [
+                "item2"
+            ]
+        }
+    }
+}

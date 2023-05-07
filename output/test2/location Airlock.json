@@ -1,0 +1,52 @@
+{
+  "summary": "You're inside the Airlock chamber, the entrance and exit point of the spacecraft. Scratches on the walls suggest previous disturbances.",
+  "detail": "As you gaze around the Airlock, you notice an assemblage of instruments scattered throughout the chamber. The atmosphere is tense and a lingering sense of unease hovers. In one corner, a scratch-infested wall whispers stories of disturbed past events, while the shimmering metallic hatch seems to be the only source of reflection in the otherwise dull atmosphere.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine scratches"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Upon closer inspection, you realize the scratches form a mysterious pattern that, if you squint hard enough and cock your head slightly to the left, resemble the faint image of a rama-pluna, the dreaded space louse. It seems the ship has seen its fair share of unwanted guests."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine hatch"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You scrutinize the hatch with an air of dedication. Its silvery surface is a towering portal, locked and guarded by irksome interstellar contraptions. It projects an alien message to your thoughts that loosely translates to, 'Proceed with extreme caution during extravehicular endeavors, the vast cosmos is rarely devoid of peril.'"
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "player.location"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player.location",
+          "value": "Airlock"
+        },
+        {
+          "test": "==",
+          "key": "CurryPotion-location",
+          "value": "Airlock"
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You spot the alluring Curry Potion bottle, graciously placed by the Curry Wizard. Its fragrance wafts through the cold metal chamber, reminding you that its power might just be the key to saving the ship from blood-acquainted aliens."
+      }
+    }
+  ]
+}

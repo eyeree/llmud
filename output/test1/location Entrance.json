@@ -1,0 +1,44 @@
+{
+  "summary": "You stand before the eerie dungeon entrance, surrounded by ominous stone gargoyles.",
+  "detail": "Upon venturing forth to the ominous entrance of a gothic dungeon, you are greeted by the ghastly visage of stone gargoyles perched on each side, baring their fangs and leering with a menacing presence under the crimson glow of a foreboding sky. A sense of foreboding envelops you as the scent of ancient decay fills the air. Amidst the crumbling bones and debris, you notice a worn flask containing a seemingly ordinary liquid glistening by the base of a gargoyle.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine gargoyles"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "The gargoyles, harshened by uncounted ages, exemplify a sinister and macabre design. Their menacing wings, spread wide for impending flight, seem to mock your courage, almost as if silently warning you of the dreadful fate that could await inside."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "take flask"
+      },
+      "conditions": [
+        {
+          "test": "!=",
+          "key": "holy_water",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "COMPOUND",
+        "expressions": [
+          {
+            "type": "SET",
+            "key": "holy_water",
+            "value": true
+          },
+          {
+            "type": "OUTPUT",
+            "content": "You muster up courage, pick up the worn flask, feeling a latent divine energy imbued within its contents - holy water. The gem of pristine water instills a newfound kernel of courage for venturing deeper into the heart of darkness."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "summary": "You are at the lunar module landing zone, with a strange crater to the north and the lunar habitat to the east.",
+  "detail": "As you step onto the lunar surface, fine dust shimmers in the dim light, disturbed by your arrival. The lunar module towers above you, its metallic skin reflecting the weak illumination provided by Earth's light. The serenity of the barren world envelopes you in a comforting quiet. You see a mysterious crater to the north, emanating an unsettling energy, while the lunar habitat sits to the east, a beacon of humanity in this desolate landscape.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine lunar module"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "The lunar module must have suffered a rough landing. Some of its surface appears scratched, but its structural integrity remains solid. The access ladder extends downward, inviting you to climb back into the vehicle."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "inspect dust"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "The fine, grey lunar dust feels powdery beneath your fingertips. This otherworldly substance, known as regolith, clings to the surface of your spacesuit. As much as mankind has explored these celestial bodies, the dust itself remains enigmatic and beautiful."
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "player.location"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player.location",
+          "value": "landing_zone"
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "As you set foot on the otherworldly lunar landscape, your surroundings feel both hauntingly desolate and enthralled in wonder. The lunar module stands beside you, offering temporary respite, while the lunar habitat to the east offers solace for astronauts. To the north, the mysterious crater intrigues you, enticing you with its secrets."
+      }
+    }
+  ]
+}

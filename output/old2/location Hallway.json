@@ -1,0 +1,76 @@
+{
+  "summary": "A dim hallway choked with cobwebs where ancient water plinks from above.",
+  "detail": "You've entered a long, eerie hallway adorned with sepulchral tapestries depicting fearsome supernatural beings. Cobwebs dance in the fetid drafts that haunt the narrow way, revealing floor rimed with the sooty patina of ages past. Ghastly grayish light filtering through the dust in the air casts an air of dreadful sinister overtones. The distant echo of falling water adds to a sense of natural decay and abandonment.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "player.location"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player.location",
+          "value": "Hallway"
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Your pallid skin prickles with dread as you advance into the heart of this forsaken place."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine tapestries"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player.location",
+          "value": "Hallway"
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Observing these fearfully shrouded walls draws from you a gasp; if they feast with baser feasts stained within tapestry of legend carved – they bristle with unspeakable supernatural beings like phantoms, bloodthirsty fiends, and plague-harbored shapes snarled in shadows."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "listen to dripping water"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player.location",
+          "value": "Hallway"
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "A hollow, broken dirge describes the forlorn reverberant melody the plashy water tones perform, oscillating noxiously through the dim hollows."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "touch cobwebs"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player.location",
+          "value": "Hallway"
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Whisp-like sinews dangle against your fingers as they dance in gape-mouthed whispers, participating in some languorous, dead feast of suspended animation, crystalline oozes embalming the very essence of their anatomies."
+      }
+    }
+  ]
+}

@@ -1,0 +1,565 @@
+{
+  "style": "Whimsical, imaginative, and enchanting writing style with detailed, descriptive, and vivid language.",
+  "playerStartLocation": "L1",
+  "locations": {
+    "L1": {
+      "name": "Entrance of Fairy Garden",
+      "overview": "A lush entrance with a shimmering fairy sign welcoming the player to the enchanted garden.",
+      "connections": [
+        [
+          "East",
+          "L2"
+        ]
+      ],
+      "summary": "You are at the entrance of a lush, shimmering Fairy Garden.",
+      "detail": "As you step onto the soft emerald grass, your eyes are instantly drawn to the captivating iridescence of the entrance gate. Delicate tendrils of ivy frame the shimmering fairy sign which welcomes you to the enchanted garden. The golden sunlight pours through the fragrant roses and mysterious shadows beckon you to explore further.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine sign"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Upon closer inspection, the sign reads: 'Welcome to the Enchanted Fairy Garden, a realm of wonder, and magic. Here, you will uncover secret paths and bewitching treasures. Tread lightly, for the unknown awaits!'"
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "smell roses"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "As you lean in to smell the roses, their enchanting fragrance fills your senses. The sweet aroma carries whispers of dreams, of far-off lands and beings you've never encountered."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "listen to the wind"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You close your eyes and listen carefully to the melodic breeze. It seems to be filled with tender laughter and caressing whispers, as if the wind itself is beckoning you to follow the path into the garden."
+          }
+        },
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "player_location"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "player_location",
+              "value": "L1"
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You find yourself back at the entrance of the enchanted Fairy Garden. The shimmering gate greets you once again, inviting you to discover its hidden wonders."
+          }
+        }
+      ]
+    },
+    "L2": {
+      "name": "Sunflower Grove",
+      "overview": "A field of towering sunflowers gently swaying in the breeze with hidden paths.",
+      "connections": [
+        [
+          "West",
+          "L1"
+        ],
+        [
+          "North",
+          "L3"
+        ],
+        [
+          "South",
+          "L4"
+        ]
+      ],
+      "summary": "You stand amidst a grove of towering sunflowers gently swaying in the breeze. The forest edge can be seen to the west, while paths lead north and south.",
+      "detail": "As you enter the Sunflower Grove, you find yourself surrounded by giant sunflowers stretching towards the sky, casting playful shadows on the ground. Their golden petals dance in the rhythmic breeze, creating a mesmerizing spectacle. A faint hum of bees accompanies the scent of blossoms and sun-warmed earth.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine sunflowers"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You take a closer look at the sunflowers, marveling at their vibrant yellow petals and the way they turn their heads to follow the sun across the sky. A few bees busily collect nectar and pollen, their buzzing drones harmonizing with the whispers of the wind. Hidden within the towering sunflowers, you spot secret paths that could lead to undiscovered corners of the enchanted garden."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "listen to the breeze"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You close your eyes and attune your ears to the symphony of the breeze. Whispers of the wind gently rustle through the sunflower leaves, carrying with it the laughter of fairies and the secrets of the enchanted garden. As the breeze caresses your face, you can't help but feel a sense of serenity and wonder."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "follow a hidden path"
+          },
+          "conditions": [
+            {
+              "test": "!=",
+              "key": "L2_HiddenPathFollowed",
+              "value": true
+            }
+          ],
+          "expression": {
+            "type": "COMPOUND",
+            "expressions": [
+              {
+                "type": "OUTPUT",
+                "content": "You venture down one of the secret paths, stepping carefully between the sunflowers. The path leads you to a small clearing, where you find a peculiar stone carved with an ancient symbol. Curiosity piqued, you make a mental note to investigate further at a later time."
+              },
+              {
+                "type": "SET",
+                "key": "L2_HiddenPathFollowed",
+                "value": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "L3": {
+      "name": "Crystal Fountain",
+      "overview": "A majestic crystal fountain known for its rejuvenating properties.",
+      "connections": [
+        [
+          "South",
+          "L2"
+        ]
+      ],
+      "summary": "You stand beside the Crystal Fountain, its waters glinting with rejuvenating power.",
+      "detail": "You find yourself at the heart of the enchanted garden, enveloped by the mesmerizing sight of the Crystal Fountain. This grand monument is crafted from intricate crystal formations which glimmer beautifully as they catch the light. Water cascades from the peak of the structure in shimmering streams, pooling gently at the base, radiating an aura of serenity and healing.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine crystals"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You examine the iridescent crystals up close, marveling at their delicate beauty. The masterful craftsmanship is evident in every facet, each one contributing to the enchanting glow and energy that emanates from these wondrous formations."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "drink water"
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "L3_DrunkWater",
+              "value": false
+            }
+          ],
+          "expression": {
+            "type": "COMPOUND",
+            "expressions": [
+              {
+                "type": "SET",
+                "key": "L3_DrunkWater",
+                "value": true
+              },
+              {
+                "type": "OUTPUT",
+                "content": "You cup your hands and gently partake from the crystalline waters. A soothing warmth spreads throughout your body, healing any small wounds and easing any aching joints. You feel invigorated and refreshed as though you have been bestowed with newfound energy."
+              }
+            ]
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "drink water"
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "L3_DrunkWater",
+              "value": true
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You take another sip from the fountain, but you find that the magical effects no longer take hold. It seems the fountain's rejuvenating properties can only be used once per visitor. Nevertheless, the water is cool and refreshing."
+          }
+        }
+      ]
+    },
+    "L4": {
+      "name": "Twilight Glade",
+      "overview": "A serene glade filled with bioluminescent plants, illuminating the shadows in a soft glow.",
+      "connections": [
+        [
+          "North",
+          "L2"
+        ],
+        [
+          "East",
+          "L5"
+        ]
+      ],
+      "summary": "You find yourself in the enchanting Twilight Glade, surrounded by glowing flora.",
+      "detail": "As you step into the Twilight Glade, a mesmerizing sight unfolds before you. Bioluminescent plants bathe the area in an ethereal glow, casting a delicate twilight upon the soft forest floor. You notice some rare glowing mushrooms and a curious, ancient-looking stone pedestal in the center of the glade.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine glowing mushrooms"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You crouch down to observe the luminous mushrooms closely, their soft glow revealing intricate patterns on their blue caps. As you touch them gently, they emit a pleasant, tinkling sound, adding a touch of music to the silent glade."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine stone pedestal"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "The ancient stone pedestal stands solemnly in the center of the glade, its surface etched with runes that seem to shimmer under the twilight. A faint hum of energy resonates from the pedestal, as if a secret lies within its depths, waiting to be discovered."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "read runes on pedestal"
+          },
+          "conditions": [
+            {
+              "test": "!=",
+              "key": "L4_RunesRead",
+              "value": true
+            }
+          ],
+          "expression": {
+            "type": "COMPOUND",
+            "expressions": [
+              {
+                "type": "SET",
+                "key": "L4_RunesRead",
+                "value": true
+              },
+              {
+                "type": "OUTPUT",
+                "content": "You trace your finger along the glowing runes on the pedestal, attempting to decipher the hidden meaning. Suddenly, the runes change color and reveal a cryptic message: 'Solve the ancient riddle, and the path shall be revealed.' You hear a faint clicking sound as a secret compartment within the pedestal opens, revealing a mysterious orb."
+              }
+            ]
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "take orb"
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "L4_RunesRead",
+              "value": true
+            },
+            {
+              "test": "!=",
+              "key": "L4_OrbTaken",
+              "value": true
+            }
+          ],
+          "expression": {
+            "type": "COMPOUND",
+            "expressions": [
+              {
+                "type": "SET",
+                "key": "L4_OrbTaken",
+                "value": true
+              },
+              {
+                "type": "OUTPUT",
+                "content": "You carefully pick up the mysterious orb, feeling its warm, pulsing energy in your hands. It seems to be connected to the enchanted surroundings, unlocking new possibilities for your journey in the Fairy Garden."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "L5": {
+      "name": "Whispering Woods",
+      "overview": "A forest with sentient, talking trees that share ancient riddles and legends.",
+      "connections": [
+        [
+          "West",
+          "L4"
+        ],
+        [
+          "North",
+          "L7"
+        ],
+        [
+          "East",
+          "L6"
+        ]
+      ],
+      "summary": "You find yourself in the Whispering Woods, where sentient trees share ancient riddles and legends.",
+      "detail": "As you enter the Whispering Woods, a gentle breeze carries the faintest murmurings of the trees, their leaves rustling with secrets to share. The air is thick with the scent of moss and damp earth, and the sun dapples the ground as beams of light sneak through the dense canopy above.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine trees"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Upon closer examination, you notice each tree trunk bears intricate carvings of faces that seem to look back at you with ancient eyes. Their gnarled branches curve and twist, as if etched by the tales they've absorbed over countless years."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "listen to trees"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You close your eyes and open your ears to the gentle whispers. The trees share fragmented stories of love, betrayal, and adventure, tantalizing you with their knowledge. Each whisper draws you deeper into the mysteries they hold."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "touch tree"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "SET",
+            "key": "L5_TouchedTree",
+            "value": true
+          }
+        },
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "L5_TouchedTree"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "L5_TouchedTree",
+              "value": true
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "As your hand gently touches the tree's ancient bark, a warm surge of energy courses through it, and the whispers in the air suddenly intensify. The trees seem more eager than ever to share their wisdom with you."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "walk deeper"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You tread cautiously through the shaded paths of the woods, feeling the weight of the untold stories and secrets that hang thick in the air around you. Brief flickers of ancient legends and lost knowledge are conveyed by chance gusts of wind, promising a world of undiscovered treasures as you delve further into the Whispering Woods."
+          }
+        }
+      ]
+    },
+    "L6": {
+      "name": "Mystical Grotto",
+      "overview": "A concealed grotto humming with magical energy and hidden wisdom.",
+      "connections": [
+        [
+          "West",
+          "L5"
+        ]
+      ],
+      "summary": "You stand in the Mystical Grotto, where the air hums with magical energy.",
+      "detail": "You have entered a concealed grotto, with walls adorned by luminescent crystals. The air vibrates with an intense magical energy, as if countless spells have been woven within. The grotto feels ancient and wise, its secrets known only to those who have delved deep into its mysteries.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine crystals"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "The crystals upon the walls emit a mesmerizing dance of multicolored light. They seem to have absorbed the magic from countless spells and enchantments cast within the grotto."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "touch crystal"
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "L6_TouchedCrystal",
+              "value": false
+            }
+          ],
+          "expression": {
+            "type": "COMPOUND",
+            "expressions": [
+              {
+                "type": "OUTPUT",
+                "content": "As you touch the crystal, a faint hum resonates through your fingertips, filling you with a sense of knowledge and wisdom from ancient times."
+              },
+              {
+                "type": "SET",
+                "key": "L6_TouchedCrystal",
+                "value": true
+              }
+            ]
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "touch crystal"
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "L6_TouchedCrystal",
+              "value": true
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You touch the crystal again, but the hum does not grow stronger. The ancient wisdom has already been absorbed into your very soul."
+          }
+        }
+      ]
+    },
+    "L7": {
+      "name": "Celestial Observatory",
+      "overview": "A celestial observatory nestled high above the garden, granting views of the cosmos.",
+      "connections": [
+        [
+          "South",
+          "L5"
+        ]
+      ],
+      "summary": "You're at the enchanting Celestial Observatory, where the cosmos reveals its secrets.",
+      "detail": "Stepping into the Celestial Observatory, you're awestruck by the grandeur that surrounds you. Settled high above the Fairy Garden, the observatory is a universe within itself. A grand, intricately-carved telescope gazes endlessly into the cosmic tapestry, and the room's dome is adorned with dazzling celestial frescoes that subtly shift and twinkle as the stars outside change. Amidst the vastness of the sky above, your terrestrial worries seem to melt away.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine telescope"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "As you approach the grand telescope, you notice its fine craftsmanship. Fashioned from unknown enchanted wood and metals, it hums with subtle energy waiting to be unlocked. Legends whispered throughout the garden suggest this telescope holds secrets toward an ever-lasting understanding of the universe's fragile balance."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "universe view"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You place your eye on the telescope's eyepiece and are instantly captivated by the breathtaking view of the universe stretching infinitely before you. Stars and swirling galaxies dot the cosmic canvas. Comets and other celestial bodies dance through the celestial waltz. Time seems to slow as your understanding of the cosmos deepens."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine frescoes"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Turning your gaze to the mesmerizing celestial frescoes, you notice how their depictions of planets, stars, and galaxies subtly shift to mimic the night sky above. It is as though the paints themselves contain an element of magic, expressing their own stories of celestial bodies forming, colliding, and fading away throughout the eons."
+          }
+        }
+      ]
+    }
+  },
+  "characters": {
+    "C1": {
+      "name": "Lyra the Fairy Queen",
+      "overview": "A regal and wise ruler of the Fairy Garden who seeks to restore balance.",
+      "starting_location": "L6"
+    },
+    "C2": {
+      "name": "Bramble the Talking Tree",
+      "overview": "A cherry tree in the Whispering Woods who seeks to enlighten travelers with riddles.",
+      "starting_location": "L5"
+    }
+  },
+  "items": {
+    "I1": {
+      "name": "Enchanted Amulet",
+      "overview": "A dazzling amulet imbued with the power to reveal hidden paths.",
+      "starting_location": "L4"
+    },
+    "I2": {
+      "name": "Fountain Crystal",
+      "overview": "A rare crystal shard retrieved from the Crystal Fountain with regenerative abilities.",
+      "starting_location": "L3"
+    }
+  },
+  "quests": {
+    "Q1": {
+      "name": "Lyra's Quest for Balance",
+      "overview": "Lyra the Fairy Queen needs assistance to restore balance in the Fairy Garden.",
+      "quest_giver": "C1",
+      "items_involved": [
+        "I1"
+      ]
+    },
+    "Q2": {
+      "name": "Bramble's Riddle Challenge",
+      "overview": "Bramble the Talking Tree offers a challenge to solve his most mysterious riddles.",
+      "quest_giver": "C2",
+      "items_involved": [
+        "I2"
+      ]
+    }
+  },
+  "state": {
+    "L1_visited": true,
+    "L2_HiddenPathFollowed": false,
+    "L3_DrunkWater": false,
+    "L4_RunesRead": false,
+    "L4_OrbTaken": false,
+    "L5_TouchedTree": false,
+    "L6_TouchedCrystal": false,
+    "L7_firstVisit": true
+  }
+}

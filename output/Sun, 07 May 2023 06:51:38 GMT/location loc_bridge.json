@@ -1,0 +1,69 @@
+{
+  "summary": "The Bridge of a derelict spaceship, with partially functional control panels.",
+  "detail": "As you enter the Bridge, you're greeted by a faint smell of burnt plastic and curry powder. The control panels, once instruments of a thriving spacecraft, now flicker sporadically, barely holding on to life. There's an almost hypnotic dance of lights and shadows playing across the room, casting an eerie glow. To the north, you can see the entrance to the Lounge.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine control panels"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "These once-sophisticated control panels now resemble an abstract art piece more than anything. Some buttons still emit weak pulses of light, while others have ceased to function completely. There's a peculiar mix of despair and hope in every flicker, as they valiantly attempt to regain their former glory."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "flip random switch"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "BRANCH",
+        "conditions": [
+          {
+            "test": "==",
+            "key": "loc_bridge_random_switch_flipped",
+            "value": false
+          }
+        ],
+        "ifTrue": {
+          "type": "COMPOUND",
+          "expressions": [
+            {
+              "type": "SET",
+              "key": "loc_bridge_random_switch_flipped",
+              "value": true
+            },
+            {
+              "type": "OUTPUT",
+              "content": "You flip a random switch, mostly out of curiosity. Surprisingly, it jolts a section of the control panels back to life, and a holographic message appears briefly. It's an out-of-date advertisement for a curry eating contest—perhaps this crew had a sense of humor after all."
+            }
+          ]
+        },
+        "ifFalse": {
+          "type": "OUTPUT",
+          "content": "You flipped switches before, and nothing remarkable happened other than reactivating an advertisement for a curry eating contest. Best not to push your luck with these old control panels."
+        }
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine holographic message"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "loc_bridge_random_switch_flipped",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "The holographic message is an advertisement for the 'Great Curry Bowl-Off!' The contest is long over, but it's clear that the crew members had a penchant for curry-based entertainment. The message flickers for a few more moments before sputtering out."
+      }
+    }
+  ]
+}

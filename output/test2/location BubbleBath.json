@@ -1,0 +1,86 @@
+{
+  "summary": "An odd fusion of spaceship bits and a vintage bubble bath tub, adorned by alien trinkets.",
+  "detail": "The BubbleBath room bewilders you with its strange marriage of technology and relaxation. Spaceship walls serve as the backdrop to a glorious antique bubble bath tub nestled at the center, filled with bubbling water that emits an enchanting eucalyptus aroma. Alien trinkets and unusual doodads litter the walls, creating a vibe that is equal parts sanctuary and intergalactic voyage.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine trinkets"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Upon closer inspection, the trinkets seem to be an eclectic mix of vintage alien toys, cosmic collectibles, and odd doodads that defy description. These fascinating souvenirs whisper tales of far-off worlds and countless space adventures."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "explore water"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You dip a finger into the sparkling water and immediately feel its warm, soothing embrace. A heady scent of eucalyptus wafts from it, encouraging relaxation and serenity amidst this oddball environment. You wonder if the Curry Wizard ever takes bubble baths after a long day of curry conjuring..."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "look for Curry Wizard"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "CurryWizard-location",
+          "value": "BubbleBath"
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "The Curry Wizard, wrapped in a towel and crafting fresh batches of curry with a wave of his janitor mop, clocks your presence and tosses you a fragrant curry container, exclaiming, 'Here, mate, have a taste of this magical goodness!' You accept it graciously, knowing better than to spurn the gift of curry."
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "CurryWizard-location"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player-location",
+          "value": "BubbleBath"
+        },
+        {
+          "test": "==",
+          "key": "CurryWizard-location",
+          "value": "BubbleBath"
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You suddenly notice the Curry Wizard casually strolling in, clad in a towel and humming an obscure interstellar tune. He heads to the bubble bath, seemingly oblivious to your presence."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "listen to interstellar tune"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "CurryWizard-location",
+          "value": "BubbleBath"
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "The melody brings a delightful combination of intergalactic beats and spicy rhythms that both tantalize your eardrums and remind you of the delectable flavors of curry. It's as if the cosmos and curry are dancing together in perfect harmony."
+      }
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "summary": "You find yourself in the enchanting Twilight Glade, surrounded by glowing flora.",
+  "detail": "As you step into the Twilight Glade, a mesmerizing sight unfolds before you. Bioluminescent plants bathe the area in an ethereal glow, casting a delicate twilight upon the soft forest floor. You notice some rare glowing mushrooms and a curious, ancient-looking stone pedestal in the center of the glade.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine glowing mushrooms"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You crouch down to observe the luminous mushrooms closely, their soft glow revealing intricate patterns on their blue caps. As you touch them gently, they emit a pleasant, tinkling sound, adding a touch of music to the silent glade."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine stone pedestal"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "The ancient stone pedestal stands solemnly in the center of the glade, its surface etched with runes that seem to shimmer under the twilight. A faint hum of energy resonates from the pedestal, as if a secret lies within its depths, waiting to be discovered."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "read runes on pedestal"
+      },
+      "conditions": [
+        {
+          "test": "!=",
+          "key": "L4_RunesRead",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "COMPOUND",
+        "expressions": [
+          {
+            "type": "SET",
+            "key": "L4_RunesRead",
+            "value": true
+          },
+          {
+            "type": "OUTPUT",
+            "content": "You trace your finger along the glowing runes on the pedestal, attempting to decipher the hidden meaning. Suddenly, the runes change color and reveal a cryptic message: 'Solve the ancient riddle, and the path shall be revealed.' You hear a faint clicking sound as a secret compartment within the pedestal opens, revealing a mysterious orb."
+          }
+        ]
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "take orb"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "L4_RunesRead",
+          "value": true
+        },
+        {
+          "test": "!=",
+          "key": "L4_OrbTaken",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "COMPOUND",
+        "expressions": [
+          {
+            "type": "SET",
+            "key": "L4_OrbTaken",
+            "value": true
+          },
+          {
+            "type": "OUTPUT",
+            "content": "You carefully pick up the mysterious orb, feeling its warm, pulsing energy in your hands. It seems to be connected to the enchanted surroundings, unlocking new possibilities for your journey in the Fairy Garden."
+          }
+        ]
+      }
+    }
+  ]
+}

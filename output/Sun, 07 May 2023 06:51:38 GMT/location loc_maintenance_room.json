@@ -1,0 +1,87 @@
+{
+  "summary": "You're in a cluttered maintenance room filled with wires, tools, and spare parts.",
+  "detail": "As you step into the maintenance room, you notice an array of tools and spare parts scattered everywhere. The flickering lights overhead cast eerie shadows around the confined space. What looks like remnants of a half-finished space wrench repair job lies on a dusty table.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine space wrench"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "The space wrench is cleverly designed to fix almost anything on the spaceship. It's a bit worn, but it looks like it can still do the job. There's a glowing residue around its edges. Could it be... curry?"
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "inspect shadows"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "BRANCH",
+        "conditions": [
+          {
+            "test": "==",
+            "key": "loc_maintenance_room_ShadowCurious",
+            "value": false
+          }
+        ],
+        "ifTrue": {
+          "type": "COMPOUND",
+          "expressions": [
+            {
+              "type": "SET",
+              "key": "loc_maintenance_room_ShadowCurious",
+              "value": true
+            },
+            {
+              "type": "OUTPUT",
+              "content": "As you step deeper into the shadows, you find nothing particularly interesting. However, you can't help but feel a strange fascination with the interplay of light and darkness."
+            }
+          ]
+        },
+        "ifFalse": {
+          "type": "OUTPUT",
+          "content": "You look into the shadows once again, but nothing new catches your eye. The sense of fascination seems to have faded."
+        }
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "fix lights"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "BRANCH",
+        "conditions": [
+          {
+            "test": "==",
+            "key": "loc_maintenance_room_LightsFixed",
+            "value": false
+          }
+        ],
+        "ifTrue": {
+          "type": "COMPOUND",
+          "expressions": [
+            {
+              "type": "SET",
+              "key": "loc_maintenance_room_LightsFixed",
+              "value": true
+            },
+            {
+              "type": "OUTPUT",
+              "content": "Using the space wrench, you manage to fix the flickering light overhead. The maintenance room is now fully illuminated, revealing a faint smell of curry in the air."
+            }
+          ]
+        },
+        "ifFalse": {
+          "type": "OUTPUT",
+          "content": "The lights are already fixed, and the room is well-lit, thanks to your previous efforts."
+        }
+      }
+    }
+  ]
+}

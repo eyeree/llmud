@@ -1,0 +1,50 @@
+{
+  "summary": "A seemingly abandoned kitchen, in need of a good meal",
+  "detail": "This small, once-utilitarian kitchen has long been left to the ravages of time and interstellar travel. Food containers and surgical tool-like utensils are scattered across the stainless steel countertops, a testament to the hurried preparations that once took place within these walls. A holographic cookbook flickers in the corner, its images perpetually stuck on a tantalizingly delicious curry dish.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine cookbook"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "A dusty, holographic cookbook sits on the counter, barely discernable through its faded images. Among the countless interstellar culinary endeavors documented within, the curry recipe remains at the forefront, teasing your taste buds with visions of rich, spicy goodness."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "search cabinets"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You rummage through the cabinets, pushing aside space-age cooking implements, and oddly labeled spice jars. A sense of disappointment washes over you as you find nothing that would contribute to crafting the ultimate curry dish."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "open fridge"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You cautiously open the fridge, bracing yourself for the potential horrors that could be unleashed upon your nostrils. Instead, you find nothing but a desolate, icy vanity. It turns out even millennia of travel through the cosmos can't raze freezer burn."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "inspect utensils"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Sterilized to the point of confusion, the kitchen's utensils come across as more medical instruments than culinary tools. They are, however, capable of finely mincing even the toughest of alien vegetables, ensuring that any dish cooked here reaches optimal flavor distribution."
+      }
+    }
+  ]
+}

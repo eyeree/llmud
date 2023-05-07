@@ -1,0 +1,73 @@
+{
+  "summary": "You find yourself near the lunar rover, a vehicle used to transport astronauts across the lunar surface.",
+  "detail": "You approach the lunar rover, a large, robust vehicle designed for navigating the treacherous lunar terrain. Its thick, well-built tires seem built to endure and the rugged exterior is adorned with a reflective coating. The controls within are simple but efficient, revealing an intuitive design intended to be user-friendly for astronauts exploring the moon's surface.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine rover"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Upon closer inspection, you notice that the lunar rover is equipped with several compartments for storage, a small robotic arm for sample collection, and an array of cameras and sensors for data gathering. The solar panels on top power the vehicle effortlessly."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "look around"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "As you gaze around the rover, you see the vast expanse of the lunar terrain stretch out before you. The horizon appears as a curved line in the distance, a testament to the unique landscape of the moon. A sense of otherworldly adventure fills you, dwarfed only by the dark skies above."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "enter rover"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You step into the rover, sinking into its comfortable seats designed to compensate for the low gravity environment. Various switches, buttons, and levers demand your attention, offering various navigation and analysis functionalities. A navigation screen sits in the center, while the main control panel houses driving mechanisms."
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "player.location"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player.location",
+          "value": "lunar_rover"
+        },
+        {
+          "test": "!=",
+          "key": "lunar_rover-visited",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "COMPOUND",
+        "expressions": [
+          {
+            "type": "SET",
+            "key": "lunar_rover-visited",
+            "value": true
+          },
+          {
+            "type": "OUTPUT",
+            "content": "As this is your first time approaching the lunar rover, a feeling of excitement and curiosity washes over you. You can't wait to see what kind of discoveries await you on the lunar surface."
+          }
+        ]
+      }
+    }
+  ]
+}

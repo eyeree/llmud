@@ -4,7 +4,8 @@ import { showDiff } from "./showDiff.js";
 
 export class Session {
 
-    static readonly DEFAULT_MODEL = 'gpt-4'; // 'gpt-3.5-turbo'
+    static readonly DEFAULT_MODEL = 'gpt-4'; 
+    // static readonly DEFAULT_MODEL = 'gpt-3.5-turbo';
     static readonly DEFAULT_TEMPERATURE = 1;
 
     private readonly openai;
@@ -16,7 +17,6 @@ export class Session {
     };
 
     public trace: boolean = false;
-
 
     constructor(options: Partial<Omit<CreateChatCompletionRequest, "messages">> = {}) {
 
@@ -81,24 +81,34 @@ export class Session {
         if (this.trace) {
             console.log('>>>>>', 'temperature:', this.request.temperature, '\n', this.traceMessages());
         }
-        const result = await this.openai.createChatCompletion(this.request);
-        if (result.data.choices.length !== 1) {
-            console.log('!!!!! choices.length', result.data.choices.length);
-        }
-        const choice = result.data.choices[0];
-        if (choice.finish_reason !== 'stop') {
-            console.log('!!!!! finish_reason', choice.finish_reason);
-        }
-        if (choice.message) {
-            this.push(choice.message);
-            if (this.trace) {
-                console.log('<<<<<', inspect(result.data.usage), '\n', this.traceMessage(choice.message));
+        let attempts = 3;
+        while(attempts--) {
+            try {
+                const result = await this.openai.createChatCompletion(this.request);
+                if (result.data.choices.length !== 1) {
+                    console.log('!!!!! choices.length', result.data.choices.length);
+                }
+                const choice = result.data.choices[0];
+                if (choice.finish_reason !== 'stop') {
+                    console.log('!!!!! finish_reason', choice.finish_reason);
+                }
+                if (choice.message) {
+                    this.push(choice.message);
+                    if (this.trace) {
+                        console.log('<<<<<', inspect(result.data.usage), '\n', this.traceMessage(choice.message));
+                    }
+                    return choice.message.content;
+                } else {
+                    console.log(choice);
+                    throw new Error('no message');
+                }
+            } catch(e) {
+                console.error("REQUEST FAILED", e);
+                if(attempts) await delay(200);
             }
-            return choice.message.content;
-        } else {
-            console.log(choice);
-            throw new Error('no message');
         }
+        console.error("REQUEST FAILED MULTIPLE ATTEMPTS");
+        process.exit(1);
     }
 
     private traceMessage(message: ChatCompletionRequestMessage) {
@@ -109,4 +119,10 @@ export class Session {
         return this.messages.map(message => this.traceMessage(message)).join('\n');
     }
 
+}
+
+function delay(ms:number) {
+    return new Promise(function(resolve) {
+        setTimeout(resolve, ms);
+    });
 }

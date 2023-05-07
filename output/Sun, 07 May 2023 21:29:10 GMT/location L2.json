@@ -1,0 +1,55 @@
+{
+  "summary": "You stand amidst a grove of towering sunflowers gently swaying in the breeze. The forest edge can be seen to the west, while paths lead north and south.",
+  "detail": "As you enter the Sunflower Grove, you find yourself surrounded by giant sunflowers stretching towards the sky, casting playful shadows on the ground. Their golden petals dance in the rhythmic breeze, creating a mesmerizing spectacle. A faint hum of bees accompanies the scent of blossoms and sun-warmed earth.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine sunflowers"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You take a closer look at the sunflowers, marveling at their vibrant yellow petals and the way they turn their heads to follow the sun across the sky. A few bees busily collect nectar and pollen, their buzzing drones harmonizing with the whispers of the wind. Hidden within the towering sunflowers, you spot secret paths that could lead to undiscovered corners of the enchanted garden."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "listen to the breeze"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You close your eyes and attune your ears to the symphony of the breeze. Whispers of the wind gently rustle through the sunflower leaves, carrying with it the laughter of fairies and the secrets of the enchanted garden. As the breeze caresses your face, you can't help but feel a sense of serenity and wonder."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "follow a hidden path"
+      },
+      "conditions": [
+        {
+          "test": "!=",
+          "key": "L2_HiddenPathFollowed",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "COMPOUND",
+        "expressions": [
+          {
+            "type": "OUTPUT",
+            "content": "You venture down one of the secret paths, stepping carefully between the sunflowers. The path leads you to a small clearing, where you find a peculiar stone carved with an ancient symbol. Curiosity piqued, you make a mental note to investigate further at a later time."
+          },
+          {
+            "type": "SET",
+            "key": "L2_HiddenPathFollowed",
+            "value": true
+          }
+        ]
+      }
+    }
+  ]
+}

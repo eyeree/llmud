@@ -1,0 +1,221 @@
+{
+    "type": "object",
+    "properties": {
+        "trigger": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "const": "CHANGE",
+                            "description": "identifies this object as a state change trigger"
+                        },
+                        "keys": {
+                            "type": "array",
+                            "items": {
+                                "type": "string",
+                                "description": "the name of a state property"
+                            },
+                            "description": "action is triggered if the value of any of these state keys change"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "keys"
+                    ],
+                    "additionalProperties": false,
+                    "description": "triggers an action when game state is changed"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "const": "INPUT",
+                            "description": "identifies this object as a player input trigger"
+                        },
+                        "phrase": {
+                            "type": "string",
+                            "description": "action is triggered if this word or phrase is input, players can choose from the inputs that are currently enabled"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "phrase"
+                    ],
+                    "additionalProperties": false,
+                    "description": "triggers an action when player input is received"
+                }
+            ],
+            "description": "describes how the action is triggered"
+        },
+        "conditions": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "test": {
+                        "type": "string",
+                        "enum": [
+                            "==",
+                            "!=",
+                            ">",
+                            "<",
+                            ">=",
+                            "<="
+                        ],
+                        "description": "comparison operation that is performed"
+                    },
+                    "key": {
+                        "type": "string",
+                        "description": "name of the game state property to which value is compared"
+                    },
+                    "value": {
+                        "type": [
+                            "string",
+                            "number"
+                        ],
+                        "description": "value to which game state property is compared, use a value of the form '{{<key>}}' to compare to another state property"
+                    }
+                },
+                "required": [
+                    "test",
+                    "key",
+                    "value"
+                ],
+                "additionalProperties": false,
+                "description": "describes comparison of a game state property value to a constant value or another game state property value"
+            },
+            "description": "determines if the action is executed"
+        },
+        "expression": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "const": "SET",
+                            "description": "identifies this object as a state property set expression"
+                        },
+                        "key": {
+                            "type": "string",
+                            "description": "the name of the state property that will be set"
+                        },
+                        "value": {
+                            "type": [
+                                "string",
+                                "number"
+                            ],
+                            "description": "the value to which the state property will be set, use '{{<key>}}' to set to the value of another state property"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "key",
+                        "value"
+                    ],
+                    "additionalProperties": false,
+                    "description": "an expression that sets a state property value"
+                },
+                {
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "const": "BRANCH",
+                            "description": "identifies this object as a branch expression"
+                        },
+                        "conditions": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/properties/conditions/items"
+                            },
+                            "description": "conditions that are evaluated to determine the branch taken"
+                        },
+                        "ifTrue": {
+                            "anyOf": [
+                                {
+                                    "$ref": "#/properties/expression/anyOf/0"
+                                },
+                                {
+                                    "$ref": "#/properties/expression/anyOf/1"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "const": "OUTPUT",
+                                            "description": "identifies this object as an output expression"
+                                        },
+                                        "content": {
+                                            "type": "string",
+                                            "description": "content that will be shown to the player"
+                                        }
+                                    },
+                                    "required": [
+                                        "type",
+                                        "content"
+                                    ],
+                                    "additionalProperties": false,
+                                    "description": "an expression that produces output that is shown to the player"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "type": {
+                                            "type": "string",
+                                            "const": "COMPOUND",
+                                            "description": "identifies this object as an compound expression"
+                                        },
+                                        "expressions": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/properties/expression/anyOf/1/properties/ifTrue"
+                                            },
+                                            "description": "the sub-expressions that are executed in sequence"
+                                        }
+                                    },
+                                    "required": [
+                                        "type",
+                                        "expressions"
+                                    ],
+                                    "additionalProperties": false,
+                                    "description": "an expression that executes a sequence of sub-expressions"
+                                }
+                            ],
+                            "description": "expression that is evaluated if all conditions are true"
+                        },
+                        "ifFalse": {
+                            "$ref": "#/properties/expression/anyOf/1/properties/ifTrue",
+                            "description": "expression that is evaluated if any condition is false"
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "conditions"
+                    ],
+                    "additionalProperties": false,
+                    "description": "an expression that executes sub-expressions depending on the evaluation of conditions"
+                },
+                {
+                    "$ref": "#/properties/expression/anyOf/1/properties/ifTrue/anyOf/2"
+                },
+                {
+                    "$ref": "#/properties/expression/anyOf/1/properties/ifTrue/anyOf/3"
+                }
+            ],
+            "description": "operations performed if the conditions are met"
+        }
+    },
+    "required": [
+        "trigger",
+        "conditions",
+        "expression"
+    ],
+    "additionalProperties": false,
+    "description": "describes an action that can occur while playing the game",
+    "$schema": "http://json-schema.org/draft-07/schema#"
+}

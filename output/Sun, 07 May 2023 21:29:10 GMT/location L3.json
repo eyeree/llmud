@@ -1,0 +1,61 @@
+{
+  "summary": "You stand beside the Crystal Fountain, its waters glinting with rejuvenating power.",
+  "detail": "You find yourself at the heart of the enchanted garden, enveloped by the mesmerizing sight of the Crystal Fountain. This grand monument is crafted from intricate crystal formations which glimmer beautifully as they catch the light. Water cascades from the peak of the structure in shimmering streams, pooling gently at the base, radiating an aura of serenity and healing.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine crystals"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You examine the iridescent crystals up close, marveling at their delicate beauty. The masterful craftsmanship is evident in every facet, each one contributing to the enchanting glow and energy that emanates from these wondrous formations."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "drink water"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "L3_DrunkWater",
+          "value": false
+        }
+      ],
+      "expression": {
+        "type": "COMPOUND",
+        "expressions": [
+          {
+            "type": "SET",
+            "key": "L3_DrunkWater",
+            "value": true
+          },
+          {
+            "type": "OUTPUT",
+            "content": "You cup your hands and gently partake from the crystalline waters. A soothing warmth spreads throughout your body, healing any small wounds and easing any aching joints. You feel invigorated and refreshed as though you have been bestowed with newfound energy."
+          }
+        ]
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "drink water"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "L3_DrunkWater",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You take another sip from the fountain, but you find that the magical effects no longer take hold. It seems the fountain's rejuvenating properties can only be used once per visitor. Nevertheless, the water is cool and refreshing."
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "summary": "You are at the entrance of a lush, shimmering Fairy Garden.",
+  "detail": "As you step onto the soft emerald grass, your eyes are instantly drawn to the captivating iridescence of the entrance gate. Delicate tendrils of ivy frame the shimmering fairy sign which welcomes you to the enchanted garden. The golden sunlight pours through the fragrant roses and mysterious shadows beckon you to explore further.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine sign"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Upon closer inspection, the sign reads: 'Welcome to the Enchanted Fairy Garden, a realm of wonder, and magic. Here, you will uncover secret paths and bewitching treasures. Tread lightly, for the unknown awaits!'"
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "smell roses"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "As you lean in to smell the roses, their enchanting fragrance fills your senses. The sweet aroma carries whispers of dreams, of far-off lands and beings you've never encountered."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "listen to the wind"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You close your eyes and listen carefully to the melodic breeze. It seems to be filled with tender laughter and caressing whispers, as if the wind itself is beckoning you to follow the path into the garden."
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "player_location"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player_location",
+          "value": "L1"
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You find yourself back at the entrance of the enchanted Fairy Garden. The shimmering gate greets you once again, inviting you to discover its hidden wonders."
+      }
+    }
+  ]
+}

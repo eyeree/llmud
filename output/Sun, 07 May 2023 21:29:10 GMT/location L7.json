@@ -1,0 +1,39 @@
+{
+  "summary": "You're at the enchanting Celestial Observatory, where the cosmos reveals its secrets.",
+  "detail": "Stepping into the Celestial Observatory, you're awestruck by the grandeur that surrounds you. Settled high above the Fairy Garden, the observatory is a universe within itself. A grand, intricately-carved telescope gazes endlessly into the cosmic tapestry, and the room's dome is adorned with dazzling celestial frescoes that subtly shift and twinkle as the stars outside change. Amidst the vastness of the sky above, your terrestrial worries seem to melt away.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine telescope"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "As you approach the grand telescope, you notice its fine craftsmanship. Fashioned from unknown enchanted wood and metals, it hums with subtle energy waiting to be unlocked. Legends whispered throughout the garden suggest this telescope holds secrets toward an ever-lasting understanding of the universe's fragile balance."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "universe view"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You place your eye on the telescope's eyepiece and are instantly captivated by the breathtaking view of the universe stretching infinitely before you. Stars and swirling galaxies dot the cosmic canvas. Comets and other celestial bodies dance through the celestial waltz. Time seems to slow as your understanding of the cosmos deepens."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine frescoes"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Turning your gaze to the mesmerizing celestial frescoes, you notice how their depictions of planets, stars, and galaxies subtly shift to mimic the night sky above. It is as though the paints themselves contain an element of magic, expressing their own stories of celestial bodies forming, colliding, and fading away throughout the eons."
+      }
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "summary": "You find yourself in the Whispering Woods, where sentient trees share ancient riddles and legends.",
+  "detail": "As you enter the Whispering Woods, a gentle breeze carries the faintest murmurings of the trees, their leaves rustling with secrets to share. The air is thick with the scent of moss and damp earth, and the sun dapples the ground as beams of light sneak through the dense canopy above.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine trees"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Upon closer examination, you notice each tree trunk bears intricate carvings of faces that seem to look back at you with ancient eyes. Their gnarled branches curve and twist, as if etched by the tales they've absorbed over countless years."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "listen to trees"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You close your eyes and open your ears to the gentle whispers. The trees share fragmented stories of love, betrayal, and adventure, tantalizing you with their knowledge. Each whisper draws you deeper into the mysteries they hold."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "touch tree"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "SET",
+        "key": "L5_TouchedTree",
+        "value": true
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "L5_TouchedTree"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "L5_TouchedTree",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "As your hand gently touches the tree's ancient bark, a warm surge of energy courses through it, and the whispers in the air suddenly intensify. The trees seem more eager than ever to share their wisdom with you."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "walk deeper"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You tread cautiously through the shaded paths of the woods, feeling the weight of the untold stories and secrets that hang thick in the air around you. Brief flickers of ancient legends and lost knowledge are conveyed by chance gusts of wind, promising a world of undiscovered treasures as you delve further into the Whispering Woods."
+      }
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "summary": "An ornate, mesmerizing sarcophagus surrounded by darkness.",
+  "detail": "You stand before a mesmerizing, intricately carved sarcophagus. The entire room is wreathed in shadows besides the faint glow emanating from the tomb, depicting menacing, ancient scenes. There's an unsettling silence punctuated only by your own heartbeat that reverberates through the confined space, as if resonating with the lingering presence of the long-dead vampire lord who rests within.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine sarcophagus"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You examine the sarcophagus more closely, noticing intricately carved depictions of ancient lamentations and wicked deeds. Gilt-edged crimson reliefs encapsulate legends twisted with vampire myths, rampant in these haunted lands, long ago. An uneasy shiver comprises your courage and resonates within as you fretfully imagine the vampire lord's remains portended with this inauspicious sarcophagus."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "touch sarcophagus"
+      },
+      "conditions": [
+        {
+          "test": "!=",
+          "key": "SkeletonKey",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Trepidation flutters as you reach out and touch the cool, marble tomb. An array of arcane symbols squirm and knot around your fingers, clutching feverish incantations. The coffin remains utterly sévère before your bare touch, ignoring your presence with disdainful negligence from vacant darkness embedded within."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "use skeleton key"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "SkeletonKey",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "COMPOUND",
+        "expressions": [
+          {
+            "type": "SET",
+            "key": "Sarcophagus-Opened",
+            "value": true
+          },
+          {
+            "type": "OUTPUT",
+            "content": "You cautiously place the Skeleton Key into the cryptic keyhole hidden amidst shadows amid the sarcophagus’s grand moldings. Cautiously, the smoothly engraved key aligns with the enigmatic protrusions mangled up within this creakingly-antic lock. Billows strive as counter-stardust betrays the ethereal emanations retracted from once spectral forms. The lid slithers heavily aside with malevolent obscurity. Unsullied darkness partakes pertinaciously as one with monstrous escapades as a groan abhorred clasps intangible daemon-theda airs. Ultimate fates now once aside await amongst never-deads with rests embedded in dreary time, now forevermore forsaken below besieged vaulting and dismay."
+          }
+        ]
+      }
+    }
+  ]
+}

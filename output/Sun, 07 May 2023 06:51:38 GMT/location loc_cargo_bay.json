@@ -1,0 +1,39 @@
+{
+  "summary": "You're in the cluttered Cargo Bay, filled with space debris and the occasional scent of stale curry.",
+  "detail": "As you enter the dimly lit Cargo Bay, you are surrounded by towering stacks of space debris, discarded boxes, and rusty old shipping crates. The atmosphere is heavy with mystery and dust. From the far end of the room, you can hear some faint dripping sounds, creating an eerie ambience. You also can't help but notice the lingering, unmistakable scent of stale curry.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine debris"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You carefully examine the space debris, finding various bits and pieces of long-forgotten equipment. A glimpse of an outdated space toaster calls your attention; it takes a lot to make toast in space."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "listen to dripping"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You quietly listen to the dripping sound echoing throughout the Cargo Bay. It's oddly hypnotizing, yet you feel a slight shiver down your spine."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "sniff curry"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Taking a deep breath, you inhale the stale curry aroma. It transports you to memories of Smitty's heavenly culinary creations. But why would the scent of curry linger in the Cargo Bay?"
+      }
+    }
+  ]
+}

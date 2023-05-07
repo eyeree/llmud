@@ -1,0 +1,61 @@
+{
+  "summary": "You stand in the Mystical Grotto, where the air hums with magical energy.",
+  "detail": "You have entered a concealed grotto, with walls adorned by luminescent crystals. The air vibrates with an intense magical energy, as if countless spells have been woven within. The grotto feels ancient and wise, its secrets known only to those who have delved deep into its mysteries.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine crystals"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "The crystals upon the walls emit a mesmerizing dance of multicolored light. They seem to have absorbed the magic from countless spells and enchantments cast within the grotto."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "touch crystal"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "L6_TouchedCrystal",
+          "value": false
+        }
+      ],
+      "expression": {
+        "type": "COMPOUND",
+        "expressions": [
+          {
+            "type": "OUTPUT",
+            "content": "As you touch the crystal, a faint hum resonates through your fingertips, filling you with a sense of knowledge and wisdom from ancient times."
+          },
+          {
+            "type": "SET",
+            "key": "L6_TouchedCrystal",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "touch crystal"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "L6_TouchedCrystal",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You touch the crystal again, but the hum does not grow stronger. The ancient wisdom has already been absorbed into your very soul."
+      }
+    }
+  ]
+}

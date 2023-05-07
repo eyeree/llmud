@@ -1,0 +1,138 @@
+{
+    "style": "Whimsical, imaginative, and enchanting writing style with detailed, descriptive, and vivid language.",
+    "playerStartLocation": "L1",
+    "locations": {
+        "L1": {
+            "name": "Entrance of Fairy Garden",
+            "overview": "A lush entrance with a shimmering fairy sign welcoming the player to the enchanted garden.",
+            "connections": [
+                [
+                    "East",
+                    "L2"
+                ]
+            ]
+        },
+        "L2": {
+            "name": "Sunflower Grove",
+            "overview": "A field of towering sunflowers gently swaying in the breeze with hidden paths.",
+            "connections": [
+                [
+                    "West",
+                    "L1"
+                ],
+                [
+                    "North",
+                    "L3"
+                ],
+                [
+                    "South",
+                    "L4"
+                ]
+            ]
+        },
+        "L3": {
+            "name": "Crystal Fountain",
+            "overview": "A majestic crystal fountain known for its rejuvenating properties.",
+            "connections": [
+                [
+                    "South",
+                    "L2"
+                ]
+            ]
+        },
+        "L4": {
+            "name": "Twilight Glade",
+            "overview": "A serene glade filled with bioluminescent plants, illuminating the shadows in a soft glow.",
+            "connections": [
+                [
+                    "North",
+                    "L2"
+                ],
+                [
+                    "East",
+                    "L5"
+                ]
+            ]
+        },
+        "L5": {
+            "name": "Whispering Woods",
+            "overview": "A forest with sentient, talking trees that share ancient riddles and legends.",
+            "connections": [
+                [
+                    "West",
+                    "L4"
+                ],
+                [
+                    "North",
+                    "L7"
+                ],
+                [
+                    "East",
+                    "L6"
+                ]
+            ]
+        },
+        "L6": {
+            "name": "Mystical Grotto",
+            "overview": "A concealed grotto humming with magical energy and hidden wisdom.",
+            "connections": [
+                [
+                    "West",
+                    "L5"
+                ]
+            ]
+        },
+        "L7": {
+            "name": "Celestial Observatory",
+            "overview": "A celestial observatory nestled high above the garden, granting views of the cosmos.",
+            "connections": [
+                [
+                    "South",
+                    "L5"
+                ]
+            ]
+        }
+    },
+    "characters": {
+        "C1": {
+            "name": "Lyra the Fairy Queen",
+            "overview": "A regal and wise ruler of the Fairy Garden who seeks to restore balance.",
+            "starting_location": "L6"
+        },
+        "C2": {
+            "name": "Bramble the Talking Tree",
+            "overview": "A cherry tree in the Whispering Woods who seeks to enlighten travelers with riddles.",
+            "starting_location": "L5"
+        }
+    },
+    "items": {
+        "I1": {
+            "name": "Enchanted Amulet",
+            "overview": "A dazzling amulet imbued with the power to reveal hidden paths.",
+            "starting_location": "L4"
+        },
+        "I2": {
+            "name": "Fountain Crystal",
+            "overview": "A rare crystal shard retrieved from the Crystal Fountain with regenerative abilities.",
+            "starting_location": "L3"
+        }
+    },
+    "quests": {
+        "Q1": {
+            "name": "Lyra's Quest for Balance",
+            "overview": "Lyra the Fairy Queen needs assistance to restore balance in the Fairy Garden.",
+            "quest_giver": "C1",
+            "items_involved": [
+                "I1"
+            ]
+        },
+        "Q2": {
+            "name": "Bramble's Riddle Challenge",
+            "overview": "Bramble the Talking Tree offers a challenge to solve his most mysterious riddles.",
+            "quest_giver": "C2",
+            "items_involved": [
+                "I2"
+            ]
+        }
+    }
+}

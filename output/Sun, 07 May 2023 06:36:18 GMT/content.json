@@ -1,0 +1,395 @@
+{
+  "style": "The game should use a descriptive and immersive writing style, with a futuristic sci-fi theme set on the moon. The atmosphere should feel mysterious and engaging, with common terminology that includes space and lunar exploration concepts.",
+  "playerStartLocation": "landing_zone",
+  "locations": {
+    "landing_zone": {
+      "name": "Landing Zone",
+      "overview": "The place where the lunar module landed.",
+      "connections": [
+        [
+          "East",
+          "lunar_habitat"
+        ],
+        [
+          "North",
+          "mysterious_crater"
+        ]
+      ],
+      "summary": "You are at the lunar module landing zone, with a strange crater to the north and the lunar habitat to the east.",
+      "detail": "As you step onto the lunar surface, fine dust shimmers in the dim light, disturbed by your arrival. The lunar module towers above you, its metallic skin reflecting the weak illumination provided by Earth's light. The serenity of the barren world envelopes you in a comforting quiet. You see a mysterious crater to the north, emanating an unsettling energy, while the lunar habitat sits to the east, a beacon of humanity in this desolate landscape.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine lunar module"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "The lunar module must have suffered a rough landing. Some of its surface appears scratched, but its structural integrity remains solid. The access ladder extends downward, inviting you to climb back into the vehicle."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "inspect dust"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "The fine, grey lunar dust feels powdery beneath your fingertips. This otherworldly substance, known as regolith, clings to the surface of your spacesuit. As much as mankind has explored these celestial bodies, the dust itself remains enigmatic and beautiful."
+          }
+        },
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "player_location"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "player_location",
+              "value": "landing_zone"
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "As you set foot on the otherworldly lunar landscape, your surroundings feel both hauntingly desolate and enthralled in wonder. The lunar module stands beside you, offering temporary respite, while the lunar habitat to the east offers solace for astronauts. To the north, the mysterious crater intrigues you, enticing you with its secrets."
+          }
+        }
+      ]
+    },
+    "lunar_habitat": {
+      "name": "Lunar Habitat",
+      "overview": "A temporary habitat for astronauts to live and conduct research.",
+      "connections": [
+        [
+          "West",
+          "landing_zone"
+        ],
+        [
+          "North",
+          "lunar_rover"
+        ],
+        [
+          "East",
+          "mysterious_crater"
+        ]
+      ],
+      "summary": "You are inside the lunar habitat, a small, cozy place filled with technology and life support systems.",
+      "detail": "You step into the lunar habitat, instantly feeling its warm, welcoming atmosphere. The dim, ambient light casts a soothing glow on the walls. Various machinery hums in the background, providing power and life support. A few plants grow in hydroponic containers, a sight of life amidst the sterile lunar surface. There are several areas partitioned off for work, relaxation, and sleeping. In one corner, you spot a monitor flashing with data, and on the opposite side, a small exercise area.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine monitor"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You approach the monitor and see a series of graphs and logs displaying various readings, such as internal temperature, oxygen levels, and equipment status. You notice a button labeled 'Light Control' underneath the display."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine plants"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "As you get closer to the plants, you can see the intricate hydroponic system supplying water and nutrients. The plants are a mix of recognizable Earth species and some unknown, distinctly alien plants. You wonder what scientific mysteries they hold."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "press light control"
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "lunar_habitat-LightOn",
+              "value": true
+            }
+          ],
+          "expression": {
+            "type": "COMPOUND",
+            "expressions": [
+              {
+                "type": "SET",
+                "key": "lunar_habitat-LightOn",
+                "value": false
+              },
+              {
+                "type": "OUTPUT",
+                "content": "You press the 'Light Control' button, and the ambient lighting dims even further, casting the habitat in an eerie darkness. You decide to press it again to restore the previous lighting level."
+              }
+            ]
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "press light control"
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "lunar_habitat-LightOn",
+              "value": false
+            }
+          ],
+          "expression": {
+            "type": "COMPOUND",
+            "expressions": [
+              {
+                "type": "SET",
+                "key": "lunar_habitat-LightOn",
+                "value": true
+              },
+              {
+                "type": "OUTPUT",
+                "content": "You press the 'Light Control' button, and the ambient lighting returns to its initial warm, soothing glow."
+              }
+            ]
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine exercise area"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "The exercise area is small but well-equipped with resistance bands, free weights, and a compact treadmill designed for the low gravity environment. Months on the moon can be physically taxing, so astronauts must maintain their fitness."
+          }
+        }
+      ]
+    },
+    "lunar_rover": {
+      "name": "Lunar Rover",
+      "overview": "A vehicle used to transport astronauts across the lunar surface.",
+      "connections": [
+        [
+          "South",
+          "lunar_habitat"
+        ]
+      ],
+      "summary": "You find yourself near the lunar rover, a vehicle used to transport astronauts across the lunar surface.",
+      "detail": "You approach the lunar rover, a large, robust vehicle designed for navigating the treacherous lunar terrain. Its thick, well-built tires seem built to endure and the rugged exterior is adorned with a reflective coating. The controls within are simple but efficient, revealing an intuitive design intended to be user-friendly for astronauts exploring the moon's surface.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine rover"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Upon closer inspection, you notice that the lunar rover is equipped with several compartments for storage, a small robotic arm for sample collection, and an array of cameras and sensors for data gathering. The solar panels on top power the vehicle effortlessly."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "look around"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "As you gaze around the rover, you see the vast expanse of the lunar terrain stretch out before you. The horizon appears as a curved line in the distance, a testament to the unique landscape of the moon. A sense of otherworldly adventure fills you, dwarfed only by the dark skies above."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "enter rover"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You step into the rover, sinking into its comfortable seats designed to compensate for the low gravity environment. Various switches, buttons, and levers demand your attention, offering various navigation and analysis functionalities. A navigation screen sits in the center, while the main control panel houses driving mechanisms."
+          }
+        },
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "player_location"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "player_location",
+              "value": "lunar_rover"
+            },
+            {
+              "test": "!=",
+              "key": "lunar_rover-visited",
+              "value": true
+            }
+          ],
+          "expression": {
+            "type": "COMPOUND",
+            "expressions": [
+              {
+                "type": "SET",
+                "key": "lunar_rover-visited",
+                "value": true
+              },
+              {
+                "type": "OUTPUT",
+                "content": "As this is your first time approaching the lunar rover, a feeling of excitement and curiosity washes over you. You can't wait to see what kind of discoveries await you on the lunar surface."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "mysterious_crater": {
+      "name": "Mysterious Crater",
+      "overview": "An unusual crater that seems to emit a strange light.",
+      "connections": [
+        [
+          "West",
+          "lunar_habitat"
+        ],
+        [
+          "South",
+          "landing_zone"
+        ]
+      ],
+      "summary": "A deep crater emitting a strange glowing light.",
+      "detail": "As you approach the mysterious crater, an eerie sensation takes hold of you. Your eyes are drawn towards the faint glow emanating from deep within the crater. Rays of light bounce off the lunar surface, painting a kaleidoscope of colors over the rugged crater walls. What secrets might lie within?",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine glow"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "As you peer closer at the glowing light, you notice the source appears to be a peculiar rock embedded within the crater wall. It pulsates gently, creating mesmerizing patterns in the darkness."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "touch rock"
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "mysterious_crater-TouchedBefore",
+              "value": false
+            }
+          ],
+          "expression": {
+            "type": "COMPOUND",
+            "expressions": [
+              {
+                "type": "SET",
+                "key": "mysterious_crater-TouchedBefore",
+                "value": true
+              },
+              {
+                "type": "OUTPUT",
+                "content": "You hesitantly reach out and touch the glowing rock. A tingling sensation courses through your fingertips, and you quickly retract your hand. Curiously, the glow seems to have intensified."
+              }
+            ]
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "touch rock"
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "mysterious_crater-TouchedBefore",
+              "value": true
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You touch the glowing rock once more, but the tingling sensation you felt before has diminished. It appears that nothing more will come of these attempts."
+          }
+        },
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "player_location"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "player_location",
+              "value": "mysterious_crater"
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "The lunar surface near the mysterious crater hums with a quiet energy, pulling you towards the soft light within. Undeniably, a sense of wonder is bubbling within you as you ponder what could possibly create such a bewitching glow."
+          }
+        }
+      ]
+    }
+  },
+  "characters": {
+    "astro_1": {
+      "name": "Astronaut Julia",
+      "overview": "Julia is an experienced astronaut and an engineer.",
+      "starting_location": "lunar_habitat"
+    },
+    "astro_2": {
+      "name": "Astronaut Alex",
+      "overview": "Alex is a rookie astronaut who specializes in geology.",
+      "starting_location": "landing_zone"
+    }
+  },
+  "items": {
+    "item1": {
+      "name": "Lunar rock",
+      "overview": "A rock with an unusual glowing property.",
+      "starting_location": "mysterious_crater"
+    },
+    "item2": {
+      "name": "Moon Buggy",
+      "overview": "A small vehicle to drive to and from lunar locations.",
+      "starting_location": "lunar_rover"
+    }
+  },
+  "quests": {
+    "quest1": {
+      "name": "Investigate the Mysterious Crater",
+      "overview": "Astronaut Alex needs your help to study the strange light emitting from the crater.",
+      "quest_giver": "astro_2",
+      "items_involved": [
+        "item1"
+      ]
+    },
+    "quest2": {
+      "name": "Repair the Moon Buggy",
+      "overview": "Astronaut Julia needs assistance in fixing the moon buggy to reach more distant locations on the moon.",
+      "quest_giver": "astro_1",
+      "items_involved": [
+        "item2"
+      ]
+    }
+  },
+  "state": {
+    "landing_zone-timesVisited": 0,
+    "lunar_habitat-LightOn": true,
+    "lunar_rover-visited": false,
+    "mysterious_crater-TouchedBefore": false
+  }
+}
