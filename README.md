@@ -30,8 +30,25 @@ npm run create [<directory>]
 After generating an adventure, you can play the adventure using the command:
 
 ```
-num run play <directory>
+npm run play <directory>
 ```
 
 You must provide the path to the directory containing the `content.json` file that defines the game content.
 
+## TODO
+
+(may not be in order)
+
+1. add support for characters, items, and quests.
+
+2. add support for character dialog trees. These can be implemented using the state machine, but it would get complicated. Better to ask the LLM to use an abstraction.
+
+3. simplify data formats - JSON Schema is verbose. I'm surprised that ChatGPT understands the Action semantics as well as it does. But the big problem is with token consumption. ALso, it seels like gpt-4 is way faster when generating simple text output than when generating complex JSON output.
+
+4. build a web interface. Let people generate new content and play through existing content via web site. May have to limit create access due to ChatGPT API costs...
+
+5. federate with ChatGPT or use the new plugin api, provide a way to generate adventures without using my API key
+
+6. pivot to usage as a MUD. Add multiple players to the game engine and allow interaction between players. (lots of work)
+
+7. use existing text MUD/adventure game engine?
