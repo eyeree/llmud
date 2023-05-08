@@ -1,7 +1,8 @@
 import { Session } from "./Session.js";
-import { z } from 'zod';
+import { z, ZodError } from 'zod';
 import { zodToJsonSchema } from "zod-to-json-schema";
 import { LocationId, Location, State } from "model.js";
+import { generateErrorMessage } from 'zod-error';
 
 const LocationDetail = Location.pick({
     summary: true,
@@ -120,10 +121,12 @@ export class LocationSession extends Session {
                 return details;
             } catch (e) {
                 this.log.error({err: e});
-                console.log("PARSE ERROR", e);
+                const msg = (e instanceof ZodError) 
+                    ? generateErrorMessage(e.issues)
+                    : e instanceof Error ? e.toString() : e;
                 if(loadAttempt > 0) {
                     console.log('requesting revision of location details')
-                    result = await this.revise(REVISE_LOCATION_DETAILS(e));
+                    result = await this.revise(REVISE_LOCATION_DETAILS(msg));
                 }
             }
         }
