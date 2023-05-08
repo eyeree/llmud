@@ -1,0 +1,61 @@
+{
+  "summary": "You've reached the shimmering Strawberry Gummy Lake.",
+  "detail": "You stand at the edge of an enchanting lake where the water has the lustrous hue of liquid strawberry gummy. The lake ripples and gleams under the sunlight, scenting the air with fruity zing. Scattered at the shore are vibrant candy pebbles, inspiring one to become an impromptu confectioner. To the North, you can see the chilling Breadstick Forest, while to the West lies the inviting Potato Salad Beach.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine candy pebbles"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "The candy pebbles come in a variety of dazzling colors and sizes, like a rainbow of saccharine rubble. They emit a blissful aroma that whisks you away to a world of jubilant confections."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "taste the lake"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "location4_tastedLake",
+          "value": false
+        }
+      ],
+      "expression": {
+        "type": "COMPOUND",
+        "expressions": [
+          {
+            "type": "OUTPUT",
+            "content": "The strawberry gummy lake is an absolute delight! It's a vibrant and sweet flavor, leaving you craving for more."
+          },
+          {
+            "type": "SET",
+            "key": "location4_tastedLake",
+            "value": true
+          }
+        ]
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "taste the lake"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "location4_tastedLake",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Your taste buds tingle with joy as you remember the delightful strawberry gummy lake. You can't help but take another sip!"
+      }
+    }
+  ]
+}

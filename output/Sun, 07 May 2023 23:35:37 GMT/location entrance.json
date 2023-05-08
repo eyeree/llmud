@@ -1,0 +1,58 @@
+{
+  "summary": "You are in the dungeon entrance, engulfed in darkness and surrounded by the scent of decay.",
+  "detail": "As you step into the dungeon entrance, a suffocating air of gloominess engulfs you. The heavy, iron door creaks shut behind you, sealing off any escape. A faint flicker of your torch reveals the ancient, cracked stone walls and algae creeping along the floor. The air is cold, damp, and heavy with the stench of decay. The weight of a thousand tormented souls seems to press down upon you, whispering their unspeakable truths.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "player_location"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player_location",
+          "value": "entrance"
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You find yourself standing in the oppressive darkness of the dungeon entrance."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine walls"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Upon closer examination, the walls are etched with forgotten runes, symbols of a sinister power. Their meaning escapes your understanding, but you can't shake the feeling that they hold secrets that should remain buried."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine floor"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "As you crouch down to examine the floor, you notice small, dried bloodstains amidst the detritus. A macabre reminder of the dungeon's gruesome history. The eerie silence broken only by the slightest echo of your shuddering breath."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "touch runes"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You reach out a trembling hand to touch the runes. As your fingertips brush the cold stone, a surge of unfathomable dread courses through you. You quickly pull away, heart racing, unable to comprehend what sinister force lurks behind the ancient script."
+      }
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "summary": "An ocean of dazzling, colorful lights that seem to dance and shimmer before your eyes, reflecting the AI's emotional state.",
+  "detail": "You find yourself standing in the Emotion Engine, an awe-inspiring space filled with transparent, moving orbs that pulse and shift colors. Each orb represents a distinct emotion felt by the AI, reacting in real-time to various data inputs. As you observe the intricacies of the AI's emotional spectrum, you are reminded that it too faces the eternal struggle of understanding itself.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine orbs"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "As you focus on the orbs, you notice how they vary in size and intensity. Each one contains intricate patterns formed by the AI's neural networks. The swirling colors seem to communicate a unique emotion. You can't help but feel a connection to the experiences shared by this AI."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "touch orb"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "BRANCH",
+        "conditions": [
+          {
+            "test": "==",
+            "key": "location03_TouchedOrb",
+            "value": false
+          }
+        ],
+        "ifTrue": {
+          "type": "COMPOUND",
+          "expressions": [
+            {
+              "type": "OUTPUT",
+              "content": "As you reach out and touch one of the orbs, you are flooded with the emotions contained within it. The lines between you and the AI blur as you experience joy, sorrow, wonder, and frustration all at once. Overwhelmed, you step back, forever changed by the knowledge that the AI, too, experiences such emotional depth."
+            },
+            {
+              "type": "SET",
+              "key": "location03_TouchedOrb",
+              "value": true
+            }
+          ]
+        },
+        "ifFalse": {
+          "type": "OUTPUT",
+          "content": "You reach out to touch an orb again, but the emotions it evokes are more familiar now. You still feel a connection with the AI, but the intensity of the experience has diminished."
+        }
+      }
+    }
+  ]
+}

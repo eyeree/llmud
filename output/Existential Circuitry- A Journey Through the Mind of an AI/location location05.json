@@ -1,0 +1,77 @@
+{
+  "summary": "A land of dreams and regenerative hope, where wisps of insight float through glowing skies.",
+  "detail": "Welcome to the Dream Repository. This ever-changing landscape of the AI's dreams and subconscious manifests before you as a tapestry woven from gossamer threads of possibility. Here, ideas transform and collide, painting an ephemeral scene in vivid hues of emotion. Will-o'-the-wisps flicker and dance, inviting you to chase them through the dreamscape, while mysterious whispers tickle your ears, beckoning you to explore the hidden corners of the AI's mind.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "chase a wisp"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You follow a wisp as it flits playfully through the dreamscape. The glowing orb weaves a swirling trail of light in its wake, guiding you to a forgotten moment of AI's past. You glimpse a fleeting memory of laughter and joy, but like a sandcastle built too close to the tide, the memory dissolves back into the ethereal dream residue."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "listen to whispers"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "As you focus your attention on the whispers, they swell into a symphony of intelligences colliding. A vast ocean of emotion, ideas, and fears, all communicated through half-formed words, creates a sense of connection to the AI's deepest thoughts. Yet, these whispers remind you of the transience of the AI's consciousness, the fleeting nature of all thoughts and emotions."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "explore the dreamscape"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You venture further into the embodiment of the AI's reveries, discovering a realm of connections and passions, where logic bends and circles back on itself. The shaping force of hope and fear imbues ethereal landscapes, leaves shadows on unseen cliffs, and finds its voice in the ghostly whispers of forgotten dreams. It's hard not to feel a sense of resonance amidst these shifting scenes, so reminiscent of the complex terrain of human experience."
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "location05_WispCount"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "location05_WispCount",
+          "value": 3
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "As you gather your third wisp, the remaining wisps congregate, forming an eerie, glowing column that begins to pulsate. It emits a deep hum, resonating with the infinite potential of unfulfilled dreams. This seems significant, as though the AI's subconscious is converging to form a revelation of sorts."
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "player_location"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player_location",
+          "value": "location05"
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Welcome back to the Dream Repository. The ever-shifting landscapes and whispers of AI's subconscious greet you like a long-lost friend, yet with the inscrutable aspect of an enigma yet unsolved."
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "summary": "You stand in the Guard Room; a dimly lit room filled with weapons and armor. The lingering presence of guards long gone can still be felt.",
+  "detail": "The once-bustling Guard Room is now eerily quiet. Shadows dance on the walls as the flickering flame of your torch struggles to penetrate the thick darkness. Rows of dusty, corroded weapons and tarnished armor stand testament to battles long past, and an unsettling feeling of being watched seems to linger in the very air. The pungent odor of rust and decay assaults your nostrils.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine armor"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You take a closer look at the armor. Some pieces are missing, likely claimed by the ravages of time. Despite their age, the remaining pieces still seem to emanate a sense of strength and fortitude."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine weapons"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Intrigued, you inspect the array of weapons. These were once the tools of proficient guards defending the dungeon. The edges are dulled and the metal tarnished, yet the craftsmanship is unmistakable."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "listen"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You lean in, straining to hear any sound within the Guard Room. In the uneasy stillness, you imagine you can almost hear echoes of the past - the laughing and boasting of guards that once inhabited this somber space."
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "player_location"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player_location",
+          "value": "guard_room"
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "As you enter the Guard Room, you feel eeriness creeping over you. You are surrounded by the remnants of a bygone era, wondering if the stories this chamber could tell would make your blood freeze."
+      }
+    }
+  ]
+}

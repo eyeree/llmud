@@ -1,0 +1,63 @@
+{
+  "summary": "You find yourself on the edge of a large paper plate piled high with food at Plate Mountain.",
+  "detail": "You have arrived at Plate Mountain, the summit of deliciousness where the world's most mouth-watering treats come to rest. The crisp aroma of roasted chicken mixes harmoniously with the sweet scent of chocolate chip cookies. Mountains of cheese and rivers of gravy stretch out before you on this enormous plate that defies imagination. You can hardly resist the temptation to dig in and indulge yourself.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "player_location"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player_location",
+          "value": "location1"
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You find yourself at the edge of a large paper plate piled high with food at Plate Mountain."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine food"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You examine the food in awe, noticing juicy slices of glazed ham, vibrant carrot sticks, and mountains of whipped cream atop tantalizing pies. Your mouth waters just looking at it all!"
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "take a bite"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "location1_hasEaten",
+          "value": false
+        }
+      ],
+      "expression": {
+        "type": "COMPOUND",
+        "expressions": [
+          {
+            "type": "OUTPUT",
+            "content": "You take a bite of the glorious feast before you. It's as delicious as you had imagined. But remember, you still have a whole adventure to embark upon!"
+          },
+          {
+            "type": "SET",
+            "key": "location1_hasEaten",
+            "value": true
+          }
+        ]
+      }
+    }
+  ]
+}

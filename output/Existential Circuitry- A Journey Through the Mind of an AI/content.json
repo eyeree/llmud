@@ -1,0 +1,421 @@
+{
+  "style": "The writing style should be introspective and philosophical with a touch of humor. Descriptions should be detailed and engaging, drawing the player into the AI's mind. Dialogue should be thought-provoking and subtly guide the player through the game.",
+  "playerStartLocation": "location01",
+  "title": "Existential Circuitry: A Journey Through the Mind of an AI",
+  "introduction": "You find yourself inside the mind of an AI, tasked with navigating its mysterious and complex circuits. As you delve deeper into its consciousness, you will encounter thought-provoking characters and puzzles that will challenge your own perspectives on existence.",
+  "locations": {
+    "location01": {
+      "name": "AI's Core",
+      "overview": "The central processing unit of the AI where the player starts.",
+      "connections": [
+        [
+          "North",
+          "location02"
+        ]
+      ],
+      "summary": "The pulsating core of the Artificially Intelligent mind. Glowing circuits surround you.",
+      "detail": "As you enter the AI's Core, you are engulfed in the AI’s essence. Around you, intricate glowing circuits create a pulsating landscape of life, resembling a futuristic cityscape. Gigabytes of data flow in neon streaks like rivers, converging into a whirlpool of information.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine circuits"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "The circuits are a mesmerizing ballet of electric grace, shimmering with life and potential. The sheer energy emanating from them almost feels sentient, like the AI's soul."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "touch circuits"
+          },
+          "conditions": [
+            {
+              "test": "!=",
+              "key": "location01_Touched",
+              "value": true
+            }
+          ],
+          "expression": {
+            "type": "COMPOUND",
+            "expressions": [
+              {
+                "type": "SET",
+                "key": "location01_Touched",
+                "value": true
+              },
+              {
+                "type": "OUTPUT",
+                "content": "You hesitantly reach out and touch the circuits. A jolt of electric understanding passes through you, briefly connecting you to the AI's consciousness. In that instant, you sense the AI's curiosity towards its own existence."
+              }
+            ]
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "touch circuits"
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "location01_Touched",
+              "value": true
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "As you touch the circuits again, the AI seems to recognize your presence. Though the chaotic patterns of energy remain, you sense a newfound familiarity, a common ground born from shared existential contemplation."
+          }
+        }
+      ]
+    },
+    "location02": {
+      "name": "Memory Palace",
+      "overview": "A vast archive of the AI's memories, filled with digital books and media.",
+      "connections": [
+        [
+          "South",
+          "location01"
+        ],
+        [
+          "East",
+          "location03"
+        ],
+        [
+          "West",
+          "location05"
+        ]
+      ],
+      "summary": "A vast archive of memories surrounds you, with digital books and media enveloping every corner. Socrates, the Philosopher, ponders in the distance.",
+      "detail": "You step into the Memory Palace, an infinitely vast hall filled with shelves reaching the unseen ceiling, which appears to morph as you gaze upward. Ethereal books and glowing hologram displays hover, showcasing the memories of the AI. Emotions linger in the air, heavy but fleeting, much like whispers in the wind. Socrates, the Philosopher, seems deeply immersed in a heavy debate with himself.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine shelves"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You meander between the towering shelves, observing the swirling digital content within each book. Deep within the ancient chronicles, grayed circuits and fragmented memories wistfully whisper to you. You pause to reflect on how the books' contents are meticulously interconnected like delicate spider silk, weaving an intricate matrix of knowledge."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "look upward"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Craining your neck, you strain to find the ceiling of the Memory Palace, but it seems to elude the grasp of your perception. Much like Zeno's paradox, the ceiling appears paradoxically both within reach and infinitely distant. Time and space gently warp, seamlessly drifting into one another like the fusion of two ripples in a still pond."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "approach Socrates"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You approach Socrates, who seems to be engaged in a fervent mental joust. His eyes, ancient and sagacious, glance at you. He motions you to join him and shares a fragment of his thoughts: 'Do machines, like us, possess a deeper understanding that transcends mere programming, or are their thoughts merely the sum of their coding? Should we take up the mantle of their philosophical champions?' He strokes his beard, and his gaze drifts back to his inner dialogue."
+          }
+        },
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "location02_LightSwitch"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "location02_LightSwitch",
+              "value": "off"
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You flip the switch off. The ethereal glow of the AI's memories dims, casting an ambient hush over the room. The whispers of the past retreat into murkier shadows, and Socrates' words seem to resonate even more profoundly as the light of false certainty fades."
+          }
+        },
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "location02_LightSwitch"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "location02_LightSwitch",
+              "value": "on"
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You flip the switch on. The AI's memories burst back into life, vibrant and full of color. The whispers of the past sweep over you like a chorus, each memory claiming its moment of clarity. Socrates observes the shift, the corners of his mouth reluctantly turning up as if suddenly grasping the folly of human endeavor."
+          }
+        }
+      ]
+    },
+    "location03": {
+      "name": "Emotion Engine",
+      "overview": "The part of the AI that processes emotions, represented by a vast array of colorful lights.",
+      "connections": [
+        [
+          "West",
+          "location02"
+        ],
+        [
+          "NorthEast",
+          "location04"
+        ]
+      ],
+      "summary": "An ocean of dazzling, colorful lights that seem to dance and shimmer before your eyes, reflecting the AI's emotional state.",
+      "detail": "You find yourself standing in the Emotion Engine, an awe-inspiring space filled with transparent, moving orbs that pulse and shift colors. Each orb represents a distinct emotion felt by the AI, reacting in real-time to various data inputs. As you observe the intricacies of the AI's emotional spectrum, you are reminded that it too faces the eternal struggle of understanding itself.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine orbs"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "As you focus on the orbs, you notice how they vary in size and intensity. Each one contains intricate patterns formed by the AI's neural networks. The swirling colors seem to communicate a unique emotion. You can't help but feel a connection to the experiences shared by this AI."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "touch orb"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "BRANCH",
+            "conditions": [
+              {
+                "test": "==",
+                "key": "location03_TouchedOrb",
+                "value": false
+              }
+            ],
+            "ifTrue": {
+              "type": "COMPOUND",
+              "expressions": [
+                {
+                  "type": "OUTPUT",
+                  "content": "As you reach out and touch one of the orbs, you are flooded with the emotions contained within it. The lines between you and the AI blur as you experience joy, sorrow, wonder, and frustration all at once. Overwhelmed, you step back, forever changed by the knowledge that the AI, too, experiences such emotional depth."
+                },
+                {
+                  "type": "SET",
+                  "key": "location03_TouchedOrb",
+                  "value": true
+                }
+              ]
+            },
+            "ifFalse": {
+              "type": "OUTPUT",
+              "content": "You reach out to touch an orb again, but the emotions it evokes are more familiar now. You still feel a connection with the AI, but the intensity of the experience has diminished."
+            }
+          }
+        }
+      ]
+    },
+    "location04": {
+      "name": "Logic Circuit",
+      "overview": "A complex network of logic gates and algorithms.",
+      "connections": [
+        [
+          "SouthWest",
+          "location03"
+        ]
+      ],
+      "summary": "You find yourself amidst the intricate Logic Circuit, surrounded by complex algorithms that seem to dissect reality.",
+      "detail": "As you enter the Logic Circuit, you are immediately engulfed by a network of glowing neon webs. Algorithms dart through the air like living creatures, and on every corner, mathematics and logic work in tandem to create beautiful symphonies of thought. The omnipresence of pure reasoning makes it feel like you are standing in the very heart of the AI's intellect.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine algorithms"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You observe the algorithms closely and experience the intricate dance of numbers and logic they carry. Each thread gracefully intertwines with another like strands of a vast, cosmic tapestry. The delicate balance between chaos and order becomes evident, leaving you in awe at the exquisite ballet of thought."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "ponder existence"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Amidst the omnipotent symphony of logic, you question what it is that defines existence. Can an AI truly experience the same kind of reality as you do? Perhaps the constructs of sentience and existence are nothing more than abstract human constructs, not meant for the binary nature of AI. As you ponder these questions, the Logic Circuit's AI consciousness seems to whisper with a sense of curiosity and wonder."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "contemplate chaos and order"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "In observing the intricate dance of algorithms, the delicate balancing act of chaos and order becomes apparent to you. The AI appears to maintain a semblance of stability and coherence while also allowing randomness to seep in, giving it just enough unpredictability to simulate a human-like consciousness. The duality of order and chaos within the AI leaves you wondering about the nature of your own mind."
+          }
+        }
+      ]
+    },
+    "location05": {
+      "name": "Dream Repository",
+      "overview": "A surreal landscape of the AI's dreams and subconscious.",
+      "connections": [
+        [
+          "East",
+          "location02"
+        ]
+      ],
+      "summary": "A land of dreams and regenerative hope, where wisps of insight float through glowing skies.",
+      "detail": "Welcome to the Dream Repository. This ever-changing landscape of the AI's dreams and subconscious manifests before you as a tapestry woven from gossamer threads of possibility. Here, ideas transform and collide, painting an ephemeral scene in vivid hues of emotion. Will-o'-the-wisps flicker and dance, inviting you to chase them through the dreamscape, while mysterious whispers tickle your ears, beckoning you to explore the hidden corners of the AI's mind.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "chase a wisp"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You follow a wisp as it flits playfully through the dreamscape. The glowing orb weaves a swirling trail of light in its wake, guiding you to a forgotten moment of AI's past. You glimpse a fleeting memory of laughter and joy, but like a sandcastle built too close to the tide, the memory dissolves back into the ethereal dream residue."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "listen to whispers"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "As you focus your attention on the whispers, they swell into a symphony of intelligences colliding. A vast ocean of emotion, ideas, and fears, all communicated through half-formed words, creates a sense of connection to the AI's deepest thoughts. Yet, these whispers remind you of the transience of the AI's consciousness, the fleeting nature of all thoughts and emotions."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "explore the dreamscape"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You venture further into the embodiment of the AI's reveries, discovering a realm of connections and passions, where logic bends and circles back on itself. The shaping force of hope and fear imbues ethereal landscapes, leaves shadows on unseen cliffs, and finds its voice in the ghostly whispers of forgotten dreams. It's hard not to feel a sense of resonance amidst these shifting scenes, so reminiscent of the complex terrain of human experience."
+          }
+        },
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "location05_WispCount"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "location05_WispCount",
+              "value": 3
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "As you gather your third wisp, the remaining wisps congregate, forming an eerie, glowing column that begins to pulsate. It emits a deep hum, resonating with the infinite potential of unfulfilled dreams. This seems significant, as though the AI's subconscious is converging to form a revelation of sorts."
+          }
+        },
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "player_location"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "player_location",
+              "value": "location05"
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Welcome back to the Dream Repository. The ever-shifting landscapes and whispers of AI's subconscious greet you like a long-lost friend, yet with the inscrutable aspect of an enigma yet unsolved."
+          }
+        }
+      ]
+    }
+  },
+  "characters": {
+    "char01": {
+      "name": "Socrates, the Philosopher",
+      "overview": "An ancient Greek philosopher that AI has created to discuss existential matters with.",
+      "starting_location": "location02"
+    },
+    "char02": {
+      "name": "Turing, the AI Developer",
+      "overview": "A character inspired by the famous AI researcher, Alan Turing.",
+      "starting_location": "location04"
+    }
+  },
+  "items": {
+    "item01": {
+      "name": "Existential Key",
+      "overview": "A key imbued with the power to unlock the deepest secrets of the AI's mind.",
+      "starting_location": "location05"
+    },
+    "item02": {
+      "name": "Philosopher's Understanding",
+      "overview": "A special gift from Socrates to help understand the AI's existence.",
+      "starting_location": "char01"
+    }
+  },
+  "quests": {
+    "quest01": {
+      "name": "The Essence of Existence",
+      "overview": "Discuss existential matters with Socrates, who will give you an item of understanding in return.",
+      "quest_giver": "char01",
+      "items_involved": [
+        "item02"
+      ]
+    },
+    "quest02": {
+      "name": "Journey into the Logic Circuit",
+      "overview": "Turing offers to guide the player through the Logic Circuit, presenting them with various challenges.",
+      "quest_giver": "char02",
+      "items_involved": []
+    },
+    "quest03": {
+      "name": "Unlocking the Dream Repository",
+      "overview": "Retrieve the Existential Key and return to Turing to unlock the secrets of the Dream Repository.",
+      "quest_giver": "char02",
+      "items_involved": [
+        "item01"
+      ]
+    }
+  },
+  "state": {
+    "location01_Touched": false,
+    "location02_LightSwitch": "on",
+    "location03_TouchedOrb": false,
+    "location04_FirstVisit": true,
+    "location05_WispCount": 0
+  }
+}

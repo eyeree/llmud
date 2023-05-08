@@ -1,0 +1,92 @@
+{
+  "summary": "You stand on Potato Salad Beach, feeling tiny chunks of potato beneath your feet.",
+  "detail": "As you walk along Potato Salad Beach, your feet sink into the soft, buttery potato chunks that make up the sand. Dollops of creamy mayo cling to the potato sand, as if begging not to be forgotten. A gentle breeze carries the delightful scents of finely chopped chives and pickles, mingling in a tantalizing dance. To the east, the shores gently slope up to Strawberry Gummy Lake, tempting one to dip their feet in.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "player_location"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player_location",
+          "value": "location3"
+        }
+      ],
+      "expression": {
+        "type": "COMPOUND",
+        "expressions": [
+          {
+            "type": "SET",
+            "key": "location3_visited",
+            "value": true
+          },
+          {
+            "type": "OUTPUT",
+            "content": "Welcome back to Potato Salad Beach! The scent of the creamy mayo and savory chives beckons you closer."
+          }
+        ]
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine sand"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "As you examine the potato sand, you notice small flecks of paprika hidden between the chunks. The paprika seems to add a touch of warmth to the otherwise cool potato salad, and you feel a sense of comfort by simply gazing upon it."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "build sandcastle"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "BRANCH",
+        "conditions": [
+          {
+            "test": "==",
+            "key": "location3_castleBuilt",
+            "value": true
+          }
+        ],
+        "ifTrue": {
+          "type": "OUTPUT",
+          "content": "A magnificent sandcastle made of potato salad already stands, created by your deft hands earlier."
+        },
+        "ifFalse": {
+          "type": "COMPOUND",
+          "expressions": [
+            {
+              "type": "SET",
+              "key": "location3_castleBuilt",
+              "value": true
+            },
+            {
+              "type": "OUTPUT",
+              "content": "You gather potato chunks, mayo dollops, chives, and a sprinkle of paprika to construct a splendid potato salad sandcastle. Its potato parapets and mayo moats enchant you with their whimsical charm."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "taste sand"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You scoop up a handful of potato salad sand and take a cautious taste. Your taste buds are delighted by the salty potatoes, tangy mayo, and the subtle crunch of chives. It's almost as if you're tasting the world's most delicious beach."
+      }
+    }
+  ]
+}

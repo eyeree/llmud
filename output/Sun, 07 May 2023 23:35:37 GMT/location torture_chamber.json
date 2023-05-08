@@ -1,0 +1,59 @@
+{
+  "summary": "You stand in a gruesome torture chamber, surrounded by unsettling remnants of cruelty.",
+  "detail": "As you carefully step into the torture chamber, a shiver runs down your spine. The dim light barely reveals the chilling scene before you. The walls are adorned with sharp, rusty implements of torture, and dried bloodstains paint a morbid picture of the suffering that took place here. The room reeks of fear and despair, permeating your senses.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine bloodstains"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Upon closer inspection of the bloodstains, you notice a mix of old and new stains. It's evident that this chamber has seen countless victims and endless torment."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine instruments"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Your heart pounds as you study the horrifying instruments of agony. Rusty iron maiden, a spiked rack, and cruel bone crushers tell the sadistic tale of this chamber's history."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "touch instruments"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "The moment your fingers touch the cold, rusty surface of the instruments, a wave of dread washes over you. You hastily withdraw your hand, vowing never to touch them again."
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "player_location"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player_location",
+          "value": "torture_chamber"
+        }
+      ],
+      "expression": {
+        "type": "SET",
+        "key": "torture_chamber_visited",
+        "value": true
+      }
+    }
+  ]
+}

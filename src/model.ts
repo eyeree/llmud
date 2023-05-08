@@ -309,6 +309,12 @@ export const Quest = z.object({
 export type Quest = z.infer<typeof Quest>;
 
 export const Content = z.object({
+  title: z.string().describe(
+    "title of the game"
+  ),
+  introduction: z.string().describe(
+    "shown to the player at the start of the game, sets the stage for the game"
+  ),
   locations: z.record(LocationId, Location).describe(
     "the game's locations, indexed by location id"
   ),

@@ -1,0 +1,71 @@
+{
+  "summary": "The Ancient Tomb - a powerful vampire's ancestral resting place, sealed and shrouded with dark energy.",
+  "detail": "You stand before a massive stone door, ornate and foreboding. It seems like it has been untouched for centuries. As you step inside, the cold air surrounding you is thick with centuries-old energy. The Ancient Tomb lies before you, draped in dark shadows. In the center, an impressive sarcophagus sits in silent repose atop a raised platform, adorned with unsettling motifs. The walls are decorated with intricate carvings that depict vampire ancestry, power, and conquest.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine sarcophagus"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Upon closer examination, you notice the sarcophagus is intricately carved with detailed depictions of a fierce vampire warrior, his eyes seemingly locked into your very soul. The lid is sealed tightly, warding off any tampering. It's unclear what lies inside, but the air seems to hum with ancient energy."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "study carvings"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "As you study the intricate carvings and inscriptions that adorn the tomb walls, you begin to gain an understanding of the vampire's deadly legacy. The depictions of their reigns strike fear deep into your core, and their powerful dominion over men and creatures alike is awe-inspiring. The carvings grow progressively darker, revealing the true sinister nature of their bloodline."
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "player_location"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player_location",
+          "value": "ancient_tomb"
+        }
+      ],
+      "expression": {
+        "type": "BRANCH",
+        "conditions": [
+          {
+            "test": "==",
+            "key": "ancient_tomb_FirstVisit",
+            "value": true
+          }
+        ],
+        "ifTrue": {
+          "type": "COMPOUND",
+          "expressions": [
+            {
+              "type": "OUTPUT",
+              "content": "As you enter the Ancient Tomb for the first time, the chilling atmosphere sends shivers down your spine. You cannot help but feel the darkness weighing heavy on your soul."
+            },
+            {
+              "type": "SET",
+              "key": "ancient_tomb_FirstVisit",
+              "value": false
+            }
+          ]
+        },
+        "ifFalse": {
+          "type": "OUTPUT",
+          "content": "You find yourself back in the Ancient Tomb, met with the same eerie atmosphere as before. The ancient sarcophagus remains undisturbed, and the chilling air still breathes secrets."
+        }
+      }
+    }
+  ]
+}

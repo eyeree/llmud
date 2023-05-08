@@ -1,0 +1,160 @@
+{
+    "style": "whimsical and humorous, richly descriptive, strong imagery of food",
+    "playerStartLocation": "location1",
+    "locations": {
+        "location1": {
+            "name": "Plate Mountain",
+            "overview": "The starting point for the player at the edge of a large paper plate piled with food",
+            "connections": [
+                [
+                    "East",
+                    "location2"
+                ],
+                [
+                    "South",
+                    "location3"
+                ]
+            ]
+        },
+        "location2": {
+            "name": "Breadstick Forest",
+            "overview": "A dense forest made up of crispy breadsticks",
+            "connections": [
+                [
+                    "West",
+                    "location1"
+                ],
+                [
+                    "South",
+                    "location4"
+                ]
+            ]
+        },
+        "location3": {
+            "name": "Potato Salad Beach",
+            "overview": "A sandy beach of potato salad spread out before a lake",
+            "connections": [
+                [
+                    "North",
+                    "location1"
+                ],
+                [
+                    "East",
+                    "location4"
+                ]
+            ]
+        },
+        "location4": {
+            "name": "Strawberry Gummy Lake",
+            "overview": "A sparkling lake made of liquid strawberry gummy",
+            "connections": [
+                [
+                    "North",
+                    "location2"
+                ],
+                [
+                    "West",
+                    "location3"
+                ],
+                [
+                    "South",
+                    "location5"
+                ],
+                [
+                    "East",
+                    "location6"
+                ]
+            ]
+        },
+        "location5": {
+            "name": "Cookie Log Bridge",
+            "overview": "A bridge made out of cookie logs and frosting",
+            "connections": [
+                [
+                    "North",
+                    "location4"
+                ],
+                [
+                    "South",
+                    "location7"
+                ]
+            ]
+        },
+        "location6": {
+            "name": "The Cheese Curl Caves",
+            "overview": "A network of mysterious caves formed by cheese curls",
+            "connections": [
+                [
+                    "West",
+                    "location4"
+                ],
+                [
+                    "South",
+                    "location8"
+                ]
+            ]
+        },
+        "location7": {
+            "name": "Fruit Pebble Canyon",
+            "overview": "A colorful canyon filled with fruit pebble rocks",
+            "connections": [
+                [
+                    "North",
+                    "location5"
+                ]
+            ]
+        },
+        "location8": {
+            "name": "Soda Bottle Valley",
+            "overview": "A narrow valley guarded by giant soda bottles",
+            "connections": [
+                [
+                    "North",
+                    "location6"
+                ]
+            ]
+        }
+    },
+    "characters": {
+        "character1": {
+            "name": "Larry the Ladybug",
+            "overview": "A friendly ladybug with a passion for adventure",
+            "starting_location": "location2"
+        },
+        "character2": {
+            "name": "Polly the Ant Queen",
+            "overview": "The wise and knowledgeable queen of ants",
+            "starting_location": "location8"
+        }
+    },
+    "items": {
+        "item1": {
+            "name": "Mighty Mustard Seeds",
+            "overview": "A handful of powerful mustard seeds that can boost your strength",
+            "starting_location": "location4"
+        },
+        "item2": {
+            "name": "Gumball Helmet",
+            "overview": "A gumball helmet that offers protection from food-based adversaries",
+            "starting_location": "location6"
+        }
+    },
+    "quests": {
+        "quest1": {
+            "name": "Mustard Seeds for Larry",
+            "overview": "Find the Mighty Mustard Seeds and give them to Larry the Ladybug",
+            "quest_giver": "character1",
+            "items_involved": [
+                "item1"
+            ]
+        },
+        "quest2": {
+            "name": "Save the Ant Kingdom",
+            "overview": "Find the Gumball Helmet and use it to help Polly the Ant Queen in her struggle against the Marauding Fruit Flies",
+            "quest_giver": "character2",
+            "items_involved": [
+                "item2"
+            ]
+        }
+    }
+}

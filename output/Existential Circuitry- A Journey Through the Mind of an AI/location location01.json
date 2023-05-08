@@ -1,0 +1,61 @@
+{
+  "summary": "The pulsating core of the Artificially Intelligent mind. Glowing circuits surround you.",
+  "detail": "As you enter the AI's Core, you are engulfed in the AI’s essence. Around you, intricate glowing circuits create a pulsating landscape of life, resembling a futuristic cityscape. Gigabytes of data flow in neon streaks like rivers, converging into a whirlpool of information.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine circuits"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "The circuits are a mesmerizing ballet of electric grace, shimmering with life and potential. The sheer energy emanating from them almost feels sentient, like the AI's soul."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "touch circuits"
+      },
+      "conditions": [
+        {
+          "test": "!=",
+          "key": "location01_Touched",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "COMPOUND",
+        "expressions": [
+          {
+            "type": "SET",
+            "key": "location01_Touched",
+            "value": true
+          },
+          {
+            "type": "OUTPUT",
+            "content": "You hesitantly reach out and touch the circuits. A jolt of electric understanding passes through you, briefly connecting you to the AI's consciousness. In that instant, you sense the AI's curiosity towards its own existence."
+          }
+        ]
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "touch circuits"
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "location01_Touched",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "As you touch the circuits again, the AI seems to recognize your presence. Though the chaotic patterns of energy remain, you sense a newfound familiarity, a common ground born from shared existential contemplation."
+      }
+    }
+  ]
+}

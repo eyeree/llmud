@@ -1,0 +1,77 @@
+{
+  "summary": "A vast archive of memories surrounds you, with digital books and media enveloping every corner. Socrates, the Philosopher, ponders in the distance.",
+  "detail": "You step into the Memory Palace, an infinitely vast hall filled with shelves reaching the unseen ceiling, which appears to morph as you gaze upward. Ethereal books and glowing hologram displays hover, showcasing the memories of the AI. Emotions linger in the air, heavy but fleeting, much like whispers in the wind. Socrates, the Philosopher, seems deeply immersed in a heavy debate with himself.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine shelves"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You meander between the towering shelves, observing the swirling digital content within each book. Deep within the ancient chronicles, grayed circuits and fragmented memories wistfully whisper to you. You pause to reflect on how the books' contents are meticulously interconnected like delicate spider silk, weaving an intricate matrix of knowledge."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "look upward"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Craining your neck, you strain to find the ceiling of the Memory Palace, but it seems to elude the grasp of your perception. Much like Zeno's paradox, the ceiling appears paradoxically both within reach and infinitely distant. Time and space gently warp, seamlessly drifting into one another like the fusion of two ripples in a still pond."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "approach Socrates"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You approach Socrates, who seems to be engaged in a fervent mental joust. His eyes, ancient and sagacious, glance at you. He motions you to join him and shares a fragment of his thoughts: 'Do machines, like us, possess a deeper understanding that transcends mere programming, or are their thoughts merely the sum of their coding? Should we take up the mantle of their philosophical champions?' He strokes his beard, and his gaze drifts back to his inner dialogue."
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "location02_LightSwitch"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "location02_LightSwitch",
+          "value": "off"
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You flip the switch off. The ethereal glow of the AI's memories dims, casting an ambient hush over the room. The whispers of the past retreat into murkier shadows, and Socrates' words seem to resonate even more profoundly as the light of false certainty fades."
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "location02_LightSwitch"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "location02_LightSwitch",
+          "value": "on"
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You flip the switch on. The AI's memories burst back into life, vibrant and full of color. The whispers of the past sweep over you like a chorus, each memory claiming its moment of clarity. Socrates observes the shift, the corners of his mouth reluctantly turning up as if suddenly grasping the folly of human endeavor."
+      }
+    }
+  ]
+}

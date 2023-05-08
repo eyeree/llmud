@@ -58,8 +58,9 @@ export class LocationSession extends Session {
 
     private async getLocationDetails(outlineJSON:string, locationId:LocationId) {
 
-        this.trace = true;
+        // this.trace = true;
 
+        console.log(`creating details for location ${locationId}`);
         const result = await this.send(CREATE_LOCATION_DETAILS(outlineJSON, locationId))
 
         const details = await this.loadDetails(result);
@@ -118,8 +119,10 @@ export class LocationSession extends Session {
                 // }
                 return details;
             } catch (e) {
+                this.log.error({err: e});
                 console.log("PARSE ERROR", e);
                 if(loadAttempt > 0) {
+                    console.log('requesting revision of location details')
                     result = await this.revise(REVISE_LOCATION_DETAILS(e));
                 }
             }

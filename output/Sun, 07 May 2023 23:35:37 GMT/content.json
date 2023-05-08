@@ -1,0 +1,773 @@
+{
+  "style": "Gothic horror with an emphasis on descriptive, atmospheric writing that evokes a sense of dread and unease. Use clear and concise sentences and include appropriate sensory details to fully immerse the player in the eerie environment.",
+  "playerStartLocation": "entrance",
+  "locations": {
+    "entrance": {
+      "name": "Dungeon Entrance",
+      "overview": "The gloomy entrance to the dungeon, filled with foreboding darkness and the scent of decay.",
+      "connections": [
+        [
+          "South",
+          "torture_chamber"
+        ]
+      ],
+      "summary": "You are in the dungeon entrance, engulfed in darkness and surrounded by the scent of decay.",
+      "detail": "As you step into the dungeon entrance, a suffocating air of gloominess engulfs you. The heavy, iron door creaks shut behind you, sealing off any escape. A faint flicker of your torch reveals the ancient, cracked stone walls and algae creeping along the floor. The air is cold, damp, and heavy with the stench of decay. The weight of a thousand tormented souls seems to press down upon you, whispering their unspeakable truths.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "player_location"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "player_location",
+              "value": "entrance"
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You find yourself standing in the oppressive darkness of the dungeon entrance."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine walls"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Upon closer examination, the walls are etched with forgotten runes, symbols of a sinister power. Their meaning escapes your understanding, but you can't shake the feeling that they hold secrets that should remain buried."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine floor"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "As you crouch down to examine the floor, you notice small, dried bloodstains amidst the detritus. A macabre reminder of the dungeon's gruesome history. The eerie silence broken only by the slightest echo of your shuddering breath."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "touch runes"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You reach out a trembling hand to touch the runes. As your fingertips brush the cold stone, a surge of unfathomable dread courses through you. You quickly pull away, heart racing, unable to comprehend what sinister force lurks behind the ancient script."
+          }
+        }
+      ]
+    },
+    "torture_chamber": {
+      "name": "Torture Chamber",
+      "overview": "A gruesome room filled with torture devices and bloodstains, telling tales of unspeakable suffering.",
+      "connections": [
+        [
+          "North",
+          "entrance"
+        ],
+        [
+          "East",
+          "prison_cells"
+        ],
+        [
+          "South",
+          "crypt"
+        ]
+      ],
+      "summary": "You stand in a gruesome torture chamber, surrounded by unsettling remnants of cruelty.",
+      "detail": "As you carefully step into the torture chamber, a shiver runs down your spine. The dim light barely reveals the chilling scene before you. The walls are adorned with sharp, rusty implements of torture, and dried bloodstains paint a morbid picture of the suffering that took place here. The room reeks of fear and despair, permeating your senses.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine bloodstains"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Upon closer inspection of the bloodstains, you notice a mix of old and new stains. It's evident that this chamber has seen countless victims and endless torment."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine instruments"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Your heart pounds as you study the horrifying instruments of agony. Rusty iron maiden, a spiked rack, and cruel bone crushers tell the sadistic tale of this chamber's history."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "touch instruments"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "The moment your fingers touch the cold, rusty surface of the instruments, a wave of dread washes over you. You hastily withdraw your hand, vowing never to touch them again."
+          }
+        },
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "player_location"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "player_location",
+              "value": "torture_chamber"
+            }
+          ],
+          "expression": {
+            "type": "SET",
+            "key": "torture_chamber_visited",
+            "value": true
+          }
+        }
+      ]
+    },
+    "prison_cells": {
+      "name": "Prison Cells",
+      "overview": "A row of cold, dank prison cells where prisoners wait in darkness for their fates. Echoes of their desperate whispers haunt the air.",
+      "connections": [
+        [
+          "West",
+          "torture_chamber"
+        ],
+        [
+          "South",
+          "guard_room"
+        ]
+      ],
+      "summary": "Cold, dank prison cells filled with echoes of desperate whispers.",
+      "detail": "As you enter the prison cells, a chill envelops you, and the air grows heavier. The faint light flickers, casting unsettling shadows on the cold, damp walls. The cells stretch out before you, bars barely visible in the darkness. Tortured faces of the long forgotten peer from within, their lost souls crying out for mercy.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine cells"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You approach the cells and peer into each one. Skeletons are slumped inside, their brittle bones entwined in rusted chains. The cruel and inhumane conditions in which they were kept are palpable, their pain now etched into the walls of their cells."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "listen to whispers"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You focus your hearing on the whispers that haunt the prison cells. You can discern faint words, fragments of prayers and curses, blending together in a symphony of despair. Their voices are a reminder of the misery that took place within these walls."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "touch walls"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You gingerly touch the cold, damp walls of the prison cells, feeling the jagged stone beneath your fingertips. The walls, soaked in the suffering of countless prisoners, seem to groan under your touch. You quickly withdraw your hand, disturbed by the sensation."
+          }
+        },
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "player_location"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "player_location",
+              "value": "prison_cells"
+            }
+          ],
+          "expression": {
+            "type": "SET",
+            "key": "prison_cells_FirstVisit",
+            "value": true
+          }
+        }
+      ]
+    },
+    "crypt": {
+      "name": "Crypt",
+      "overview": "A cold, eerie crypt filled with coffins and the scent of death. The air is thick with a sense of dread and unease.",
+      "connections": [
+        [
+          "North",
+          "torture_chamber"
+        ],
+        [
+          "West",
+          "secret_passage"
+        ],
+        [
+          "Down",
+          "ancient_tomb"
+        ],
+        [
+          "South",
+          "burial_chamber"
+        ]
+      ],
+      "summary": "A cold, eerie crypt with a thick atmosphere of dread.",
+      "detail": "The crypt is a chilling and unnerving space, with stone coffins lining the damp, crumbling walls. Shadows flicker and dance on the walls, and the air smells of decay and death. The slightest sound echoes throughout the room, amplifying a sense of unease. The crypt's entrance is framed by intricate, sinister stone carvings, hinting at dark rituals practiced within these walls long ago.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine carvings"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Upon closer inspection, the carvings depict grotesque, otherworldly creatures performing rituals around a sarcophagus. The unsettling nature of the carvings sends a shiver down your spine."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "inspect coffins"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "The stone coffins are covered in a thick layer of dust, undisturbed for centuries. Each coffin bears the worn crest of a powerful vampire family, a solemn reminder of the lineage buried here in eternal slumber."
+          }
+        },
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "crypt_Echo"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "crypt_Echo",
+              "value": true
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "As you make a sound, it echoes ominously throughout the crypt, amplifying the sense of dread that hangs in the air. The oppressive silence soon returns, leaving only the sound of your own heartbeat."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "listen closely"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "SET",
+            "key": "crypt_Echo",
+            "value": true
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "leave crypt"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You turn your back on the unsettling crypt, its oppressive darkness lifting as you exit the room. The chilling atmosphere lingers in your thoughts, an unsettling memory of what lies beneath the castle."
+          }
+        }
+      ]
+    },
+    "guard_room": {
+      "name": "Guard Room",
+      "overview": "A dimly lit room filled with weapons and armor. The lingering presence of guards long gone can still be felt.",
+      "connections": [
+        [
+          "North",
+          "prison_cells"
+        ],
+        [
+          "South",
+          "storage_room"
+        ]
+      ],
+      "summary": "You stand in the Guard Room; a dimly lit room filled with weapons and armor. The lingering presence of guards long gone can still be felt.",
+      "detail": "The once-bustling Guard Room is now eerily quiet. Shadows dance on the walls as the flickering flame of your torch struggles to penetrate the thick darkness. Rows of dusty, corroded weapons and tarnished armor stand testament to battles long past, and an unsettling feeling of being watched seems to linger in the very air. The pungent odor of rust and decay assaults your nostrils.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine armor"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You take a closer look at the armor. Some pieces are missing, likely claimed by the ravages of time. Despite their age, the remaining pieces still seem to emanate a sense of strength and fortitude."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine weapons"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Intrigued, you inspect the array of weapons. These were once the tools of proficient guards defending the dungeon. The edges are dulled and the metal tarnished, yet the craftsmanship is unmistakable."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "listen"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You lean in, straining to hear any sound within the Guard Room. In the uneasy stillness, you imagine you can almost hear echoes of the past - the laughing and boasting of guards that once inhabited this somber space."
+          }
+        },
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "player_location"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "player_location",
+              "value": "guard_room"
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "As you enter the Guard Room, you feel eeriness creeping over you. You are surrounded by the remnants of a bygone era, wondering if the stories this chamber could tell would make your blood freeze."
+          }
+        }
+      ]
+    },
+    "storage_room": {
+      "name": "Storage Room",
+      "overview": "A musty room filled with dusty crates and barrels, hiding ancient relics and forgotten treasures.",
+      "connections": [
+        [
+          "North",
+          "guard_room"
+        ]
+      ],
+      "summary": "A musty storage room filled with dusty crates and barrels.",
+      "detail": "You enter the dimly lit storage room, filled with an array of dusty crates and barrels. Cobwebs cloak the walls and ceiling, a clear indication that this room has not been disturbed in quite some time. The musty scent of decay assaults your nostrils, the air heavy and damp. Your footsteps echo softly as you step deeper into the room, the light from the torch flickering fearfully across the disordered piles of ancient relics and forgotten treasures.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine crates"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Upon closer examination, the contents of the crates are revealed to be a collection of ceramics, old books, and gilded trinkets. You see a glimpse of something glinting within the pile as you rifle through the relics."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "search barrels"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You cautiously pry open one of the barrels, discovering that it's filled with wine-soaked rags, its contents long past palatable. As you rummage through the remaining barrels, you find only a collection of moldy fabrics and rat-infested grain."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "inspect cobwebs"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "The intricate strands of the cobwebs hint that generations of spiders have inhabited this room, each subsequent generation weaving its home atop the decaying remnants of its predecessor. As you study the delicate patterns of the webs, you sense a certain haunting beauty to this otherwise neglected space."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "leave storage room"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "SET",
+            "key": "player_location",
+            "value": "guard_room"
+          }
+        },
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "player_location"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "player_location",
+              "value": "storage_room"
+            }
+          ],
+          "expression": {
+            "type": "COMPOUND",
+            "expressions": [
+              {
+                "type": "OUTPUT",
+                "content": "You step back into the storage room, the musty scent of decay and ceaseless darkness replaced with the whispering and scratching of unseen inhabitants."
+              },
+              {
+                "type": "SET",
+                "key": "storage_room_visited",
+                "value": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "secret_passage": {
+      "name": "Secret Passage",
+      "overview": "A hidden passage concealed by shadows, barely visible to the naked eye. Winds whisper secrets as they travel through the narrow walls.",
+      "connections": [
+        [
+          "East",
+          "crypt"
+        ]
+      ],
+      "summary": "A concealed passage shrouded in darkness.",
+      "detail": "Before you stretches a hidden, narrow corridor bathed in shadows, an unseen wind dances through the passage, carrying the echoes of faint whispers. An eerily cold wave of air brushes against your skin, as though invisible eyes were watching your every move.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "investigate whispers"
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "secret_passage_InvestigatedWhispers",
+              "value": false
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You attempt to decipher the whispers carried by the wind, an unnerving sense of dread begins to build up within you as their unintelligible murmurs haunt your mind."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "continue forward"
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "secret_passage_CreptForward",
+              "value": false
+            }
+          ],
+          "expression": {
+            "type": "COMPOUND",
+            "expressions": [
+              {
+                "type": "SET",
+                "key": "secret_passage_CreptForward",
+                "value": true
+              },
+              {
+                "type": "OUTPUT",
+                "content": "You cautiously creep forward through the passageway, trying not to disturb the darkness that looms ahead. As you progress, you catch a glimpse of light reflecting off something on the ground."
+              }
+            ]
+          }
+        },
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "player_location"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "player_location",
+              "value": "secret_passage"
+            },
+            {
+              "test": "==",
+              "key": "secret_passage_FirstVisit",
+              "value": false
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "A soft breeze carries the quiet whispers back into your ears as you return to the shadowy secret passage."
+          }
+        }
+      ]
+    },
+    "ancient_tomb": {
+      "name": "Ancient Tomb",
+      "overview": "Final resting place of a powerful vampire ancestor, sealed behind a heavy stone door. The energy in this room is dark and palpable.",
+      "connections": [
+        [
+          "Up",
+          "crypt"
+        ]
+      ],
+      "summary": "The Ancient Tomb - a powerful vampire's ancestral resting place, sealed and shrouded with dark energy.",
+      "detail": "You stand before a massive stone door, ornate and foreboding. It seems like it has been untouched for centuries. As you step inside, the cold air surrounding you is thick with centuries-old energy. The Ancient Tomb lies before you, draped in dark shadows. In the center, an impressive sarcophagus sits in silent repose atop a raised platform, adorned with unsettling motifs. The walls are decorated with intricate carvings that depict vampire ancestry, power, and conquest.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine sarcophagus"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Upon closer examination, you notice the sarcophagus is intricately carved with detailed depictions of a fierce vampire warrior, his eyes seemingly locked into your very soul. The lid is sealed tightly, warding off any tampering. It's unclear what lies inside, but the air seems to hum with ancient energy."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "study carvings"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "As you study the intricate carvings and inscriptions that adorn the tomb walls, you begin to gain an understanding of the vampire's deadly legacy. The depictions of their reigns strike fear deep into your core, and their powerful dominion over men and creatures alike is awe-inspiring. The carvings grow progressively darker, revealing the true sinister nature of their bloodline."
+          }
+        },
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "player_location"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "player_location",
+              "value": "ancient_tomb"
+            }
+          ],
+          "expression": {
+            "type": "BRANCH",
+            "conditions": [
+              {
+                "test": "==",
+                "key": "ancient_tomb_FirstVisit",
+                "value": true
+              }
+            ],
+            "ifTrue": {
+              "type": "COMPOUND",
+              "expressions": [
+                {
+                  "type": "OUTPUT",
+                  "content": "As you enter the Ancient Tomb for the first time, the chilling atmosphere sends shivers down your spine. You cannot help but feel the darkness weighing heavy on your soul."
+                },
+                {
+                  "type": "SET",
+                  "key": "ancient_tomb_FirstVisit",
+                  "value": false
+                }
+              ]
+            },
+            "ifFalse": {
+              "type": "OUTPUT",
+              "content": "You find yourself back in the Ancient Tomb, met with the same eerie atmosphere as before. The ancient sarcophagus remains undisturbed, and the chilling air still breathes secrets."
+            }
+          }
+        }
+      ]
+    },
+    "burial_chamber": {
+      "name": "Burial Chamber",
+      "overview": "A vast burial chamber with walls lined with skeletal remains, an unnerving reminder of the castle's morbid history.",
+      "connections": [
+        [
+          "North",
+          "crypt"
+        ]
+      ],
+      "summary": "A vast burial chamber with walls lined with skeletal remains.",
+      "detail": "You find yourself in a vast burial chamber, its walls lined with the skeletal remains of countless souls. The once polished floor is now covered with a layer of dust and bone fragments. The air is thick with the echoes of lost lives, and a pervasive sense of foreboding hangs over the room. The dim light from your torch casts eerie shadows on the walls, as the dead watch your every move.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine skeletons"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "As you examine the skeletons closer, you notice that some of them have been shattered, as if struck by an immense force. Others are gnawed upon, showing signs of an old, dark presence. The air grows colder as you contemplate the fates of these poor souls."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "touch skeleton"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "As your hand reaches out to touch one of the skeletons, an unnerving chill crawls up your spine. The moment your fingers make contact, you're overcome with a bone-chilling dread that stays with you long after you've withdrawn your hand."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "listen"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You strain your ears to listen for any sign of activity. You hear nothing but the creaking of bones and the faint, distant moans of the tormented souls that haunt this ancient castle. This symphony of misery sends shivers down your spine."
+          }
+        },
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "player_location"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "player_location",
+              "value": "burial_chamber"
+            }
+          ],
+          "expression": {
+            "type": "SET",
+            "key": "burial_chamber_visited",
+            "value": true
+          }
+        }
+      ]
+    }
+  },
+  "characters": {
+    "captive": {
+      "name": "Captive",
+      "overview": "A terrified, emaciated prisoner pleading for help in the prison cells.",
+      "starting_location": "prison_cells"
+    },
+    "vampire_guard": {
+      "name": "Vampire Guard",
+      "overview": "A menacing, undead guard tasked with protecting the dungeon.",
+      "starting_location": "guard_room"
+    },
+    "ghost": {
+      "name": "Ghost",
+      "overview": "The restless spirit of a former prisoner, seeking peace and closure.",
+      "starting_location": "burial_chamber"
+    }
+  },
+  "items": {
+    "skeleton_key": {
+      "name": "Skeleton Key",
+      "overview": "A rusted old key that has the power to unlock any door in the dungeon.",
+      "starting_location": "storage_room"
+    },
+    "torch": {
+      "name": "Torch",
+      "overview": "A burning torch providing light to navigate the dungeon's darkness.",
+      "starting_location": "entrance"
+    },
+    "silver_dagger": {
+      "name": "Silver Dagger",
+      "overview": "A sharp, silver dagger effective against supernatural creatures.",
+      "starting_location": "secret_passage"
+    },
+    "ancient_scroll": {
+      "name": "Ancient Scroll",
+      "overview": "An old and fragile scroll containing secrets about the vampire ancestry.",
+      "starting_location": "ancient_tomb"
+    }
+  },
+  "quests": {
+    "escape_dungeon": {
+      "name": "Escape the Dungeon",
+      "overview": "The main quest; the player must find a way out of the dungeon, navigating its dark and treacherous rooms.",
+      "quest_giver": "captive",
+      "items_involved": [
+        "torch",
+        "skeleton_key"
+      ]
+    },
+    "slay_vampire_guard": {
+      "name": "Slay the Vampire Guard",
+      "overview": "A side quest; the player must find the silver dagger and use it to defeat the vampire guard.",
+      "quest_giver": "captive",
+      "items_involved": [
+        "silver_dagger"
+      ]
+    },
+    "put_ghost_to_rest": {
+      "name": "Put the Ghost to Rest",
+      "overview": "A side quest; the player must help the ghost find peace by discovering and returning the ancient scroll to its resting place.",
+      "quest_giver": "ghost",
+      "items_involved": [
+        "ancient_scroll"
+      ]
+    }
+  },
+  "state": {
+    "entrance_visited": true,
+    "torture_chamber_visited": false,
+    "prison_cells_FirstVisit": false,
+    "crypt_Echo": false,
+    "guard_room_visited": false,
+    "storage_room_visited": false,
+    "secret_passage_InvestigatedWhispers": false,
+    "secret_passage_CreptForward": false,
+    "secret_passage_FirstVisit": true,
+    "ancient_tomb_FirstVisit": true,
+    "burial_chamber_visited": false
+  }
+}

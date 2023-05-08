@@ -1,0 +1,80 @@
+{
+  "summary": "A musty storage room filled with dusty crates and barrels.",
+  "detail": "You enter the dimly lit storage room, filled with an array of dusty crates and barrels. Cobwebs cloak the walls and ceiling, a clear indication that this room has not been disturbed in quite some time. The musty scent of decay assaults your nostrils, the air heavy and damp. Your footsteps echo softly as you step deeper into the room, the light from the torch flickering fearfully across the disordered piles of ancient relics and forgotten treasures.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine crates"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Upon closer examination, the contents of the crates are revealed to be a collection of ceramics, old books, and gilded trinkets. You see a glimpse of something glinting within the pile as you rifle through the relics."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "search barrels"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You cautiously pry open one of the barrels, discovering that it's filled with wine-soaked rags, its contents long past palatable. As you rummage through the remaining barrels, you find only a collection of moldy fabrics and rat-infested grain."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "inspect cobwebs"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "The intricate strands of the cobwebs hint that generations of spiders have inhabited this room, each subsequent generation weaving its home atop the decaying remnants of its predecessor. As you study the delicate patterns of the webs, you sense a certain haunting beauty to this otherwise neglected space."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "leave storage room"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "SET",
+        "key": "player_location",
+        "value": "guard_room"
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "player_location"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player_location",
+          "value": "storage_room"
+        }
+      ],
+      "expression": {
+        "type": "COMPOUND",
+        "expressions": [
+          {
+            "type": "OUTPUT",
+            "content": "You step back into the storage room, the musty scent of decay and ceaseless darkness replaced with the whispering and scratching of unseen inhabitants."
+          },
+          {
+            "type": "SET",
+            "key": "storage_room_visited",
+            "value": true
+          }
+        ]
+      }
+    }
+  ]
+}

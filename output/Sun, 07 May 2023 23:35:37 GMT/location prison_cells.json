@@ -1,0 +1,59 @@
+{
+  "summary": "Cold, dank prison cells filled with echoes of desperate whispers.",
+  "detail": "As you enter the prison cells, a chill envelops you, and the air grows heavier. The faint light flickers, casting unsettling shadows on the cold, damp walls. The cells stretch out before you, bars barely visible in the darkness. Tortured faces of the long forgotten peer from within, their lost souls crying out for mercy.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine cells"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You approach the cells and peer into each one. Skeletons are slumped inside, their brittle bones entwined in rusted chains. The cruel and inhumane conditions in which they were kept are palpable, their pain now etched into the walls of their cells."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "listen to whispers"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You focus your hearing on the whispers that haunt the prison cells. You can discern faint words, fragments of prayers and curses, blending together in a symphony of despair. Their voices are a reminder of the misery that took place within these walls."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "touch walls"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You gingerly touch the cold, damp walls of the prison cells, feeling the jagged stone beneath your fingertips. The walls, soaked in the suffering of countless prisoners, seem to groan under your touch. You quickly withdraw your hand, disturbed by the sensation."
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "player_location"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player_location",
+          "value": "prison_cells"
+        }
+      ],
+      "expression": {
+        "type": "SET",
+        "key": "prison_cells_FirstVisit",
+        "value": true
+      }
+    }
+  ]
+}

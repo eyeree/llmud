@@ -1,0 +1,44 @@
+{
+  "summary": "You are in Breadstick Forest, a dense forest made up of crispy breadsticks.",
+  "detail": "As you step into Breadstick Forest, the intoxicating aroma of freshly baked bread fills the air. The sun barely peeks through the tall, crispy breadsticks that stretch skywards, creating a cozy, warm atmosphere. You hear the gentle rustle of leaves as a piece of Parmesan cheese flutters down to the ground.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine breadsticks"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Upon closer examination, you notice the breadsticks are different flavors, such as garlic, rosemary, and even chocolate chip! The texture ranges from crunchy to soft, making it an irresistible forest to nibble through."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "pick up Parmesan cheese"
+      },
+      "conditions": [
+        {
+          "test": "!=",
+          "key": "location2_ParmesanPicked",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "COMPOUND",
+        "expressions": [
+          {
+            "type": "SET",
+            "key": "location2_ParmesanPicked",
+            "value": true
+          },
+          {
+            "type": "OUTPUT",
+            "content": "You pick up the piece of Parmesan cheese. It's aged to perfection and has a rich aroma. You place it in your inventory, knowing it could be useful later."
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "summary": "You are in Soda Bottle Valley, a narrow valley guarded by giant soda bottles.",
+  "detail": "As you enter Soda Bottle Valley, you find yourself in a narrow, winding passage surrounded by enormous soda bottles, towering above you like ancient monoliths. The ground is covered in vibrant green grass, and the air is cool and fragrant with the scent of sugary carbonation. The hum of fizzing soda can be heard echoing through the valley, providing a strangely calming soundtrack to this enigmatic place.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine soda bottles"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Upon closer inspection, the soda bottles are crafted from glass and filled with various flavored sodas - cola, root beer, orange, grape, and more. They sparkle in the sunlight, casting an array of prismatic colors onto the valley walls."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "listen to fizzing"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You close your eyes and focus on the soothing hum of the fizzing soda. The sound brings a sense of relaxation and peace to your mind, washing away the fatigue from your journey."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "smell the air"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Taking a deep breath, you inhale the sweet, fizzy aroma of the valley air. The scent is a delightful mixture of fruitiness and sugar, each breath making you feel as though you are sampling the effervescent bounty of Soda Bottle Valley."
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "player_location"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player_location",
+          "value": "location8"
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Welcome to Soda Bottle Valley! You may examine the soda bottles, listen to the fizzing, or smell the air."
+      }
+    }
+  ]
+}

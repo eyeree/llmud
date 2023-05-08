@@ -1,0 +1,59 @@
+{
+  "summary": "A vast burial chamber with walls lined with skeletal remains.",
+  "detail": "You find yourself in a vast burial chamber, its walls lined with the skeletal remains of countless souls. The once polished floor is now covered with a layer of dust and bone fragments. The air is thick with the echoes of lost lives, and a pervasive sense of foreboding hangs over the room. The dim light from your torch casts eerie shadows on the walls, as the dead watch your every move.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine skeletons"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "As you examine the skeletons closer, you notice that some of them have been shattered, as if struck by an immense force. Others are gnawed upon, showing signs of an old, dark presence. The air grows colder as you contemplate the fates of these poor souls."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "touch skeleton"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "As your hand reaches out to touch one of the skeletons, an unnerving chill crawls up your spine. The moment your fingers make contact, you're overcome with a bone-chilling dread that stays with you long after you've withdrawn your hand."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "listen"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You strain your ears to listen for any sign of activity. You hear nothing but the creaking of bones and the faint, distant moans of the tormented souls that haunt this ancient castle. This symphony of misery sends shivers down your spine."
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "player_location"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player_location",
+          "value": "burial_chamber"
+        }
+      ],
+      "expression": {
+        "type": "SET",
+        "key": "burial_chamber_visited",
+        "value": true
+      }
+    }
+  ]
+}

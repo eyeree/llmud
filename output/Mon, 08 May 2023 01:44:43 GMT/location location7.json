@@ -1,0 +1,62 @@
+{
+  "summary": "You stand in the heart of Fruit Pebble Canyon, surrounded by vibrant, colorful rocks that crunch underfoot.",
+  "detail": "The canyon walls rise high above you, revealing a rainbow of colors that dance and sparkle in the sunlight. The ground is covered in a layer of fruity pebbles, creating a deliciously fragrant mosaic under your feet. A gentle breeze fills the canyon with the sweet aroma of fresh fruit and nostalgia.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine rocks"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "The fruit pebble rocks come in a wide variety of colors and flavors, from zesty lemon to tantalizing raspberry. Picking one up, you find it to be surprisingly light and delicate\\u2014the perfect crunchy treat for a snack on the go."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "taste a pebble"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "COMPOUND",
+        "expressions": [
+          {
+            "type": "SET",
+            "key": "location7_tastedPebble",
+            "value": "true"
+          },
+          {
+            "type": "OUTPUT",
+            "content": "You pick up a colorful pebble and pop it into your mouth. An explosion of fruity flavor erupts on your taste buds. This canyon truly is an edible masterpiece!"
+          }
+        ]
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "player_location"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "player_location",
+          "value": "location7"
+        },
+        {
+          "test": "!=",
+          "key": "location7_tastedPebble",
+          "value": "true"
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "As you enter the canyon, the tempting aroma of fruity pebbles fills your nostrils. You suddenly feel an irresistible urge to taste one of these colorful and crunchy miracles of nature."
+      }
+    }
+  ]
+}

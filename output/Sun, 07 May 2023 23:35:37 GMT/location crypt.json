@@ -1,0 +1,70 @@
+{
+  "summary": "A cold, eerie crypt with a thick atmosphere of dread.",
+  "detail": "The crypt is a chilling and unnerving space, with stone coffins lining the damp, crumbling walls. Shadows flicker and dance on the walls, and the air smells of decay and death. The slightest sound echoes throughout the room, amplifying a sense of unease. The crypt's entrance is framed by intricate, sinister stone carvings, hinting at dark rituals practiced within these walls long ago.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine carvings"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Upon closer inspection, the carvings depict grotesque, otherworldly creatures performing rituals around a sarcophagus. The unsettling nature of the carvings sends a shiver down your spine."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "inspect coffins"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "The stone coffins are covered in a thick layer of dust, undisturbed for centuries. Each coffin bears the worn crest of a powerful vampire family, a solemn reminder of the lineage buried here in eternal slumber."
+      }
+    },
+    {
+      "trigger": {
+        "type": "CHANGE",
+        "keys": [
+          "crypt_Echo"
+        ]
+      },
+      "conditions": [
+        {
+          "test": "==",
+          "key": "crypt_Echo",
+          "value": true
+        }
+      ],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "As you make a sound, it echoes ominously throughout the crypt, amplifying the sense of dread that hangs in the air. The oppressive silence soon returns, leaving only the sound of your own heartbeat."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "listen closely"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "SET",
+        "key": "crypt_Echo",
+        "value": true
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "leave crypt"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You turn your back on the unsettling crypt, its oppressive darkness lifting as you exit the room. The chilling atmosphere lingers in your thoughts, an unsettling memory of what lies beneath the castle."
+      }
+    }
+  ]
+}

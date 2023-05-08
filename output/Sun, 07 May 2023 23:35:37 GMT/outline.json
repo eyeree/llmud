@@ -1,0 +1,190 @@
+{
+    "style": "Gothic horror with an emphasis on descriptive, atmospheric writing that evokes a sense of dread and unease. Use clear and concise sentences and include appropriate sensory details to fully immerse the player in the eerie environment.",
+    "playerStartLocation": "entrance",
+    "locations": {
+        "entrance": {
+            "name": "Dungeon Entrance",
+            "overview": "The gloomy entrance to the dungeon, filled with foreboding darkness and the scent of decay.",
+            "connections": [
+                [
+                    "South",
+                    "torture_chamber"
+                ]
+            ]
+        },
+        "torture_chamber": {
+            "name": "Torture Chamber",
+            "overview": "A gruesome room filled with torture devices and bloodstains, telling tales of unspeakable suffering.",
+            "connections": [
+                [
+                    "North",
+                    "entrance"
+                ],
+                [
+                    "East",
+                    "prison_cells"
+                ],
+                [
+                    "South",
+                    "crypt"
+                ]
+            ]
+        },
+        "prison_cells": {
+            "name": "Prison Cells",
+            "overview": "A row of cold, dank prison cells where prisoners wait in darkness for their fates. Echoes of their desperate whispers haunt the air.",
+            "connections": [
+                [
+                    "West",
+                    "torture_chamber"
+                ],
+                [
+                    "South",
+                    "guard_room"
+                ]
+            ]
+        },
+        "crypt": {
+            "name": "Crypt",
+            "overview": "A cold, eerie crypt filled with coffins and the scent of death. The air is thick with a sense of dread and unease.",
+            "connections": [
+                [
+                    "North",
+                    "torture_chamber"
+                ],
+                [
+                    "West",
+                    "secret_passage"
+                ],
+                [
+                    "Down",
+                    "ancient_tomb"
+                ],
+                [
+                    "South",
+                    "burial_chamber"
+                ]
+            ]
+        },
+        "guard_room": {
+            "name": "Guard Room",
+            "overview": "A dimly lit room filled with weapons and armor. The lingering presence of guards long gone can still be felt.",
+            "connections": [
+                [
+                    "North",
+                    "prison_cells"
+                ],
+                [
+                    "South",
+                    "storage_room"
+                ]
+            ]
+        },
+        "storage_room": {
+            "name": "Storage Room",
+            "overview": "A musty room filled with dusty crates and barrels, hiding ancient relics and forgotten treasures.",
+            "connections": [
+                [
+                    "North",
+                    "guard_room"
+                ]
+            ]
+        },
+        "secret_passage": {
+            "name": "Secret Passage",
+            "overview": "A hidden passage concealed by shadows, barely visible to the naked eye. Winds whisper secrets as they travel through the narrow walls.",
+            "connections": [
+                [
+                    "East",
+                    "crypt"
+                ]
+            ]
+        },
+        "ancient_tomb": {
+            "name": "Ancient Tomb",
+            "overview": "Final resting place of a powerful vampire ancestor, sealed behind a heavy stone door. The energy in this room is dark and palpable.",
+            "connections": [
+                [
+                    "Up",
+                    "crypt"
+                ]
+            ]
+        },
+        "burial_chamber": {
+            "name": "Burial Chamber",
+            "overview": "A vast burial chamber with walls lined with skeletal remains, an unnerving reminder of the castle's morbid history.",
+            "connections": [
+                [
+                    "North",
+                    "crypt"
+                ]
+            ]
+        }
+    },
+    "characters": {
+        "captive": {
+            "name": "Captive",
+            "overview": "A terrified, emaciated prisoner pleading for help in the prison cells.",
+            "starting_location": "prison_cells"
+        },
+        "vampire_guard": {
+            "name": "Vampire Guard",
+            "overview": "A menacing, undead guard tasked with protecting the dungeon.",
+            "starting_location": "guard_room"
+        },
+        "ghost": {
+            "name": "Ghost",
+            "overview": "The restless spirit of a former prisoner, seeking peace and closure.",
+            "starting_location": "burial_chamber"
+        }
+    },
+    "items": {
+        "skeleton_key": {
+            "name": "Skeleton Key",
+            "overview": "A rusted old key that has the power to unlock any door in the dungeon.",
+            "starting_location": "storage_room"
+        },
+        "torch": {
+            "name": "Torch",
+            "overview": "A burning torch providing light to navigate the dungeon's darkness.",
+            "starting_location": "entrance"
+        },
+        "silver_dagger": {
+            "name": "Silver Dagger",
+            "overview": "A sharp, silver dagger effective against supernatural creatures.",
+            "starting_location": "secret_passage"
+        },
+        "ancient_scroll": {
+            "name": "Ancient Scroll",
+            "overview": "An old and fragile scroll containing secrets about the vampire ancestry.",
+            "starting_location": "ancient_tomb"
+        }
+    },
+    "quests": {
+        "escape_dungeon": {
+            "name": "Escape the Dungeon",
+            "overview": "The main quest; the player must find a way out of the dungeon, navigating its dark and treacherous rooms.",
+            "quest_giver": "captive",
+            "items_involved": [
+                "torch",
+                "skeleton_key"
+            ]
+        },
+        "slay_vampire_guard": {
+            "name": "Slay the Vampire Guard",
+            "overview": "A side quest; the player must find the silver dagger and use it to defeat the vampire guard.",
+            "quest_giver": "captive",
+            "items_involved": [
+                "silver_dagger"
+            ]
+        },
+        "put_ghost_to_rest": {
+            "name": "Put the Ghost to Rest",
+            "overview": "A side quest; the player must help the ghost find peace by discovering and returning the ancient scroll to its resting place.",
+            "quest_giver": "ghost",
+            "items_involved": [
+                "ancient_scroll"
+            ]
+        }
+    }
+}

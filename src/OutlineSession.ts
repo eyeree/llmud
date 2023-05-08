@@ -24,8 +24,7 @@ export const InverseDirection:Record<Direction,Direction> = {
 export const OutlineLocation = Location.pick({
     name: true,
     overview: true,
-    connections: true,
-    isStartLocation: true
+    connections: true
 }).describe(
     "outline content for a location in a game"
 );
@@ -54,10 +53,12 @@ export const OutlineQuest = Quest.pick({
 }).describe(
     "outline content for a quest in a game"
 );
-
+3
 export const Outline = Content.pick({
     style: true,
-    playerStartLocation: true
+    playerStartLocation: true,
+    title: true,
+    introduction: true
 }).extend({
     locations: z.record(LocationName, OutlineLocation).describe(
         "outline content the locations in a game"
@@ -131,8 +132,9 @@ Ensure that there are no unreachable locations and that all connections target e
 
     private async createOutline(theme: string, size: string) {
 
-        this.trace = true;
+        // this.trace = true;
 
+        console.log("Creating outline....");
         const result = await this.send(this.PRODUCE_OUTLINE(theme, size));
         const outline = await this.loadOutline(result);
 
@@ -200,6 +202,7 @@ Ensure that there are no unreachable locations and that all connections target e
                 if (errors.length > 0) {
                     console.log("LOAD ERRORS", errors);
                     if(loadAttempt > 0) {
+                        console.log('requesting outline revision...');
                         result = await this.revise(this.REVISE_OUTLINE(errors.join('\n')));
                     }
                 } else {
@@ -208,6 +211,7 @@ Ensure that there are no unreachable locations and that all connections target e
             } catch (e) {
                 console.log("PARSE ERROR", e);
                 if(loadAttempt > 0) {
+                    console.log('requesting outline revision...');
                     result = await this.revise(this.REVISE_OUTLINE(e));
                 }
             }

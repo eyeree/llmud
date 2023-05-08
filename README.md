@@ -47,7 +47,7 @@ You must provide the path to the directory containing the `content.json` file th
 
 4. build a web interface. Let people generate new content and play through existing content via web site. May have to limit create access due to ChatGPT API costs...
 
-5. federate with ChatGPT or use the new plugin api, provide a way to generate adventures without using my API key
+5. switch to using an open source model running locally
 
 6. pivot to usage as a MUD. Add multiple players to the game engine and allow interaction between players. (lots of work)
 

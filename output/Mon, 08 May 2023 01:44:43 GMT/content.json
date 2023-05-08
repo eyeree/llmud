@@ -1,0 +1,626 @@
+{
+  "style": "whimsical and humorous, richly descriptive, strong imagery of food",
+  "playerStartLocation": "location1",
+  "locations": {
+    "location1": {
+      "name": "Plate Mountain",
+      "overview": "The starting point for the player at the edge of a large paper plate piled with food",
+      "connections": [
+        [
+          "East",
+          "location2"
+        ],
+        [
+          "South",
+          "location3"
+        ]
+      ],
+      "summary": "You find yourself on the edge of a large paper plate piled high with food at Plate Mountain.",
+      "detail": "You have arrived at Plate Mountain, the summit of deliciousness where the world's most mouth-watering treats come to rest. The crisp aroma of roasted chicken mixes harmoniously with the sweet scent of chocolate chip cookies. Mountains of cheese and rivers of gravy stretch out before you on this enormous plate that defies imagination. You can hardly resist the temptation to dig in and indulge yourself.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "player_location"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "player_location",
+              "value": "location1"
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You find yourself at the edge of a large paper plate piled high with food at Plate Mountain."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine food"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You examine the food in awe, noticing juicy slices of glazed ham, vibrant carrot sticks, and mountains of whipped cream atop tantalizing pies. Your mouth waters just looking at it all!"
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "take a bite"
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "location1_hasEaten",
+              "value": false
+            }
+          ],
+          "expression": {
+            "type": "COMPOUND",
+            "expressions": [
+              {
+                "type": "OUTPUT",
+                "content": "You take a bite of the glorious feast before you. It's as delicious as you had imagined. But remember, you still have a whole adventure to embark upon!"
+              },
+              {
+                "type": "SET",
+                "key": "location1_hasEaten",
+                "value": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "location2": {
+      "name": "Breadstick Forest",
+      "overview": "A dense forest made up of crispy breadsticks",
+      "connections": [
+        [
+          "West",
+          "location1"
+        ],
+        [
+          "South",
+          "location4"
+        ]
+      ],
+      "summary": "You are in Breadstick Forest, a dense forest made up of crispy breadsticks.",
+      "detail": "As you step into Breadstick Forest, the intoxicating aroma of freshly baked bread fills the air. The sun barely peeks through the tall, crispy breadsticks that stretch skywards, creating a cozy, warm atmosphere. You hear the gentle rustle of leaves as a piece of Parmesan cheese flutters down to the ground.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine breadsticks"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Upon closer examination, you notice the breadsticks are different flavors, such as garlic, rosemary, and even chocolate chip! The texture ranges from crunchy to soft, making it an irresistible forest to nibble through."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "pick up Parmesan cheese"
+          },
+          "conditions": [
+            {
+              "test": "!=",
+              "key": "location2_ParmesanPicked",
+              "value": true
+            }
+          ],
+          "expression": {
+            "type": "COMPOUND",
+            "expressions": [
+              {
+                "type": "SET",
+                "key": "location2_ParmesanPicked",
+                "value": true
+              },
+              {
+                "type": "OUTPUT",
+                "content": "You pick up the piece of Parmesan cheese. It's aged to perfection and has a rich aroma. You place it in your inventory, knowing it could be useful later."
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "location3": {
+      "name": "Potato Salad Beach",
+      "overview": "A sandy beach of potato salad spread out before a lake",
+      "connections": [
+        [
+          "North",
+          "location1"
+        ],
+        [
+          "East",
+          "location4"
+        ]
+      ],
+      "summary": "You stand on Potato Salad Beach, feeling tiny chunks of potato beneath your feet.",
+      "detail": "As you walk along Potato Salad Beach, your feet sink into the soft, buttery potato chunks that make up the sand. Dollops of creamy mayo cling to the potato sand, as if begging not to be forgotten. A gentle breeze carries the delightful scents of finely chopped chives and pickles, mingling in a tantalizing dance. To the east, the shores gently slope up to Strawberry Gummy Lake, tempting one to dip their feet in.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "player_location"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "player_location",
+              "value": "location3"
+            }
+          ],
+          "expression": {
+            "type": "COMPOUND",
+            "expressions": [
+              {
+                "type": "SET",
+                "key": "location3_visited",
+                "value": true
+              },
+              {
+                "type": "OUTPUT",
+                "content": "Welcome back to Potato Salad Beach! The scent of the creamy mayo and savory chives beckons you closer."
+              }
+            ]
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine sand"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "As you examine the potato sand, you notice small flecks of paprika hidden between the chunks. The paprika seems to add a touch of warmth to the otherwise cool potato salad, and you feel a sense of comfort by simply gazing upon it."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "build sandcastle"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "BRANCH",
+            "conditions": [
+              {
+                "test": "==",
+                "key": "location3_castleBuilt",
+                "value": true
+              }
+            ],
+            "ifTrue": {
+              "type": "OUTPUT",
+              "content": "A magnificent sandcastle made of potato salad already stands, created by your deft hands earlier."
+            },
+            "ifFalse": {
+              "type": "COMPOUND",
+              "expressions": [
+                {
+                  "type": "SET",
+                  "key": "location3_castleBuilt",
+                  "value": true
+                },
+                {
+                  "type": "OUTPUT",
+                  "content": "You gather potato chunks, mayo dollops, chives, and a sprinkle of paprika to construct a splendid potato salad sandcastle. Its potato parapets and mayo moats enchant you with their whimsical charm."
+                }
+              ]
+            }
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "taste sand"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You scoop up a handful of potato salad sand and take a cautious taste. Your taste buds are delighted by the salty potatoes, tangy mayo, and the subtle crunch of chives. It's almost as if you're tasting the world's most delicious beach."
+          }
+        }
+      ]
+    },
+    "location4": {
+      "name": "Strawberry Gummy Lake",
+      "overview": "A sparkling lake made of liquid strawberry gummy",
+      "connections": [
+        [
+          "North",
+          "location2"
+        ],
+        [
+          "West",
+          "location3"
+        ],
+        [
+          "South",
+          "location5"
+        ],
+        [
+          "East",
+          "location6"
+        ]
+      ],
+      "summary": "You've reached the shimmering Strawberry Gummy Lake.",
+      "detail": "You stand at the edge of an enchanting lake where the water has the lustrous hue of liquid strawberry gummy. The lake ripples and gleams under the sunlight, scenting the air with fruity zing. Scattered at the shore are vibrant candy pebbles, inspiring one to become an impromptu confectioner. To the North, you can see the chilling Breadstick Forest, while to the West lies the inviting Potato Salad Beach.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine candy pebbles"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "The candy pebbles come in a variety of dazzling colors and sizes, like a rainbow of saccharine rubble. They emit a blissful aroma that whisks you away to a world of jubilant confections."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "taste the lake"
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "location4_tastedLake",
+              "value": false
+            }
+          ],
+          "expression": {
+            "type": "COMPOUND",
+            "expressions": [
+              {
+                "type": "OUTPUT",
+                "content": "The strawberry gummy lake is an absolute delight! It's a vibrant and sweet flavor, leaving you craving for more."
+              },
+              {
+                "type": "SET",
+                "key": "location4_tastedLake",
+                "value": true
+              }
+            ]
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "taste the lake"
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "location4_tastedLake",
+              "value": true
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Your taste buds tingle with joy as you remember the delightful strawberry gummy lake. You can't help but take another sip!"
+          }
+        }
+      ]
+    },
+    "location5": {
+      "name": "Cookie Log Bridge",
+      "overview": "A bridge made out of cookie logs and frosting",
+      "connections": [
+        [
+          "North",
+          "location4"
+        ],
+        [
+          "South",
+          "location7"
+        ]
+      ],
+      "summary": "You stand on the Cookie Log Bridge, an impressive structure of cookie logs and frosting, with the Strawberry Gummy Lake sparkling below.",
+      "detail": "You find yourself standing on the Cookie Log Bridge, an awe-inspiring structure that spans across the mouth of the Strawberry Gummy Lake. The bridge is made from delicious cookie logs, held together by sweet and sticky frosting. The tantalizing aroma of freshly baked cookies and sugar wafts through the air as you take in the sights around you. The bridge offers a stunning view of the shimmering lake below, with its gooey strawberry gummy liquid glittering like pink magic as it lazily laps against the shore. The bridge beckons you to explore the fantastical world that awaits on either side.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine cookies"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "As you take a closer look at the cookie logs, you notice each one is adorned with intricate frosting patterns, resembling swirls and whirls that might tell a story of their own. The golden-brown logs give off a warm and inviting scent, with chocolate chips peeking out from the dough like little treasures."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "taste frosting"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You cautiously take a little taste of the frosting that binds the bridge together. Your taste buds are instantly rewarded with a burst of mouth-watering sweetness, very much like a decadent vanilla icing. Unable to resist, you can't help but take another little taste of the delectable frosting."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "look at the lake"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Peering over the edge of the Cookie Log Bridge, you marvel at the Strawberry Gummy Lake below. The glistening pink liquid calls to you with its inviting aroma and shimmering surface. Small waves fan out as tiny gumdrop fish leap out of the water and vanish beneath the surface again, leaving the lake sparkling in their wake."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "cross the bridge"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You begin to carefully tread across the Cookie Log Bridge, placing each step with wonder and delight as the cookie logs hold firm beneath your feet. The view as you cross the bridge is nothing short of breathtaking, with a kaleidoscope of colors and scents from the surrounding lands teasing your senses. You finally reach the other side, invigorated by the journey and excited for the new adventures that await."
+          }
+        }
+      ]
+    },
+    "location6": {
+      "name": "The Cheese Curl Caves",
+      "overview": "A network of mysterious caves formed by cheese curls",
+      "connections": [
+        [
+          "West",
+          "location4"
+        ],
+        [
+          "South",
+          "location8"
+        ]
+      ],
+      "summary": "You are in the midst of the Cheese Curl Caves, a labyrinth of twisting tunnels and passages made entirely of cheese curls.",
+      "detail": "As you enter the Cheese Curl Caves, you're greeted by the unmistakable scent of cheddar wafting in the air. The walls, floor, and ceiling are all made up of delicious, orange curls. It's as if you've discovered a hidden treasure trove of salty goodness! The tunnels seemed to be naturally formed, but were they? Tread cautiously, for it's uncertain what creatures might call these cheese-filled caves home. As you move deeper into the cave, the darkness intensifies, and you notice a soft glow coming from a tunnel to the East.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine walls"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Upon closer inspection, the walls of the Cheese Curl Caves are indeed made of crunchy cheese curls. It's a surprisingly sturdy construction, defying both logic and culinary science. You marvel at the craftsmanship – if any – involved in building this tasty infrastructure."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "taste cheese curl"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You hesitantly take a small nibble from one of the cheese curls. To your delight, it is just as scrumptious as it appears. The curl is crispy and almost melts in your mouth, leaving behind a satisfyingly cheesy flavor. Surprisingly, there are no signs of staleness, despite being exposed to the cave air."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "explore tunnel"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You decide to explore the tunnel with the mysterious glow. As you venture further in, the smell of cheddar cheese intensifies. You find yourself standing before a majestic, glowing mound of the most luxurious cheese curls you've ever laid eyes on. A glimmering Gumball Helmet rests atop the mound, waiting for its destined owner."
+          }
+        }
+      ]
+    },
+    "location7": {
+      "name": "Fruit Pebble Canyon",
+      "overview": "A colorful canyon filled with fruit pebble rocks",
+      "connections": [
+        [
+          "North",
+          "location5"
+        ]
+      ],
+      "summary": "You stand in the heart of Fruit Pebble Canyon, surrounded by vibrant, colorful rocks that crunch underfoot.",
+      "detail": "The canyon walls rise high above you, revealing a rainbow of colors that dance and sparkle in the sunlight. The ground is covered in a layer of fruity pebbles, creating a deliciously fragrant mosaic under your feet. A gentle breeze fills the canyon with the sweet aroma of fresh fruit and nostalgia.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine rocks"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "The fruit pebble rocks come in a wide variety of colors and flavors, from zesty lemon to tantalizing raspberry. Picking one up, you find it to be surprisingly light and delicate\\u2014the perfect crunchy treat for a snack on the go."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "taste a pebble"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "COMPOUND",
+            "expressions": [
+              {
+                "type": "SET",
+                "key": "location7_tastedPebble",
+                "value": "true"
+              },
+              {
+                "type": "OUTPUT",
+                "content": "You pick up a colorful pebble and pop it into your mouth. An explosion of fruity flavor erupts on your taste buds. This canyon truly is an edible masterpiece!"
+              }
+            ]
+          }
+        },
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "player_location"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "player_location",
+              "value": "location7"
+            },
+            {
+              "test": "!=",
+              "key": "location7_tastedPebble",
+              "value": "true"
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "As you enter the canyon, the tempting aroma of fruity pebbles fills your nostrils. You suddenly feel an irresistible urge to taste one of these colorful and crunchy miracles of nature."
+          }
+        }
+      ]
+    },
+    "location8": {
+      "name": "Soda Bottle Valley",
+      "overview": "A narrow valley guarded by giant soda bottles",
+      "connections": [
+        [
+          "North",
+          "location6"
+        ]
+      ],
+      "summary": "You are in Soda Bottle Valley, a narrow valley guarded by giant soda bottles.",
+      "detail": "As you enter Soda Bottle Valley, you find yourself in a narrow, winding passage surrounded by enormous soda bottles, towering above you like ancient monoliths. The ground is covered in vibrant green grass, and the air is cool and fragrant with the scent of sugary carbonation. The hum of fizzing soda can be heard echoing through the valley, providing a strangely calming soundtrack to this enigmatic place.",
+      "actions": [
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "examine soda bottles"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Upon closer inspection, the soda bottles are crafted from glass and filled with various flavored sodas - cola, root beer, orange, grape, and more. They sparkle in the sunlight, casting an array of prismatic colors onto the valley walls."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "listen to fizzing"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "You close your eyes and focus on the soothing hum of the fizzing soda. The sound brings a sense of relaxation and peace to your mind, washing away the fatigue from your journey."
+          }
+        },
+        {
+          "trigger": {
+            "type": "INPUT",
+            "phrase": "smell the air"
+          },
+          "conditions": [],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Taking a deep breath, you inhale the sweet, fizzy aroma of the valley air. The scent is a delightful mixture of fruitiness and sugar, each breath making you feel as though you are sampling the effervescent bounty of Soda Bottle Valley."
+          }
+        },
+        {
+          "trigger": {
+            "type": "CHANGE",
+            "keys": [
+              "player_location"
+            ]
+          },
+          "conditions": [
+            {
+              "test": "==",
+              "key": "player_location",
+              "value": "location8"
+            }
+          ],
+          "expression": {
+            "type": "OUTPUT",
+            "content": "Welcome to Soda Bottle Valley! You may examine the soda bottles, listen to the fizzing, or smell the air."
+          }
+        }
+      ]
+    }
+  },
+  "characters": {
+    "character1": {
+      "name": "Larry the Ladybug",
+      "overview": "A friendly ladybug with a passion for adventure",
+      "starting_location": "location2"
+    },
+    "character2": {
+      "name": "Polly the Ant Queen",
+      "overview": "The wise and knowledgeable queen of ants",
+      "starting_location": "location8"
+    }
+  },
+  "items": {
+    "item1": {
+      "name": "Mighty Mustard Seeds",
+      "overview": "A handful of powerful mustard seeds that can boost your strength",
+      "starting_location": "location4"
+    },
+    "item2": {
+      "name": "Gumball Helmet",
+      "overview": "A gumball helmet that offers protection from food-based adversaries",
+      "starting_location": "location6"
+    }
+  },
+  "quests": {
+    "quest1": {
+      "name": "Mustard Seeds for Larry",
+      "overview": "Find the Mighty Mustard Seeds and give them to Larry the Ladybug",
+      "quest_giver": "character1",
+      "items_involved": [
+        "item1"
+      ]
+    },
+    "quest2": {
+      "name": "Save the Ant Kingdom",
+      "overview": "Find the Gumball Helmet and use it to help Polly the Ant Queen in her struggle against the Marauding Fruit Flies",
+      "quest_giver": "character2",
+      "items_involved": [
+        "item2"
+      ]
+    }
+  },
+  "state": {
+    "location1_hasEaten": false,
+    "location2_ParmesanPicked": false,
+    "location3_visited": false,
+    "location3_castleBuilt": false,
+    "location4_tastedLake": false,
+    "location5_visited": false,
+    "location5_tasted_frosting": false,
+    "location6_hasExploredTunnel": false,
+    "location6_isWearingGumballHelmet": false,
+    "location6_cheeseMoundDiscovered": false,
+    "location7_tastedPebble": false
+  }
+}

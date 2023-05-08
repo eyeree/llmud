@@ -1,0 +1,39 @@
+{
+  "summary": "You are in the midst of the Cheese Curl Caves, a labyrinth of twisting tunnels and passages made entirely of cheese curls.",
+  "detail": "As you enter the Cheese Curl Caves, you're greeted by the unmistakable scent of cheddar wafting in the air. The walls, floor, and ceiling are all made up of delicious, orange curls. It's as if you've discovered a hidden treasure trove of salty goodness! The tunnels seemed to be naturally formed, but were they? Tread cautiously, for it's uncertain what creatures might call these cheese-filled caves home. As you move deeper into the cave, the darkness intensifies, and you notice a soft glow coming from a tunnel to the East.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine walls"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Upon closer inspection, the walls of the Cheese Curl Caves are indeed made of crunchy cheese curls. It's a surprisingly sturdy construction, defying both logic and culinary science. You marvel at the craftsmanship – if any – involved in building this tasty infrastructure."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "taste cheese curl"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You hesitantly take a small nibble from one of the cheese curls. To your delight, it is just as scrumptious as it appears. The curl is crispy and almost melts in your mouth, leaving behind a satisfyingly cheesy flavor. Surprisingly, there are no signs of staleness, despite being exposed to the cave air."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "explore tunnel"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You decide to explore the tunnel with the mysterious glow. As you venture further in, the smell of cheddar cheese intensifies. You find yourself standing before a majestic, glowing mound of the most luxurious cheese curls you've ever laid eyes on. A glimmering Gumball Helmet rests atop the mound, waiting for its destined owner."
+      }
+    }
+  ]
+}

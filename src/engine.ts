@@ -113,6 +113,9 @@ export class Engine {
     }
 
     public reset() {
+        if(this.content.title && this.content.introduction) {
+            this.onOutput(`${this.content.title}\n\n${this.content.introduction}\n`);
+        }
         this.state = { ...this.content.state };
         this.state[PLAYER_LOCATION] = this.content.playerStartLocation;
         this.executeTriggeredActions({ type: 'CHANGE', keys: [PLAYER_LOCATION] });

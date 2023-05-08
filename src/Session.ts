@@ -1,3 +1,4 @@
+import { log } from "log.js";
 import { ChatCompletionRequestMessage, Configuration, CreateChatCompletionRequest, OpenAIApi } from "openai";
 import { inspect } from "util";
 import { showDiff } from "./showDiff.js";
@@ -7,6 +8,14 @@ export class Session {
     static readonly DEFAULT_MODEL = 'gpt-4'; 
     // static readonly DEFAULT_MODEL = 'gpt-3.5-turbo';
     static readonly DEFAULT_TEMPERATURE = 1;
+
+    private static nextSessionId = 1;
+
+    private readonly sessionId = Session.nextSessionId++;
+    protected readonly log = log.child({
+        sessionId: this.sessionId,
+        sessionClass: this.constructor.name
+    });
 
     private readonly openai;
     private readonly messages = new Array<ChatCompletionRequestMessage>();
@@ -84,7 +93,9 @@ export class Session {
         let attempts = 3;
         while(attempts--) {
             try {
+                this.log.info({request: this.request, attempts: attempts});
                 const result = await this.openai.createChatCompletion(this.request);
+                this.log.info({response: result.data});
                 if (result.data.choices.length !== 1) {
                     console.log('!!!!! choices.length', result.data.choices.length);
                 }
@@ -103,10 +114,12 @@ export class Session {
                     throw new Error('no message');
                 }
             } catch(e) {
+                this.log.error({err: e});
                 console.error("REQUEST FAILED", e);
                 if(attempts) await delay(200);
             }
         }
+        this.log.error("REQUEST FAILED MULTIPLE ATTEMPTS");
         console.error("REQUEST FAILED MULTIPLE ATTEMPTS");
         process.exit(1);
     }

@@ -1,0 +1,50 @@
+{
+  "summary": "You stand on the Cookie Log Bridge, an impressive structure of cookie logs and frosting, with the Strawberry Gummy Lake sparkling below.",
+  "detail": "You find yourself standing on the Cookie Log Bridge, an awe-inspiring structure that spans across the mouth of the Strawberry Gummy Lake. The bridge is made from delicious cookie logs, held together by sweet and sticky frosting. The tantalizing aroma of freshly baked cookies and sugar wafts through the air as you take in the sights around you. The bridge offers a stunning view of the shimmering lake below, with its gooey strawberry gummy liquid glittering like pink magic as it lazily laps against the shore. The bridge beckons you to explore the fantastical world that awaits on either side.",
+  "actions": [
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "examine cookies"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "As you take a closer look at the cookie logs, you notice each one is adorned with intricate frosting patterns, resembling swirls and whirls that might tell a story of their own. The golden-brown logs give off a warm and inviting scent, with chocolate chips peeking out from the dough like little treasures."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "taste frosting"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You cautiously take a little taste of the frosting that binds the bridge together. Your taste buds are instantly rewarded with a burst of mouth-watering sweetness, very much like a decadent vanilla icing. Unable to resist, you can't help but take another little taste of the delectable frosting."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "look at the lake"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "Peering over the edge of the Cookie Log Bridge, you marvel at the Strawberry Gummy Lake below. The glistening pink liquid calls to you with its inviting aroma and shimmering surface. Small waves fan out as tiny gumdrop fish leap out of the water and vanish beneath the surface again, leaving the lake sparkling in their wake."
+      }
+    },
+    {
+      "trigger": {
+        "type": "INPUT",
+        "phrase": "cross the bridge"
+      },
+      "conditions": [],
+      "expression": {
+        "type": "OUTPUT",
+        "content": "You begin to carefully tread across the Cookie Log Bridge, placing each step with wonder and delight as the cookie logs hold firm beneath your feet. The view as you cross the bridge is nothing short of breathtaking, with a kaleidoscope of colors and scents from the surrounding lands teasing your senses. You finally reach the other side, invigorated by the journey and excited for the new adventures that await."
+      }
+    }
+  ]
+}
